@@ -11,7 +11,8 @@ public class ManagementSystemModel
   //Constructors
   public ManagementSystemModel()
   {
-    this.
+    employeeList = new EmployeeList();
+    projectList = new ProjectList();
   }
 
 

@@ -1,6 +1,7 @@
+package sample.Model;
 import java.util.Objects;
 
-public abstract class TeamMember
+public class TeamMember
 {
 
   //Fields

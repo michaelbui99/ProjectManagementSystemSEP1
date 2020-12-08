@@ -1,3 +1,5 @@
+package sample.Model;
+
 import java.io.*;
 
 public class ProjectFile
@@ -44,7 +46,7 @@ public class ProjectFile
     int counter = in.readInt();
     for (int i = 0; i < counter; i++)
     {
-      if (in.readObject() instanceof TeamMember ||)
+      if (in.readObject() instanceof TeamMember)
       /*
       * Vi Checker hvilken class vi prøver at læse, og caster afhængig af hvilken subclass.
       * */

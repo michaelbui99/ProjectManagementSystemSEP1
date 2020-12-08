@@ -1,3 +1,4 @@
+package sample.Model;
 public class ScrumMaster extends TeamMember
 {
 

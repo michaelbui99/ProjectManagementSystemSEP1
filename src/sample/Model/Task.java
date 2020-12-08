@@ -1,3 +1,4 @@
+package sample.Model;
 import java.util.Date;
 import java.util.ArrayList;
 

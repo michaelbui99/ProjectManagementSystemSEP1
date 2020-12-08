@@ -1,6 +1,6 @@
 package sample.Model;
 
-import java.util.Date;
+
 
 public class Requirement //oprettelse af nyt krav, angiv værdier af:
 {
@@ -10,8 +10,8 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
   private String name;
   private TaskList taskList;
   //private UserStory userStory;
-  private Date deadline;
-  private Date creationDate;
+  private MyDate deadline;
+  private MyDate creationDate;
   private EmployeeList employees;
   private int requirementID;
   private TeamMember responsibleTeamMember;
@@ -23,7 +23,7 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
   //Constructors
 
   Requirement(String name, int requirementID, TeamMember responsibleTeamMember,
-      String status, String priority, Date deadline)
+      String status, String priority, MyDate deadline)
   {
     this.name = name;
     this.requirementID = requirementID;
@@ -79,12 +79,12 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
     return timeSpendInHours;
   }
 
-  public Date getCreationDate()
+  public MyDate getCreationDate()
   {
     return creationDate;
   }
 
-  public Date getDeadline()
+  public MyDate getDeadline()
   {
     return deadline;
   }
@@ -131,7 +131,7 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
     this.timeSpendInHours = timeSpendInHours;
   }
 
-  public void setDeadline(Date deadline)
+  public void setDeadline(MyDate deadline)
   {
     this.deadline = deadline;
   }

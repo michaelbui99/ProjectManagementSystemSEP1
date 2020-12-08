@@ -1,6 +1,6 @@
 package sample.Model;
 
-import java.util.Date;
+//TODO: Rename Date --> MyDate i astah Class Diagram, da Date en API implementeret class.
 
 public class Project
 {
@@ -8,19 +8,19 @@ public class Project
   private String projectName;
   private int projectID;
   private String status; //Kan antage følgende statusser {'Ikke afsluttet', 'Afsluttet'}
-  private Date creationDate;
-  private Date deadline;
+  private MyDate creationDate;
+  private MyDate deadline;
   private RequirementList requirementList;
   private EmployeeList employeeList; //vi har denne variabel, så vi kan gemme medarbejderne under projektet
 
 
   //Constructors
-  public Project(String projectName, int projectID, Date deadline)
+  public Project(String projectName, int projectID, MyDate deadline)
   {
     this.projectName = projectName;
     this.projectID = projectID;
     this.deadline = deadline;
-    creationDate = new Date();
+    creationDate = new MyDate();
     requirementList = new RequirementList();
     employeeList = new EmployeeList();
   }
@@ -43,14 +43,14 @@ public class Project
     return status;
   }
 
-  public Date getCreationDate()
+  public MyDate getCreationDate()
   {
-    return new Date(creationDate.getDay(), creationDate.getMonth(), creationDate.getYear());
+    return new MyDate(creationDate.getDay(), creationDate.getMonth(), creationDate.getYear());
   }
 
-  public Date getDeadline()
+  public MyDate getDeadline()
   {
-    return new Date(deadline.getDay(), deadline.getMonth(), creationDate.getYear());
+    return new MyDate(deadline.getDay(), deadline.getMonth(), creationDate.getYear());
   }
 
   public EmployeeList getEmployeeList()
@@ -64,7 +64,7 @@ public class Project
   }
 
   //Setters
-  public void addRequirement(String requirementName, int requirementID, TeamMember responsibleTeamMember, String status, String priority, Date deadline)
+  public void addRequirement(String requirementName, int requirementID, TeamMember responsibleTeamMember, String status, String priority, MyDate deadline)
   {
     requirementList.addRequirement(new Requirement(requirementName,requirementID, responsibleTeamMember, status,priority, deadline));
   }
@@ -74,9 +74,9 @@ public class Project
     requirementList.removeRequirement(requirementID);
   }
 
-  public void setDeadline(Date date)
+  public void setDeadline(MyDate date)
   {
-    deadline = new Date(date.getDay(), date.getMonth(), date.getYear());
+    deadline = new MyDate(date.getDay(), date.getMonth(), date.getYear());
   }
 
   public void setStatus(String status)

@@ -1,5 +1,5 @@
 package sample.Model;
-import java.util.Date;
+
 import java.util.ArrayList;
 
 public class Task
@@ -12,12 +12,12 @@ public class Task
   private TeamMember responsibleTeamMember;
   private String priority; //Kan antage følgende prioriteter {'Lav', 'Normal, 'Høj', 'Kritisk'}
   private int timeSpendInHours;
-  private Date creationDate;
-  private Date deadline;
+  private MyDate creationDate;
+  private MyDate deadline;
 
 
   //Constructors
-  public Task(String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, Date deadline)
+  public Task(String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline)
   {
     this.name = name;
     this.taskID = taskID;
@@ -25,7 +25,7 @@ public class Task
     this.responsibleTeamMember = responsibleTeamMember;
     setPriority(priority);
     employees = new EmployeeList();
-    this.deadline = new Date(deadline.getDay(),deadline.getMonth(),deadline.getYear());
+    this.deadline = new MyDate(deadline.getDay(),deadline.getMonth(),deadline.getYear());
     timeSpendInHours = 0; //Defaultes til 0, når projektet oprettes, da der ikke er blevet brugt til på projektet ved oprettelse.
   }
 

@@ -44,6 +44,13 @@ public class EmployeeList
     return null;
   }
 
+  public TeamMember getEmployee(int index)//TODO: ADD METODEN TIL ASTAH CLASS DIAGRAM
+  {
+    return teamMembers.get(index);
+  }
+
+
+
   public ArrayList<TeamMember> getAllEmployees()
   {
     return this.teamMembers;

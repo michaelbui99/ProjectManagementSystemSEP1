@@ -128,7 +128,7 @@ public class ManagementSystemModel
   }*/
 
   public void addEmployeeToSystem(String name, int ID) {
-
+      employeeList.addTeamMember(name,ID);
   }
 
   public void removeEmployeeFromSystem(String name) {

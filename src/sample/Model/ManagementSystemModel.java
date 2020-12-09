@@ -152,26 +152,38 @@ public class ManagementSystemModel
 
   }
 
-  public String whoWhatWhen(String name) {
+  public String whoWhatWhen(int requirementID) {
 
+    return projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).getUserStory();
+  }
 
+  public void registerTaskTime(int time, int requirementID, int taskID) {
+
+    projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).getTaskList().getTask(taskID).
+        registerTimeSpent(time);
 
   }
 
-  public void registerTaskTime(String taskName, int time) {
+  public void registerReqTime(int requirementID, int time) {
+
+    projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).setTimeSpendInHours(time);
 
   }
 
-  public void registerReqTime(String RequirementName, int time) {
+  public int getTaskTime(String taskName, int requirementID, int taskID) {
 
+    return projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).getTaskList().getTask(taskID).
+        getTimeSpendInHours();
   }
 
-  public int getTaskTime(String taskName) {
-    return 0;
-  }
+  public int getReqTime(int requirementID, int time) {
 
-  public int getReqTime(String reqName) {
-    return 0;
+    return projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).getTimeSpendInHours();
   }
 
   /*TODO: Lilian implements the next 8.*/

@@ -94,6 +94,11 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
       return isApproved;
   }
 
+  public String getUserStory()
+  {
+    return userStory;
+  }
+
   //Setters
 
   public void setApprovement(boolean approvement)

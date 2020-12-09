@@ -85,18 +85,7 @@ public class TeamMember
 
   public TeamMember copy(TeamMember teamMember)
   {
-    if (teamMember instanceof ProductOwner)
-    {
-      TeamMember temp = new ProductOwner(teamMember.name, teamMember.employeeID,
-          teamMember.role);
-      temp.registeredHours=teamMember.getRegisteredHours();
-
-      return temp;
-    }
-    else
-    {
-      return null;
-    }
+    return new TeamMember(name, employeeID, role);
   }
 
 }

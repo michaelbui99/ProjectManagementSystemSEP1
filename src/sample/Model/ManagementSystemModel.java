@@ -200,27 +200,33 @@ public class ManagementSystemModel
   /*TODO: Lilian implements the next 8.*/
 
   public RequirementList getRequirementList(String projectName) {
-    return null;
+
+    return projectList.getProject(projectName).getRequirementList();
   }
 
-  public TeamMember getResponsibleTeamMemberReq(String reqName) {
-    return null;
+  public TeamMember getResponsibleTeamMemberReq(String projectName ,int requirementID) {
+    return projectList.getProject(projectName).getRequirementList().
+        getRequirement(requirementID).getResponsibleTeamMember();
   }
 
-  public TeamMember getResponsibleTeamMemberTask(String taskName) {
-    return null;
+  public TeamMember getResponsibleTeamMemberTask(String projectName ,int taskID, int requirementID) {
+    return projectList.getProject(projectName).getRequirementList().
+        getRequirement(requirementID).getTaskList().
+        getTask(taskID).getResponsibleTeamMember();
   }
 
-  public MyDate getReqDeadline(String requirementName) {
-    return null;
+  public MyDate getReqDeadline(String projectName ,int requirementID) {
+    return projectList.getProject(projectName).getRequirementList().
+        getRequirement(requirementID).getDeadline();
   }
 
-  public MyDate getTaskDeadline(String taskName) {
-    return null;
+  public MyDate getTaskDeadline(String projectName ,int requirementID, int taskID) {
+    return projectList.getProject(projectName).getRequirementList().
+        getRequirement(requirementID).getTaskList().getTask(taskID).getDeadline();
   }
 
   public MyDate getProjectDeadline(String projectName) {
-    return null;
+    return projectList.getProject(projectName).getDeadline();
   }
 
   /*TODO: Christian implements the last 8 methods*/

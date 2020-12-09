@@ -55,6 +55,11 @@ public class Task
     return timeSpendInHours;
   }
 
+  public MyDate getDeadline()
+  {
+    return deadline;
+  }
+
 
   public ArrayList<TeamMember> getAllTaskEmployees()
   {

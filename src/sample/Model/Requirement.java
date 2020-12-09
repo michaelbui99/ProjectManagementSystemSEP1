@@ -126,6 +126,16 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
 
   }
 
+  public void setResponsibleTeamMember(TeamMember responsibleTeamMember)
+  {
+    this.responsibleTeamMember = responsibleTeamMember;
+  }
+
+  public void setPriority(String priority)
+  {
+    this.priority = priority;
+  }
+
   public void setTimeSpendInHours(int timeSpendInHours)
   {
     this.timeSpendInHours = timeSpendInHours;

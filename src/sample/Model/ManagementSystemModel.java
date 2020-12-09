@@ -54,18 +54,18 @@ public class ManagementSystemModel
 
   /*TODO: Michael implements the 8 first methods.*/
 
-  public void assignTeamMemberToRequirement(String requirementName, TeamMember teamMember)
+  public void assignTeamMemberToRequirement(String requirementName, String name)
   {
-
+    projectList.getProject(currentProject).getRequirementList().getRequirement().se;
   }
 
   public void assignTeamMemeberToTask(String taskName, TeamMember teamMember) {
 
   }
 
-  public void assignTeamMemberRole(String name) {
+  public void assignTeamMemberRole(String name, String userRole) {
 
-    employeeList.getEmployee().
+    employeeList.getEmployee(name).setRole(userRole);
   }
 
   public void removeTeamMemberFromProject(String projectName, TeamMember teamMember) {
@@ -81,11 +81,11 @@ public class ManagementSystemModel
   }
 
   public ProjectList getProjectList() {
-    return null;
+    return projectList;
   }
 
   public EmployeeList getEmployeeList() {
-    return null;
+    return employeeList;
   }
 
   /*TODO: Kaser implements the next 8 methods*/

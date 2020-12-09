@@ -135,25 +135,30 @@ public class ManagementSystemModel
 
   /*TODO: Kaser implements the next 8 methods*/
 
-  public Project getProjectInfoByEmployeeName(String name) {
+ /* public Project getProjectInfoByEmployeeName(String name,) {
+
+
+
     return null;
-  }
+
+  }*/
 
   public Project getProjectInfo(String projectName) {
-    return null;
+
+    return projectList.getProject(projectName);
   }
 
   public float getProjectProgress(String projectName) {
-    return 0;
+    return (projectList.getProject(projectName).getRequirementList().getNumberOfRequirements()) / (projectList.getProject(projectName).getRequirementList().getNumberOfApprovedRequirement()) * 100;
   }
 
-  public void loadProject() {
+   /* public void loadProject() {
 
   }
 
   public void saveProject() {
 
-  }
+  }*/
 
   public void addEmployeeToSystem(String name, int ID) {
 

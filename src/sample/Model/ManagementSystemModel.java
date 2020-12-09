@@ -20,16 +20,22 @@ public class ManagementSystemModel
     projectFile = null;
   }
 
-  public void setUser() {
-
+  public void setUser(String userRole) {
+    this.userRole = userRole;
   }
 
   public void createProject(String name, int projectID, MyDate deadLine) {
-
+    projectList.getAllProjects().add(name, projectID, deadLine);
   }
 
   public void createRequirement(int requirementID, String responsibleTeamMember, String status) {
-
+    for (Project project: projectList.getAllProjects())
+    {
+      if (project.getProjectName().equals(currentProject))
+      {
+        project.getRequirementList().addRequirement(new Requirement(requirementID,responsibleTeamMember,status));
+      }
+    }
   }
 
   public void createTask(int taskID, String status) {
@@ -156,7 +162,7 @@ public class ManagementSystemModel
     return 0;
   }
 
-  /*TODO: Lillian implements the next 8.*/
+  /*TODO: Lilian implements the next 8.*/
 
   public RequirementList getRequirementList(String projectName) {
     return null;

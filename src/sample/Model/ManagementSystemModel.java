@@ -52,6 +52,8 @@ public class ManagementSystemModel
 
   }
 
+  /*TODO: Michael implements the 8 first methods.*/
+
   public void assignTeamMemberToRequirement(String requirementName, TeamMember teamMember) {
 
   }
@@ -83,6 +85,8 @@ public class ManagementSystemModel
   public EmployeeList getEmployeeList() {
     return null;
   }
+
+  /*TODO: Kaser implements the next 8 methods*/
 
   public Project getProjectInfoByEmployeeName(String name) {
     return null;
@@ -116,6 +120,8 @@ public class ManagementSystemModel
 
   }
 
+  /*TODO: Kutaiba implements the next 8*/
+
   public void setRequirementStatus(String status, String requirementName) {
 
   }
@@ -148,6 +154,8 @@ public class ManagementSystemModel
     return 0;
   }
 
+  /*TODO: Lillian implements the next 8.*/
+
   public RequirementList getRequirementList(String projectName) {
     return null;
   }
@@ -171,5 +179,7 @@ public class ManagementSystemModel
   public MyDate getProjectDeadline(String projectName) {
     return null;
   }
+
+  /*TODO: Christian implements the last 8 methods*/
 
 }

@@ -97,25 +97,28 @@ public class ManagementSystemModel
 
   public void assignTeamMemberToRequirement(int requirementID, TeamMember teamMember)
   {
-    projectList.getProject(currentProject).getRequirementList().getRequirement(requirementID).setResponsibleTeamMember(teamMember);
+    projectList.getProject(currentProject).getRequirementList()
+        .getRequirement(requirementID).setResponsibleTeamMember(teamMember);
   }
 
-  public void assignTeamMemeberToTask(int taskID, TeamMember teamMember, int reqID) {
-    projectList.getProject(currentProject).getRequirementList().getRequirement(reqID).getTaskList().getTask(taskID).getAllTaskEmployees().add(teamMember.copy());
+  public void assignTeamMemberToTask(int taskID, TeamMember teamMember, int reqID) {
+    projectList.getProject(currentProject).getRequirementList()
+        .getRequirement(reqID).getTaskList().getTask(taskID)
+        .getAllTaskEmployees().add(teamMember.copy());
 
   }
 
   public void assignTeamMemberRole(String name, String userRole) {
-
     projectList.getProject(currentProject).getEmployeeList().getEmployee(name).setRole(userRole);
   }
 
-  public void removeTeamMemberFromProject(String projectName, TeamMember teamMember) {
-
+  public void removeTeamMemberFromProject(String projectName, int teamMemberID) {
+    projectList.getProject(projectName).getEmployeeList().removeEmployee(teamMemberID);
   }
 
-  public void removeTeamMemberFromRequirement(String requirementName, TeamMember teamMember) {
-
+  public void removeTeamMemberFromRequirement(int requirementID, TeamMember teamMember) {
+    projectList.getProject(currentProject).getRequirementList()
+        .getRequirement(requirementID).setResponsibleTeamMember(null);
   }
 
   public void removeTeamMemberFromTask(String taskName, TeamMember teamMember) {

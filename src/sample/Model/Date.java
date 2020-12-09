@@ -1,6 +1,7 @@
 public class Date
 {
-  private int day, month, year;
+  sadkwkaldml
+  private int'' day, month, year;
 
   public Date(){ }
 

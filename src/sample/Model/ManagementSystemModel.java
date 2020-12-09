@@ -131,12 +131,12 @@ public class ManagementSystemModel
       employeeList.addTeamMember(name,ID);
   }
 
-  public void removeEmployeeFromSystem(String name) {
-
+  public void removeEmployeeFromSystem(int ID) {
+    employeeList.removeEmployee(ID);
   }
 
   public void setProjectStatus(String status, String projectName) {
-
+    projectList.getProject(projectName).setStatus(status);
   }
 
   /*TODO: Kutaiba implements the next 8*/

@@ -60,7 +60,8 @@ public class ManagementSystemModel
 
   /*TODO: Michael implements the 8 first methods.*/
 
-  public void assignTeamMemberToRequirement(String requirementName, TeamMember teamMember) {
+  public void assignTeamMemberToRequirement(String requirementName, TeamMember teamMember)
+  {
 
   }
 
@@ -70,6 +71,7 @@ public class ManagementSystemModel
 
   public void assignTeamMemberRole(String name) {
 
+    employeeList.getEmployee().
   }
 
   public void removeTeamMemberFromProject(String projectName, TeamMember teamMember) {
@@ -178,7 +180,7 @@ public class ManagementSystemModel
     return null;
   }
 
-  public MyDate getTaskDeadline(String taskName, int param18) {
+  public MyDate getTaskDeadline(String taskName) {
     return null;
   }
 

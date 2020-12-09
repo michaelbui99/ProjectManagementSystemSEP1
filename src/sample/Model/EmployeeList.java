@@ -23,6 +23,14 @@ public class EmployeeList
     teamMembers.add(teamMember);
   }
 
+  public void addTeamMember(String name, int employeeID){
+    for (int i = 0; i < teamMembers.size(); i++)
+    {
+      teamMembers.get(i).addName(name);
+      teamMembers.get(i).addEmployeeID(employeeID);
+    }
+  }
+
   public void removeEmployee(int employeeID)
   {
     for (int i = 0; i < teamMembers.size(); i++)

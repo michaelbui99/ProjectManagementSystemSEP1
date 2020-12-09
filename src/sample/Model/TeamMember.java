@@ -61,6 +61,15 @@ public class TeamMember
     this.registeredHours = registeredHours;
   }
 
+
+  public void addName(String name){
+    this.name = name;
+  }
+
+  public void addEmployeeID(int employeeID){
+    this.employeeID = employeeID;
+  }
+
   //Methods
 
 

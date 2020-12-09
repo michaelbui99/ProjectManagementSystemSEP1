@@ -38,7 +38,7 @@ public class RequirementList
   {
     for (int i = 0; i < requirements.size(); i++)
     {
-      if (requirements.get(i).getName().equals(requirementID))
+      if (requirements.get(i).getRequirementID() == requirementID)
         return requirements.get(i);
     }
     return null;

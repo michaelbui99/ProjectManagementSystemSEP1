@@ -73,45 +73,10 @@ public class MyDate
 
  }
 
-  public void stepForwardOneYear()
-  {
-    year++;
 
-  }
 
-  public void stepForwardOneDay()
-  {
-    day++;
-    if (day > numberOfDaysInMonth(month))
-    {
-      day = 0;
-      month++;
-    }
-    if (month > 12)
-    {
-      month = 0;
-      year++;
-    }
-  }
 
-  public void stepForward(int days)
-  {
-    day += days;
-    if (day > numberOfDaysInMonth(month))
-    {
-      day = numberOfDaysInMonth(month) - (numberOfDaysInMonth(month) - days);
-      month++;
-      if (month > 12)
-      {
-        year++;
-        month = 0;
-        if (year > 12)
-        {
-          year = 0;
-        }
-      }
-    }
-  }
+
 
   public MyDate copy()
   {
@@ -244,8 +209,8 @@ public class MyDate
     return day == other.getDay() && month == other.getMonth() && year == other.getYear();
   }
 
-  public static int convertToMonthNumber(String monthName)
-  {
+  /* public static int convertToMonthNumber(String monthName)
+    {
     switch (monthName.toLowerCase())
     {
       default:
@@ -276,7 +241,7 @@ public class MyDate
       case "december":
         return 12;
     }
-  }
+  }*/
 
   public boolean isBefore(MyDate other)
   {
@@ -297,7 +262,7 @@ public class MyDate
       return false;
   }
 
-  public int yearsBetween(MyDate other)
+  /*public int yearsBetween(MyDate other)
   {
     int fullYear;
     if (isLeapYear())
@@ -333,9 +298,9 @@ public class MyDate
       return temp;
     }
 
-  }
+  }*/
 
-  public int daysBetween(MyDate other)
+  /*public int daysBetween(MyDate other)
   {
     int count = 0;
     if (!isBefore(other))
@@ -359,7 +324,7 @@ public class MyDate
       return count++;
 
     }
-  }
+  }*/
 
   public static MyDate now()
   {

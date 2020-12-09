@@ -9,7 +9,7 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
 
   private String name;
   private TaskList taskList;
-  //private UserStory userStory;
+  private String userStory;
   private MyDate deadline;
   private MyDate creationDate;
   private EmployeeList employees;
@@ -94,6 +94,11 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
       return isApproved;
   }
 
+  public String getUserStory()
+  {
+    return userStory;
+  }
+
   //Setters
 
   public void setApprovement(boolean approvement)
@@ -126,6 +131,16 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
 
   }
 
+  public void setResponsibleTeamMember(TeamMember responsibleTeamMember)
+  {
+    this.responsibleTeamMember = responsibleTeamMember;
+  }
+
+  public void setPriority(String priority)
+  {
+    this.priority = priority;
+  }
+
   public void setTimeSpendInHours(int timeSpendInHours)
   {
     this.timeSpendInHours = timeSpendInHours;
@@ -145,5 +160,10 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
         + responsibleTeamMember + ", status: '" + status +  ", priority: "
         + priority + ", isApproved: " + isApproved + ", timeSpendInHours: "
         + timeSpendInHours;
+  }
+
+  public void setUserStory (String userStory)
+  {
+    this.userStory = userStory;
   }
 }

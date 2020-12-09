@@ -95,18 +95,19 @@ public class ManagementSystemModel
 
   /*TODO: Michael implements the 8 first methods.*/
 
-  public void assignTeamMemberToRequirement(String requirementName, TeamMember teamMember)
+  public void assignTeamMemberToRequirement(int requirementID, TeamMember teamMember)
   {
+    projectList.getProject(currentProject).getRequirementList().getRequirement(requirementID).setResponsibleTeamMember(teamMember);
+  }
+
+  public void assignTeamMemeberToTask(int taskID, TeamMember teamMember, int reqID) {
+    projectList.getProject(currentProject).getRequirementList().getRequirement(reqID).getTaskList().getTask(taskID).getAllTaskEmployees().add(teamMember.copy());
 
   }
 
-  public void assignTeamMemeberToTask(String taskName, TeamMember teamMember) {
+  public void assignTeamMemberRole(String name, String userRole) {
 
-  }
-
-  public void assignTeamMemberRole(String name) {
-
-    employeeList.getEmployee().
+    projectList.getProject(currentProject).getEmployeeList().getEmployee(name).setRole(userRole);
   }
 
   public void removeTeamMemberFromProject(String projectName, TeamMember teamMember) {
@@ -122,11 +123,11 @@ public class ManagementSystemModel
   }
 
   public ProjectList getProjectList() {
-    return null;
+    return projectList;
   }
 
   public EmployeeList getEmployeeList() {
-    return null;
+    return employeeList;
   }
 
   /*TODO: Kaser implements the next 8 methods*/
@@ -165,36 +166,60 @@ public class ManagementSystemModel
 
   /*TODO: Kutaiba implements the next 8*/
 
-  public void setRequirementStatus(String status, String requirementName) {
+  public void setRequirementStatus(String status, int requirementID) {
+
+   projectList.getProject(currentProject).getRequirementList().
+       getRequirement(requirementID).setStatus(status);
 
   }
 
-  public void setTaskStatus(String status, String taskName) {
+  public void setTaskStatus(String status, int taskID, int requirementID) {
+
+    projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).getTaskList().getTask(taskID).
+        setStatus(status);
 
   }
 
-  public void setRequirementPriority(String priority, String requirementName) {
+  public void setRequirementPriority(String priority, int requirementID) {
+
+    projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).setPriority(priority);
 
   }
 
-  public String whoWhatWhen(String name) {
-    return null;
+  public String whoWhatWhen(int requirementID) {
+
+    return projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).getUserStory();
   }
 
-  public void registerTaskTime(String taskName, int time) {
+  public void registerTaskTime(int time, int requirementID, int taskID) {
+
+    projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).getTaskList().getTask(taskID).
+        registerTimeSpent(time);
 
   }
 
-  public void registerReqTime(String RequirementName, int time) {
+  public void registerReqTime(int requirementID, int time) {
+
+    projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).setTimeSpendInHours(time);
 
   }
 
-  public int getTaskTime(String taskName) {
-    return 0;
+  public int getTaskTime(String taskName, int requirementID, int taskID) {
+
+    return projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).getTaskList().getTask(taskID).
+        getTimeSpendInHours();
   }
 
-  public int getReqTime(String reqName) {
-    return 0;
+  public int getReqTime(int requirementID, int time) {
+
+    return projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).getTimeSpendInHours();
   }
 
   /*TODO: Lilian implements the next 8.*/

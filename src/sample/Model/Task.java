@@ -50,6 +50,11 @@ public class Task
     return responsibleTeamMember;
   }
 
+  public int getTimeSpendInHours()
+  {
+    return timeSpendInHours;
+  }
+
 
   public ArrayList<TeamMember> getAllTaskEmployees()
   {

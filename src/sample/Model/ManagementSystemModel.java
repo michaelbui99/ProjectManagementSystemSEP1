@@ -81,13 +81,15 @@ public class ManagementSystemModel
     projectList.getProject(projectName).getEmployeeList().removeEmployee(teamMemberID);
   }
 
-  public void removeTeamMemberFromRequirement(int requirementID, TeamMember teamMember) {
+  public void removeTeamMemberFromRequirement(int requirementID, int teamMemberID) {
     projectList.getProject(currentProject).getRequirementList()
-        .getRequirement(requirementID).ge;
+        .getRequirement(requirementID).getEmployees().removeEmployee(teamMemberID);
   }
 
-  public void removeTeamMemberFromTask(String taskName, TeamMember teamMember) {
-
+  public void removeTeamMemberFromTask(int taskID, int reqID, int teamMemberID) {
+    projectList.getProject(currentProject).getRequirementList()
+        .getRequirement(reqID).getTaskList().getTask(taskID)
+        .getAllTaskEmployees().remove(teamMemberID);
   }
 
   public ProjectList getProjectList() {
@@ -98,7 +100,7 @@ public class ManagementSystemModel
     return employeeList;
   }
 
-  /*TODO: Kaser implements the next 8 methods*/
+  /*TODO: Kasper implements the next 8 methods*/
 
  /* public Project getProjectInfoByEmployeeName(String name,) {
 

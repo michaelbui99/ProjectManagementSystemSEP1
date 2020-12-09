@@ -99,6 +99,11 @@ public class Requirement //oprettelse af nyt krav, angiv værdier af:
     return userStory;
   }
 
+  public EmployeeList getEmployees()
+  {
+    return employees;
+  }
+
   //Setters
 
   public void setApprovement(boolean approvement)

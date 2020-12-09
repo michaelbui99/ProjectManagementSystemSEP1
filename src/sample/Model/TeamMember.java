@@ -90,7 +90,7 @@ public class TeamMember
     registeredHours=+ hours;
   }
 
-  public TeamMember copy(TeamMember teamMember)
+  public TeamMember copy()
   {
     return new TeamMember(name, employeeID, role);
   }

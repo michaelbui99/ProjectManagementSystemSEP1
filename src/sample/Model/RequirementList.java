@@ -49,6 +49,22 @@ public class RequirementList
     return requirements;
   }
 
+  public float getNumberOfApprovedRequirement()
+  {
+    int counter = 0;
+    for (int i = 0; i < requirements.size(); i++)
+    {
+      if (requirements.get(i).isApproved()){
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  public float getNumberOfRequirements(){
+    return requirements.size();
+  }
+
   @Override public String toString()
   {
     return "RequirementList: " + requirements;

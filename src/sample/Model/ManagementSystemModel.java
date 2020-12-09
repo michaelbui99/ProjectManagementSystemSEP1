@@ -130,20 +130,32 @@ public class ManagementSystemModel
 
   /*TODO: Kutaiba implements the next 8*/
 
-  public void setRequirementStatus(String status, String requirementName) {
+  public void setRequirementStatus(String status, int requirementID) {
+
+   projectList.getProject(currentProject).getRequirementList().
+       getRequirement(requirementID).setStatus(status);
 
   }
 
-  public void setTaskStatus(String status, String taskName) {
+  public void setTaskStatus(String status, int taskID, int requirementID) {
+
+    projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).getTaskList().getTask(taskID).
+        setStatus(status);
 
   }
 
-  public void setRequirementPriority(String priority, String requirementName) {
+  public void setRequirementPriority(String priority, int requirementID) {
+
+    projectList.getProject(currentProject).getRequirementList().
+        getRequirement(requirementID).setPriority(priority);
 
   }
 
   public String whoWhatWhen(String name) {
-    return null;
+
+
+
   }
 
   public void registerTaskTime(String taskName, int time) {

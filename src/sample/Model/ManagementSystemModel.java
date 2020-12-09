@@ -14,7 +14,10 @@ public class ManagementSystemModel
   private ProjectFile projectFile;
 
   public ManagementSystemModel() {
-
+    projectList = new ProjectList();
+    employeeList = new EmployeeList();
+    currentProject = ""; //Ved start er der ingen projekter valgt endnu.
+    projectFile = null;
   }
 
   public void setUser() {

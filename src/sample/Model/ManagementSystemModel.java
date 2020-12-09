@@ -2,28 +2,171 @@ package sample.Model;
 
 public class ManagementSystemModel
 {
-  //Fields
+
   private String userRole;
-  private EmployeeList employeeList;
+
+  private String currentProject;
+
   private ProjectList projectList;
 
+  private EmployeeList employeeList;
 
-  //Constructors
-  public ManagementSystemModel()
-  {
-    employeeList = new EmployeeList();
-    projectList = new ProjectList();
+  private ProjectFile projectFile;
+
+  public ManagementSystemModel() {
+
   }
 
+  public void setUser() {
 
-  //Getters
+  }
 
+  public void createProject(String name, int projectID, Date deadLine) {
 
+  }
 
+  public void createRequirement(int requirementID, String responsibleTeamMember, String status) {
 
-  //Setters
+  }
 
+  public void createTask(int taskID, String status) {
 
+  }
 
+  public void removeProject(String name) {
+
+  }
+
+  public void removeRequirement(String name) {
+
+  }
+
+  public void removeTask(String name) {
+
+  }
+
+  public void assignTeamMemberToProject(String projectName, TeamMember teamMember) {
+
+  }
+
+  public void assignTeamMemberToRequirement(String requirementName, TeamMember teamMember) {
+
+  }
+
+  public void assignTeamMemeberToTask(String taskName, TeamMember teamMember) {
+
+  }
+
+  public void assignTeamMemberRole(String name) {
+
+  }
+
+  public void removeTeamMemberFromProject(String projectName, TeamMember teamMember) {
+
+  }
+
+  public void removeTeamMemberFromRequirement(String requirementName, TeamMember teamMember) {
+
+  }
+
+  public void removeTeamMemberFromTask(String taskName, TeamMember teamMember) {
+
+  }
+
+  public ProjectList getProjectList() {
+    return null;
+  }
+
+  public EmployeeList getEmployeeList() {
+    return null;
+  }
+
+  public Project getProjectInfoByEmployeeName(String name) {
+    return null;
+  }
+
+  public Project getProjectInfo(String projectName) {
+    return null;
+  }
+
+  public float getProjectProgress(String projectName) {
+    return 0;
+  }
+
+  public void loadProject() {
+
+  }
+
+  public void saveProject() {
+
+  }
+
+  public void addEmployeeToSystem(String name, int ID) {
+
+  }
+
+  public void removeEmployeeFromSystem(String name) {
+
+  }
+
+  public void setProjectStatus(String status, String projectName) {
+
+  }
+
+  public void setRequirementStatus(String status, String requirementName) {
+
+  }
+
+  public void setTaskStatus(String status, String taskName) {
+
+  }
+
+  public void setRequirementPriority(String priority, String requirementName) {
+
+  }
+
+  public String whoWhatWhen(String name) {
+    return null;
+  }
+
+  public void registerTaskTime(String taskName, int time) {
+
+  }
+
+  public void registerReqTime(String RequirementName, int time) {
+
+  }
+
+  public int getTaskTime(String taskName) {
+    return 0;
+  }
+
+  public int getReqTime(String reqName) {
+    return 0;
+  }
+
+  public RequirementList getRequirementList(String projectName) {
+    return null;
+  }
+
+  public TeamMember getResponsibleTeamMemberReq(String reqName) {
+    return null;
+  }
+
+  public TeamMember getResponsibleTeamMemberTask(String taskName) {
+    return null;
+  }
+
+  public Date getReqDeadline(String requirementName) {
+    return null;
+  }
+
+  public Date getTaskDeadline(String taskName, int param18) {
+    return null;
+  }
+
+  public Date getProjectDeadline(String projectName) {
+    return null;
+  }
 
 }

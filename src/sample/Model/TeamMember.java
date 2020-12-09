@@ -51,8 +51,15 @@ public class TeamMember
     this.employeeID = employeeID;
   }
 
+  public void setRole(String role)
+  {
+    this.role = role;
+  }
 
-
+  public void setRegisteredHours(int registeredHours)
+  {
+    this.registeredHours = registeredHours;
+  }
 
   //Methods
 

@@ -76,7 +76,7 @@ public class ManagementSystemModel
 
   public void assignTeamMemberToProject(String projectName, String teamMemberName) {
     TeamMember teamMemberToAdd = null;
-    for (TeamMember teamMember: employeeList)
+    for (TeamMember teamMember: employeeList.getAllEmployees())
     {
       if (teamMember.getName().equals(teamMemberName))
       {
@@ -84,13 +84,7 @@ public class ManagementSystemModel
       }
     }
 
-    for (Project project: projectList.getAllProjects())
-    {
-      if (project.getProjectName().equals(projectName))
-      {
-        project.getEmployeeList().addEmployee(teamMemberToAdd);
-      }
-    }
+    projectList.getProject(projectName).getEmployeeList().addEmployee(teamMemberToAdd);
   }
 
   /*TODO: Michael implements the 8 first methods.*/
@@ -118,7 +112,7 @@ public class ManagementSystemModel
 
   public void removeTeamMemberFromRequirement(int requirementID, TeamMember teamMember) {
     projectList.getProject(currentProject).getRequirementList()
-        .getRequirement(requirementID).setResponsibleTeamMember(null);
+        .getRequirement(requirementID).ge;
   }
 
   public void removeTeamMemberFromTask(String taskName, TeamMember teamMember) {

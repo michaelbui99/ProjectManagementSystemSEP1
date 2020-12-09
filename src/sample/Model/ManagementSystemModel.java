@@ -25,37 +25,72 @@ public class ManagementSystemModel
   }
 
   public void createProject(String name, int projectID, MyDate deadLine) {
-    projectList.getAllProjects().add(name, projectID, deadLine);
+    projectList.addProject(new Project(name, projectID, deadLine));
   }
 
-  public void createRequirement(int requirementID, String responsibleTeamMember, String status) {
+  public void createRequirement(String name, int requirementID, TeamMember responsibleTeamMember,
+      String status, String priority, MyDate deadline) {
     for (Project project: projectList.getAllProjects())
     {
       if (project.getProjectName().equals(currentProject))
       {
-        project.getRequirementList().addRequirement(new Requirement(requirementID,responsibleTeamMember,status));
+        project.getRequirementList().addRequirement(new Requirement(name, requirementID, responsibleTeamMember, status, priority, deadline);
       }
     }
   }
 
-  public void createTask(int taskID, String status) {
-
+  public void createTask(int requirementID, String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline) {
+    for (Project project: projectList.getAllProjects())
+    {
+      if (project.getProjectName().equals(currentProject))
+      {
+        project.getRequirementList().getRequirement(requirementID).getTaskList().addTask(new Task(name, taskID, status,responsibleTeamMember,priority,deadline));
+      }
+    }
   }
 
   public void removeProject(String name) {
+    projectList.removeProject(name);
+  }
+
+  public void removeRequirement(int requirementID) {
+    for (Project project: projectList.getAllProjects())
+    {
+      if (project.getProjectName().equals(currentProject))
+      {
+        project.getRequirementList().removeRequirement(requirementID);
+      }
+    }
+  }
+
+  public void removeTask(int requirementID, int taskID) {
+    for (Project project: projectList.getAllProjects())
+    {
+      if (project.getProjectName().equals(currentProject))
+      {
+        project.getRequirementList().getRequirement(requirementID).getTaskList().removeTask(taskID);
+      }
+    }
 
   }
 
-  public void removeRequirement(String name) {
+  public void assignTeamMemberToProject(String projectName, String teamMemberName) {
+    TeamMember teamMemberToAdd = null;
+    for (TeamMember teamMember: employeeList)
+    {
+      if (teamMember.getName().equals(teamMemberName))
+      {
+        teamMemberToAdd = teamMember.copy();
+      }
+    }
 
-  }
-
-  public void removeTask(String name) {
-
-  }
-
-  public void assignTeamMemberToProject(String projectName, TeamMember teamMember) {
-
+    for (Project project: projectList.getAllProjects())
+    {
+      if (project.getProjectName().equals(projectName))
+      {
+        project.getEmployeeList().addEmployee(teamMemberToAdd);
+      }
+    }
   }
 
   /*TODO: Michael implements the 8 first methods.*/

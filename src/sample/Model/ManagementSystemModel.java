@@ -21,7 +21,7 @@ public class ManagementSystemModel
 
   }
 
-  public void createProject(String name, int projectID, Date deadLine) {
+  public void createProject(String name, int projectID, MyDate deadLine) {
 
   }
 
@@ -157,15 +157,15 @@ public class ManagementSystemModel
     return null;
   }
 
-  public Date getReqDeadline(String requirementName) {
+  public MyDate getReqDeadline(String requirementName) {
     return null;
   }
 
-  public Date getTaskDeadline(String taskName, int param18) {
+  public MyDate getTaskDeadline(String taskName, int param18) {
     return null;
   }
 
-  public Date getProjectDeadline(String projectName) {
+  public MyDate getProjectDeadline(String projectName) {
     return null;
   }
 

@@ -53,7 +53,7 @@ public class ManagementSystemModel
 
   public void assignTeamMemberToProject(String projectName, String teamMemberName) {
     TeamMember teamMemberToAdd = null;
-    teamMemberToAdd = employeeList.getEmployee(TeamMember);
+    teamMemberToAdd = employeeList.getEmployee(teamMemberName);
 
     projectList.getProject(projectName).getEmployeeList().addEmployee(teamMemberToAdd);
   }

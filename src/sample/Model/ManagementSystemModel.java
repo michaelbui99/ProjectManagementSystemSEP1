@@ -1,5 +1,8 @@
 package sample.Model;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class ManagementSystemModel
 {
 
@@ -56,6 +59,11 @@ public class ManagementSystemModel
     teamMemberToAdd = employeeList.getEmployee(teamMemberName);
 
     projectList.getProject(projectName).getEmployeeList().addEmployee(teamMemberToAdd);
+  }
+
+  public String getUser()
+  {
+    return userRole;
   }
 
   /*TODO: Michael implements the 8 first methods.*/
@@ -119,13 +127,16 @@ public class ManagementSystemModel
     return (projectList.getProject(projectName).getRequirementList().getNumberOfRequirements()) / (projectList.getProject(projectName).getRequirementList().getNumberOfApprovedRequirement()) * 100;
   }
 
-   /* public void loadProject() {
+    public ArrayList<Project> loadProjectList()
+        throws IOException, ClassNotFoundException
+    {
 
+       return projectFile.readProjectListFile().getAllProjects();
   }
 
   public void saveProject() {
 
-  }*/
+  }
 
   public void addEmployeeToSystem(String name, int ID) {
       employeeList.addTeamMember(name,ID);

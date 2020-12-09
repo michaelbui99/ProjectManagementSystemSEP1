@@ -2,8 +2,6 @@ package sample.Model;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-
-//sdasdasd KUTAIBA YYYYYY
 public class MyDate
 {
   /*

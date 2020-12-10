@@ -134,8 +134,9 @@ public class ManagementSystemModel
        return projectFile.readProjectListFile().getAllProjects();
   }
 
-  public void saveProject() {
-
+  public void saveProject(EmployeeList employeeList) throws IOException
+  {
+    projectFile.writeEmployeeListFile(employeeList);
   }
 
   public void addEmployeeToSystem(String name, int ID) {

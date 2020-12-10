@@ -59,7 +59,7 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="249.0" promptText="Indsæt navn:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="inputName" prefHeight="25.0" prefWidth="249.0" promptText="Indsæt navn:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" right="40.0" />
                      </GridPane.margin>
@@ -72,15 +72,18 @@
                         <ToggleGroup fx:id="JA_NEJ" />
                      </toggleGroup>
                   </RadioButton>
-                  <TextField promptText="Indsæt ID" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="inputID" promptText="Indsæt ID" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="30.0" right="40.0" />
                      </GridPane.margin>
                   </TextField>
-                  <RadioButton mnemonicParsing="false" text="Nej" toggleGroup="$JA_NEJ" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <RadioButton mnemonicParsing="false" text="Nej" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="jaNej" />
+                     </toggleGroup>
                   </RadioButton>
                </children>
             </GridPane>
@@ -97,12 +100,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Tilføj">
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#addTeamMember" text="Tilføj">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Label text="Status" visible="false" GridPane.columnIndex="1" />
+                  <Label fx:id="status" text="Status" visible="false" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
@@ -123,7 +126,7 @@
                         <Insets left="30.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField promptText="Indsæt teammedlems navn:" GridPane.columnIndex="1">
+                  <TextField fx:id="inputTeamMemberID" promptText="Indsæt teammedlems ID:" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" right="40.0" />
                      </GridPane.margin>
@@ -143,7 +146,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Fjern">
+                  <Button fx:id="remove" mnemonicParsing="false" onAction="#removeEmployee" text="Fjern">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
@@ -169,7 +172,7 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Godkend" GridPane.columnIndex="1">
+                  <Button fx:id="approve" mnemonicParsing="false" text="Godkend" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="220.0" />
                      </GridPane.margin>

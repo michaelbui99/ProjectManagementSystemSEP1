@@ -1,16 +1,14 @@
 package sample.View;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.EmployeeList;
 import sample.Model.ManagementSystemModel;
 import sample.Model.TeamMember;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AdminController
@@ -21,13 +19,13 @@ public class AdminController
   private EmployeeList employeeList;
   @FXML private Button cancel;
   @FXML private TextField inputName;
-  @FXML private TextField inputTeamMemberName;
+  @FXML private TextField inputTeamMemberID;
   @FXML private TextField inputID;
   @FXML private ToggleGroup jaNej;
   @FXML private Button add;
   @FXML private Button remove;
   @FXML private Button approve;
-  @FXML private Label Status;
+  @FXML private Label status;
 
 
 
@@ -52,17 +50,53 @@ public class AdminController
   {
     return root;
   }
-/*
-  public void setName(String name)
+
+
+  public void addTeamMember()
+  {
+    RadioButton selectRadio = (RadioButton) jaNej.getSelectedToggle();
+    model.setUser(selectRadio.getText());
+    int ID = Integer.parseInt(inputID.getText());
+    ArrayList<EmployeeList> employeeLists1 = new ArrayList<>();
+    for (int i = 0; i < employeeLists1.size(); i++)
+    {
+      if (model.getUser().toLowerCase().equals("ja"))
+      {
+        employeeLists1.get(i).addTeamMember(inputName.getText(), ID);
+        model.assignTeamMemberRole(inputName.getText(),"projectcreator");
+      }
+      else
+      {
+        employeeLists1.get(i).addTeamMember(inputName.getText(), ID);
+      }
+      status.setText("Medarbejder er tilføjert");
+      status.setVisible(true);
+    }
+  }
+
+  public void removeEmployee()
   {
     ArrayList<EmployeeList> employeeLists1 = new ArrayList<>();
+    int ID = Integer.parseInt(inputID.getText());
 
     for (int i = 0; i < employeeLists1.size(); i++)
     {
-      employeeLists1.get(i).a
+      if (inputTeamMemberID.getText().equals(employeeLists1.get(i).getAllEmployees()))
+      {
+        employeeLists1.get(i).removeEmployee(ID);
+      }
+      else
+      {
+        status.setText("Der er ikke noget sådant medarbejder-ID i systemet");
+        status.setVisible(true);
+      }
     }
   }
-*/
+
+  public void setApprove(EmployeeList employeeList) throws IOException
+  {
+    model.saveProject(employeeList);
+  }
   public void setCancel()
   {
     Stage stage = (Stage) cancel.getScene().getWindow();

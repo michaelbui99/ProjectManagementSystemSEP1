@@ -36,6 +36,12 @@ public class Requirement implements
     this.deadline = deadline;
   }
 
+  public Requirement(String name, int requirementID)
+  {
+    this.name = name;
+    this.requirementID = requirementID;
+  }
+
   Requirement(String name, int requirementID, TeamMember responsibleTeamMember, String priority)
   {
     this.name = name;

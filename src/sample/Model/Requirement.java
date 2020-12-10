@@ -20,7 +20,7 @@ public class Requirement implements
   private String priority;//Priority kan antage  {‘Lav’, ‘Normal’, ‘Høj’, ‘Kritisk’}
   private boolean isApproved;
   private int timeSpendInHours;
-  private double estimatedTimeInHours;
+  private double estimatedCompletionTimeInHours;
 
   //Constructors
 
@@ -117,14 +117,15 @@ public class Requirement implements
     double totalTime = 0; //Running total for calculating sum of task completion estimates.
     for (Task task: taskList.getAllTasks())
     {
-      totalTime += task.getEstimatedTimeInHours();
+      totalTime += task.getEstimatedCompletionTimeInHours();
     }
     return totalTime;
   }
 
   public double getEstimatedTimeInHours()
   {
-    return estimatedTimeInHours;
+    estimatedCompletionTimeInHours = calculateEstimatedTimeInHours(); //Calculate the estimated time total of all task, such that estimated time for requirement is up-to-date
+    return estimatedCompletionTimeInHours;
   }
   //Setters
 

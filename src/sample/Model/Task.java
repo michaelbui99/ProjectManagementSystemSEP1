@@ -15,7 +15,7 @@ public class Task implements Serializable
   private int timeSpendInHours;
   private MyDate creationDate;
   private MyDate deadline;
-  private double estimatedTimeInHours;
+  private double estimatedCompletionTimeInHours;
 
   //Constructors
   public Task(String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline)
@@ -31,7 +31,7 @@ public class Task implements Serializable
   }
 
 
-  public Task(String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline, double estimatedTimeInHours)
+  public Task(String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline, double estimatedCompletionTimeInHours)
   {
     this.name = name;
     this.taskID = taskID;
@@ -41,7 +41,7 @@ public class Task implements Serializable
     employees = new EmployeeList();
     this.deadline = new MyDate(deadline.getDay(),deadline.getMonth(),deadline.getYear());
     timeSpendInHours = 0; //Defaultes til 0, når projektet oprettes, da der ikke er blevet brugt til på projektet ved oprettelse.
-    this.estimatedTimeInHours = estimatedTimeInHours;
+    this.estimatedCompletionTimeInHours = estimatedCompletionTimeInHours;
   }
 
   //Getters
@@ -86,9 +86,9 @@ public class Task implements Serializable
     return new Task(name, taskID, status,responsibleTeamMember, priority, deadline);
   }
 
-  public double getEstimatedTimeInHours()
+  public double getEstimatedCompletionTimeInHours()
   {
-    return estimatedTimeInHours;
+    return estimatedCompletionTimeInHours;
   }
 
 

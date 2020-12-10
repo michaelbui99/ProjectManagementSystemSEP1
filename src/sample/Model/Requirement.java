@@ -112,11 +112,20 @@ public class Requirement implements
     return employees;
   }
 
-  public int calculateEstimatedTimeInHours()
+  public double calculateEstimatedTimeInHours()
   {
-    
+    double totalTime = 0; //Running total for calculating sum of task completion estimates.
+    for (Task task: taskList.getAllTasks())
+    {
+      totalTime += task.getEstimatedTimeInHours();
+    }
+    return totalTime;
   }
 
+  public double getEstimatedTimeInHours()
+  {
+    return estimatedTimeInHours;
+  }
   //Setters
 
   public void setApprovement(boolean approvement)

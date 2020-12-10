@@ -57,19 +57,19 @@ public class ColourITMainController
     {
       viewHandler.openView("admin");
     }
-    else if (model.getUser().toLowerCase().equals("projectOwner"))
+    else if (model.getUser().toLowerCase().equals("projectowner"))
     {
       viewHandler.openView("projectOwner");
     }
-    else if (model.getUser().toLowerCase().equals("projektCreator"))
+    else if (model.getUser().toLowerCase().equals("projektcreator"))
     {
       viewHandler.openView("projektCreator");
     }
-    else if (model.getUser().toLowerCase().equals("scrumMaster"))
+    else if (model.getUser().toLowerCase().equals("scrummaster"))
     {
       viewHandler.openView("scrumMaster");
     }
-    else if (model.getUser().toLowerCase().equals("teamMemberView"))
+    else if (model.getUser().toLowerCase().equals("teammemberview"))
     {
       viewHandler.openView("teamMemberView");
     }

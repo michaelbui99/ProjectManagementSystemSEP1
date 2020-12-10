@@ -35,7 +35,6 @@
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
@@ -44,26 +43,21 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Projekt ID:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Projekt navn:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField promptText="Projekt ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Label text="Projekt navn:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="inputAddProjectName" promptText="Projekt navn:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" right="160.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="Projekt navn:" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets left="30.0" right="160.0" />
-                     </GridPane.margin>
-                  </TextField>
-                  <Button mnemonicParsing="false" text="Søg" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="search" mnemonicParsing="false" onAction="#getProject" text="Søg" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="status" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children>
       </FlowPane>
       <FlowPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <TableView prefHeight="329.0" prefWidth="964.0">
+            <TableView fx:id="tableView" prefHeight="329.0" prefWidth="964.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
@@ -98,13 +92,13 @@
                         <Insets left="30.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="inputApprovalRequirementID" promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" right="160.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" text="Ikke Godkendt" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button fx:id="approve" mnemonicParsing="false" onAction="#setApprove" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="notApprove" mnemonicParsing="false" onAction="#setNotApprove" text="Ikke Godkendt" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children>
@@ -126,18 +120,18 @@
                <children>
                   <Label text="Tilføj krav:" />
                   <Label text="Tilføj krav ID:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="inputAddRequirementID" promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="1.0" right="160.0" />
                      </GridPane.margin>
                   </TextField>
                   <Label text="Tilføj krav navn:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField promptText="navn ID:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="inputAddRequirementName" promptText="Krav navn:" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="1.0" right="160.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" text="Tilføj" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#setAddRequirement" text="Tilføj" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Status" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                </children>
             </GridPane>
@@ -159,12 +153,12 @@
                <children>
                   <Label text="Fjern krav:" />
                   <Label text="Fjern krav:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="inputRemoveRequirementID" promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="1.0" right="160.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" text="Fjern" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="remove" mnemonicParsing="false" text="Fjern" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Status" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
@@ -181,12 +175,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Afslut">
+                  <Button fx:id="cancel" mnemonicParsing="false" text="Afslut">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1">
+                  <Button fx:id="accept" mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="400.0" />
                      </GridPane.margin>

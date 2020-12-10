@@ -9,6 +9,7 @@ import sample.Model.ManagementSystemModel;
 public class ProjektCreatorController
 {
   @FXML private Button cancel;
+  @FXML private Button accept;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;

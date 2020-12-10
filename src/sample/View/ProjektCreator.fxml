@@ -192,7 +192,7 @@
       </FlowPane>
       <FlowPane prefHeight="69.0" prefWidth="627.0">
          <children>
-            <GridPane prefHeight="65.0" prefWidth="634.0">
+            <GridPane prefHeight="66.0" prefWidth="936.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -208,7 +208,7 @@
                   </Button>
                   <Button mnemonicParsing="false" text="Godkend" GridPane.columnIndex="1">
                      <GridPane.margin>
-                        <Insets left="246.0" />
+                        <Insets left="398.0" />
                      </GridPane.margin>
                   </Button>
                </children>

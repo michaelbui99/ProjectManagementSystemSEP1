@@ -26,7 +26,7 @@ public class ColourITMainController
   private Region root;
 
 
-  public void setModel( ManagementSystemModel model)
+  public void setModel(ManagementSystemModel model)
   {
     this.model = model;
   }

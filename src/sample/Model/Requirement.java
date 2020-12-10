@@ -20,6 +20,7 @@ public class Requirement implements
   private String priority;//Priority kan antage  {‘Lav’, ‘Normal’, ‘Høj’, ‘Kritisk’}
   private boolean isApproved;
   private int timeSpendInHours;
+  private double estimatedTimeInHours;
 
   //Constructors
 
@@ -111,6 +112,11 @@ public class Requirement implements
     return employees;
   }
 
+  public int calculateEstimatedTimeInHours()
+  {
+    
+  }
+
   //Setters
 
   public void setApprovement(boolean approvement)
@@ -178,4 +184,6 @@ public class Requirement implements
   {
     this.userStory = userStory;
   }
+
+
 }

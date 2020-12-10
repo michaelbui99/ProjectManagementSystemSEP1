@@ -6,20 +6,14 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.ManagementSystemModel;
 
+import javax.swing.text.TableView;
 import java.io.IOException;
 import java.util.Locale;
 
 public class ColourITMainController
 {
-  @FXML private TableView tableViewMain;
   @FXML private Button next;
   @FXML private Button cancel;
-  @FXML private Button load;
-  @FXML private RadioButton adminRadio;
-  @FXML private RadioButton projectCreatorRadio;
-  @FXML private RadioButton projectOwnerRadio;
-  @FXML private RadioButton scrumMasterRadio;
-  @FXML private RadioButton teamMemberRadio;
   @FXML private ToggleGroup role;
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -73,11 +67,6 @@ public class ColourITMainController
     {
       viewHandler.openView("teamMemberView");
     }
-  }
-
-  public void setLoad() throws IOException, ClassNotFoundException
-  {
-    model.loadProjectList(); /*TODO: the goddamn tableView*/
   }
 
   public void setCancel()

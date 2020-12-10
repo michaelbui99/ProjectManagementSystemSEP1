@@ -1,14 +1,19 @@
 package sample.View;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.ManagementSystemModel;
 
 public class ProjectOwnerController
 {
+  @FXML private Button cancel;
+
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
   private Region root;
+
 
 
   public void setModel( ManagementSystemModel model)

@@ -22,7 +22,6 @@ public class ViewHandler
   private TeamMemberController teamMemberController;
   private ManagementSystemModel model;
 
-
   public ViewHandler(ManagementSystemModel model)
   {
     this.model = model;
@@ -41,22 +40,22 @@ public class ViewHandler
     switch (role)
     {
       case "admin":
-        root = loadAdminView("Admin.fxml");
+        root = loadAdminView();
         break;
       case "main":
-        root = loadMainView("ColourITMain.fxml");
+        root = loadMainView();
         break;
       case "projectOwner":
-        root = loadProjectOwnerView("ProjectOwner.fxml");
+        root = loadProjectOwnerView();
         break;
       case "projektCreator":
-        root = loadProjektCreatorView("ProjektCreator.fxml");
+        root = loadProjektCreatorView();
         break;
       case "scrumMaster":
-        root = loadScrumMasterView("ScrumMaster.fxml");
+        root = loadScrumMasterView();
         break;
       case "teamMemberView":
-        root = loadTeamMemberView("TeamMember.fxml");
+        root = loadTeamMemberView();
         break;
     }
     currentScene.setRoot(root);
@@ -72,9 +71,9 @@ public class ViewHandler
     primaryStage.close();
   }
 
-  private Region loadAdminView(String fxmlFile)
+  private Region loadAdminView()
   {
-    if(adminController == null)
+    if (adminController == null)
     {
       try
       {
@@ -89,23 +88,23 @@ public class ViewHandler
         e.printStackTrace();
       }
     }
-    else
+    /*else
     {
       adminController.reset();
     }
+     */
     return adminController.getRoot();
 
   }
 
-
-  private Region loadMainView(String fxmlFile)
+  private Region loadMainView()
   {
-    if(colourITMainController == null)
+    if (colourITMainController == null)
     {
       try
       {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("View2.fxml"));
+        loader.setLocation(getClass().getResource("ColourITMain.fxml"));
         Region root = loader.load();
         colourITMainController = loader.getController();
         colourITMainController.init(this, model, root);
@@ -115,17 +114,19 @@ public class ViewHandler
         e.printStackTrace();
       }
     }
+    /*
     else
     {
       colourITMainController.reset();
     }
+
+     */
     return colourITMainController.getRoot();
   }
 
-
-  private Region loadProjectOwnerView(String fxmlFile)
+  private Region loadProjectOwnerView()
   {
-    if(projectOwnerController == null)
+    if (projectOwnerController == null)
     {
       try
       {
@@ -140,21 +141,24 @@ public class ViewHandler
         e.printStackTrace();
       }
     }
+    /*
     else
     {
       projectOwnerController.reset();
     }
+
+     */
     return projectOwnerController.getRoot();
   }
 
-  private Region loadProjektCreatorView(String fxmlFile)
+  private Region loadProjektCreatorView()
   {
-    if(projektCreatorController == null)
+    if (projektCreatorController == null)
     {
       try
       {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("View3.fxml"));
+        loader.setLocation(getClass().getResource("ProjektCreator.fxml"));
         Region root = loader.load();
         projektCreatorController = loader.getController();
         projektCreatorController.init(this, model, root);
@@ -164,61 +168,69 @@ public class ViewHandler
         e.printStackTrace();
       }
     }
+    /*
     else
     {
       projektCreatorController.reset();
     }
+
+     */
     return projektCreatorController.getRoot();
   }
 
 
-  private Region loadScrumMasterView(String fxmlFile)
-  {
-    if(scrumMasterController == null)
+    private Region loadScrumMasterView ()
     {
-      try
+      if (scrumMasterController == null)
       {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("View3.fxml"));
-        Region root = loader.load();
-        scrumMasterController = loader.getController();
-        scrumMasterController.init(this, model, root);
+        try
+        {
+          FXMLLoader loader = new FXMLLoader();
+          loader.setLocation(getClass().getResource("ScrumMaster.fxml"));
+          Region root = loader.load();
+          scrumMasterController = loader.getController();
+          scrumMasterController.init(this, model, root);
+        }
+        catch (IOException e)
+        {
+          e.printStackTrace();
+        }
       }
-      catch (IOException e)
-      {
-        e.printStackTrace();
-      }
-    }
+    /*
     else
     {
       scrumMasterController.reset();
     }
-    return scrumMasterController.getRoot();
-  }
-
-
-  private Region loadTeamMemberView(String fxmlFile)
-  {
-    if(teamMemberController == null)
-    {
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("View3.fxml"));
-        Region root = loader.load();
-        teamMemberController = loader.getController();
-        teamMemberController.init(this, model, root);
-      }
-      catch (IOException e)
-      {
-        e.printStackTrace();
-      }
+     */
+      return scrumMasterController.getRoot();
     }
+
+    private Region loadTeamMemberView ()
+    {
+      if (teamMemberController == null)
+      {
+        try
+        {
+          FXMLLoader loader = new FXMLLoader();
+          loader.setLocation(getClass().getResource("TeamMember.fxml"));
+          Region root = loader.load();
+          teamMemberController = loader.getController();
+          teamMemberController.init(this, model, root);
+        }
+        catch (IOException e)
+        {
+          e.printStackTrace();
+        }
+      }
+    /*
     else
     {
       teamMemberController.reset();
     }
-    return teamMemberController.getRoot();
+
+     */
+      return teamMemberController.getRoot();
+    }
+
   }
 
-}

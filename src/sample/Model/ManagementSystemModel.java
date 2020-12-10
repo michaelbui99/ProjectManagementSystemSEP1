@@ -66,6 +66,16 @@ public class ManagementSystemModel
     return userRole;
   }
 
+  public String getCurrentProject()
+  {
+    return currentProject;
+  }
+
+  public void setCurrentProject(String projectName)
+  {
+    currentProject = projectName;
+  }
+
   /*TODO: Michael implements the 8 first methods.*/
 
   public void assignTeamMemberToRequirement(int requirementID, TeamMember teamMember)

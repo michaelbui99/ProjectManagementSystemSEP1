@@ -70,8 +70,11 @@ public class AdminController
         model.addEmployeeToSystem(inputName.getText(), ID, "teammember");
 
       }
+      /*
       status.setText("Medarbejder er tilføjert");
       status.setVisible(true);
+
+       */
     }
 
 
@@ -86,11 +89,14 @@ public class AdminController
       {
         employeeLists1.get(i).removeEmployee(ID);
       }
+      /*
       else
       {
         status.setText("Der er ikke noget sådant medarbejder-ID i systemet");
         status.setVisible(true);
       }
+
+       */
     }
   }
 

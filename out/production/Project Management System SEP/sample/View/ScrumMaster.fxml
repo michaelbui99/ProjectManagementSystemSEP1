@@ -3,9 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="758.0" prefWidth="789.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ScrumMasterController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1047.0" prefWidth="989.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ScrumMasterController">
    <children>
       <FlowPane alignment="CENTER" prefHeight="57.0" prefWidth="600.0">
          <children>
@@ -44,27 +44,17 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label text="Projekt ID:" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </Label>
                   <Label text="Projekt navn:" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField promptText="Projekt ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="projectName" promptText="Projekt navn:" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="30.0" right="40.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="Projekt navn:" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets left="30.0" right="40.0" />
-                     </GridPane.margin>
-                  </TextField>
-                  <Button mnemonicParsing="false" text="Søg" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="chooseProjectBtn" mnemonicParsing="false" onAction="#chooseProject" text="Vælg" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
          </children>
@@ -72,7 +62,7 @@
       <FlowPane prefHeight="200.0" prefWidth="200.0" />
       <FlowPane prefHeight="124.0" prefWidth="778.0">
          <children>
-            <GridPane prefHeight="147.0" prefWidth="787.0">
+            <GridPane prefHeight="370.0" prefWidth="938.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="4.0" prefWidth="4.0" />
@@ -83,9 +73,10 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Vælg krav:">
+                  <Label text="Rediger krav">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
@@ -95,12 +86,12 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="398.0" promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="reqID" prefHeight="25.0" prefWidth="398.0" promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" right="150.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" text="Vælg" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="chooseReqBtn" mnemonicParsing="false" onAction="#chooseRequirement" text="Vælg" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="412.0" />
                      </GridPane.margin>
@@ -110,45 +101,101 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Button mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Button fx:id="approveChangesBtn" mnemonicParsing="false" onAction="#editRequirement" text="Godkendt" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="412.0" />
                      </GridPane.margin>
                   </Button>
-                  <Label text="Krav priorite:t:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label text="Krav prioritet:" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="398.0" promptText="Krav prioritet:" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets left="30.0" right="150.0" />
-                     </GridPane.margin>
-                  </TextField>
-                  <MenuButton mnemonicParsing="false" popupSide="RIGHT" text="Status" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Påbegynde" />
-                      <MenuItem mnemonicParsing="false" text="Ikke Påbegynde" />
-                        <MenuItem mnemonicParsing="false" text="slut" />
-                    </items>
-                     <GridPane.margin>
-                        <Insets left="28.0" />
-                     </GridPane.margin>
-                  </MenuButton>
+                  <GridPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Høj" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="reqPriority" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Lav" toggleGroup="$reqPriority">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Normal" toggleGroup="$reqPriority" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Kritisk" toggleGroup="$reqPriority" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </RadioButton>
+                     </children>
+                  </GridPane>
+                  <GridPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Ikke Påbegyndt">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="reqStatus" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="10.0" layoutY="12.0" mnemonicParsing="false" text="Påbegyndt" toggleGroup="$reqStatus" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </RadioButton>
+                        <RadioButton layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Afsluttet" toggleGroup="$reqStatus" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </RadioButton>
+                     </children>
+                  </GridPane>
                </children>
             </GridPane>
          </children>
       </FlowPane>
-      <FlowPane prefHeight="96.0" prefWidth="779.0">
+      <FlowPane prefHeight="421.0" prefWidth="998.0">
          <children>
-            <GridPane prefHeight="107.0" prefWidth="782.0">
+            <GridPane prefHeight="350.0" prefWidth="966.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Tilføj opgave:">
@@ -156,23 +203,87 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="398.0" promptText="Tilføj opgave:" GridPane.columnIndex="1">
+                  <TextField fx:id="taskName" prefHeight="25.0" prefWidth="398.0" promptText="Opgavenavn" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" right="40.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" text="Tilføj" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="addTaskBtn" mnemonicParsing="false" onAction="#addTask" text="Tilføj" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets left="306.0" />
                      </GridPane.margin>
                   </Button>
+                  <TextField fx:id="taskID" promptText="OpgaveID" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="30.0" right="40.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="memberResponsible" text="Ansvarlig Teammedlem" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="30.0" right="40.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label fx:id="responsibleError" text="Member not found in system, try again" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Label text="Task Priority" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Lav">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="taskPriority" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="10.0" layoutY="9.0" mnemonicParsing="false" text="Normal" toggleGroup="$taskPriority" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </RadioButton>
+                        <RadioButton layoutX="10.0" layoutY="24.0" mnemonicParsing="false" text="Høj" toggleGroup="$taskPriority" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </RadioButton>
+                        <RadioButton layoutX="10.0" layoutY="40.0" mnemonicParsing="false" text="Kritisk" toggleGroup="$taskPriority" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </RadioButton>
+                     </children>
+                  </GridPane>
+                  <Label text="Deadline" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="deadlineDay" promptText="Day" />
+                        <TextField fx:id="deadlineYear" layoutX="10.0" layoutY="22.0" promptText="Year" GridPane.columnIndex="2" />
+                        <TextField fx:id="deadlineMonth" layoutX="10.0" layoutY="22.0" promptText="Month" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
                </children>
             </GridPane>
          </children>
       </FlowPane>
-      <FlowPane prefHeight="13.0" prefWidth="792.0">
+      <FlowPane prefHeight="142.0" prefWidth="974.0">
          <children>
-            <GridPane prefHeight="39.0" prefWidth="792.0">
+            <GridPane prefHeight="73.0" prefWidth="826.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -186,7 +297,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1">
+                  <Button mnemonicParsing="false" onAction="#saveRequirementList" text="Godkendt" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="315.0" />
                      </GridPane.margin>

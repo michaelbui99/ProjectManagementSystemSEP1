@@ -9,6 +9,8 @@ import sample.Model.*;
 public class ScrumMasterController
 {
   @FXML
+  private Button cancel;
+  @FXML
   private TextField responsibleMember;
 
   @FXML

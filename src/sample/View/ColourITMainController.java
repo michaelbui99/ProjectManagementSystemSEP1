@@ -13,22 +13,15 @@ import java.util.Locale;
 
 public class ColourITMainController
 {
-  @FXML private TableView tableViewMain;
   @FXML private Button next;
   @FXML private Button cancel;
-  @FXML private Button load;
-  @FXML private RadioButton adminRadio;
-  @FXML private RadioButton projectCreatorRadio;
-  @FXML private RadioButton projectOwnerRadio;
-  @FXML private RadioButton scrumMasterRadio;
-  @FXML private RadioButton teamMemberRadio;
   @FXML private ToggleGroup role;
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
   private Region root;
 
 
-  public void setModel( ManagementSystemModel model)
+  public void setModel(ManagementSystemModel model)
   {
     this.model = model;
   }
@@ -75,11 +68,6 @@ public class ColourITMainController
     {
       viewHandler.openView("teamMemberView");
     }
-  }
-
-  public void setLoad() throws IOException, ClassNotFoundException
-  {
-    model.loadProjectList(); /*TODO: the goddamn tableView*/
   }
 
   public void setCancel()

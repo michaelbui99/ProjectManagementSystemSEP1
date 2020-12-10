@@ -112,7 +112,7 @@ public class ProjectFile implements Serializable
 
 
 
-  public void writeProjectListFile(ProjectList projectList) throws IOException
+  public void writeProjectListFile(ProjectList projectList, String fileName) throws IOException
 
   {
     File file = new File(fileName + ".bin"); //Angiver path til filen.
@@ -151,9 +151,9 @@ public class ProjectFile implements Serializable
     out.close();
   }
 
-  public void writeTaskListFile(TaskList taskList) throws IOException
+  public void writeTaskListFile(TaskList taskList, String fileName) throws IOException
   {
-    File file = new File(fileName); //Angiver path til filen.
+    File file = new File(fileName + ".bin"); //Angiver path til filen.
     FileOutputStream fos = null;
     ObjectOutputStream out = null;
 

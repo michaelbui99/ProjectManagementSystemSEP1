@@ -134,7 +134,7 @@ public class ViewHandler
       try
       {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("View3.fxml"));
+        loader.setLocation(getClass().getResource("ProjectOwner.fxml"));
         Region root = loader.load();
         projectOwnerController = loader.getController();
         projectOwnerController.init(this, model, root);

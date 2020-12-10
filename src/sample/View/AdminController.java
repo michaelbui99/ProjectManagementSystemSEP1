@@ -6,6 +6,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.EmployeeList;
 import sample.Model.ManagementSystemModel;
+import sample.Model.MyDate;
 import sample.Model.TeamMember;
 
 import java.io.IOException;
@@ -106,7 +107,8 @@ public class AdminController
 
   public void setApprove() throws IOException
   {
-    model.saveProject( "EmployeeList");
+
+    model.saveProject( "EmployeeList" + MyDate.now().toString());
   }
   public void setCancel()
   {

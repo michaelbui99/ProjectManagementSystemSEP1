@@ -107,9 +107,10 @@ public class MyDate
 
   public String toString()
   {
-    return String.format("%s/%s/%s", day, month, year);
+    return String.format("d%sm%sy%s", day, month, year);
 
   }
+
 
   public String getMonthName()
   {

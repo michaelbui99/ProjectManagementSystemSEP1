@@ -39,7 +39,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Tilføj et nyt teammedlem:">
+                  <Label text="Tilføj teammedlem til system">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -118,7 +118,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Fjern et teammedlem:">
+                  <Label text="Fjern teammedlem fra system:">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -149,6 +149,11 @@
                      </GridPane.margin>
                   </Button>
                   <Label text="Status" visible="false" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
             </GridPane>
          </children>

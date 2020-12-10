@@ -28,7 +28,6 @@ public class AdminController
   @FXML private Label status;
 
 
-
   public void setModel( ManagementSystemModel model)
   {
     this.model = model;
@@ -98,6 +97,11 @@ public class AdminController
 
        */
     }
+  }
+
+  public void logOut()
+  {
+    viewHandler.openView("main");
   }
 
   public void setApprove() throws IOException

@@ -51,6 +51,11 @@
                   </TextField>
                   <Button fx:id="search" mnemonicParsing="false" text="Søg" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label fx:id="status" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                     <GridPane.margin>
+                        <Insets right="30.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
             </GridPane>
          </children>

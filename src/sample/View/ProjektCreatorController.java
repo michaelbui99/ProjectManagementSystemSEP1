@@ -92,4 +92,8 @@ public class ProjektCreatorController
     Stage stage = (Stage) cancel.getScene().getWindow();
     stage.close();
   }
+  public void logOut()
+  {
+    viewHandler.openView("main");
+  }
 }

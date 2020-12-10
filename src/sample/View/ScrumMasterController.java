@@ -134,6 +134,9 @@ public class ScrumMasterController
 
   }
 
-
+  public void logOut()
+  {
+    viewHandler.openView("main");
+  }
 
 }

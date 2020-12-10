@@ -211,6 +211,11 @@
                         <Insets left="398.0" />
                      </GridPane.margin>
                   </Button>
+                  <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.halignment="LEFT">
+                     <GridPane.margin>
+                        <Insets left="70.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
             </GridPane>
          </children>

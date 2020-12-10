@@ -39,7 +39,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Tilføj et nyt teammedlem:">
+                  <Label text="Tilføj teammedlem til system">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -118,7 +118,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Fjern et teammedlem:">
+                  <Label text="Fjern teammedlem fra system:">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>

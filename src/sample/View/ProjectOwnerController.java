@@ -95,6 +95,11 @@ public class ProjectOwnerController
     int ID = Integer.parseInt(inputAddRequirementID.getText());
     model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().removeRequirement(ID);
   }
+
+  public void setAccept() throws IOException
+  {
+    model.saveProject(inputAddProjectName.getText());
+  }
   public void setCancel()
   {
     Stage stage = (Stage) cancel.getScene().getWindow();

@@ -2,13 +2,26 @@ package sample.View;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.ManagementSystemModel;
 
+import java.io.IOException;
+
 public class TeamMemberController
 {
   @FXML private Button cancel;
+  @FXML private Button accept;
+  @FXML private Button search;
+  @FXML private Button save;
+  @FXML private Button showAllProjects;
+  @FXML private TextField inputProjectName;
+  @FXML private TextField inputRequirementID;
+  @FXML private TextField inputTaskID;
+  @FXML private TextField inputTime;
+  @FXML private TableView tableView;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -37,6 +50,29 @@ public class TeamMemberController
     return root;
   }
 
+  public void setSearchForProject()
+  {
+    model.getProjectList().getProject(inputProjectName.getText());
+  }
+
+  public void setShowAllProjects()
+  {
+    model.getProjectList();
+  }
+
+  public void setSave()
+  {
+    int reqID = Integer.parseInt(inputRequirementID.getText());
+    int taskID = Integer.parseInt(inputTaskID.getText());
+    int time = Integer.parseInt(inputTime.getText());
+
+    model.registerTaskTime(time,reqID,taskID);
+  }
+
+  public void setAccept() throws IOException
+  {
+    model.saveProject(inputProjectName.getText());
+  }
 
   public void setCancel()
   {

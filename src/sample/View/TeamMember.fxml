@@ -26,15 +26,13 @@
       </FlowPane>
       <FlowPane prefHeight="261.0" prefWidth="795.0">
          <children>
-            <GridPane prefHeight="233.0" prefWidth="930.0">
+            <GridPane prefHeight="197.0" prefWidth="937.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="42.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="357.0" minWidth="10.0" prefWidth="357.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -45,44 +43,29 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Projekt ID:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label text="Projekt navn:" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label text="Projekt navn:" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <padding>
+                  <TextField fx:id="inputProjectName" promptText="Projekt navn:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="30.0" right="40.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Button fx:id="search" mnemonicParsing="false" onAction="#setSearchForProject" text="Søg" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="showAllProjects" mnemonicParsing="false" onAction="#setShowAllProjects" text="Vis alle projekter" GridPane.rowIndex="2">
+                     <GridPane.margin>
                         <Insets left="10.0" />
-                     </padding>
-                  </Label>
-                  <TextField promptText="Projekt ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets left="30.0" right="40.0" />
                      </GridPane.margin>
-                  </TextField>
-                  <TextField promptText="Projekt navn:" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets left="30.0" right="40.0" />
-                     </GridPane.margin>
-                  </TextField>
-                  <Button mnemonicParsing="false" text="Søg" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Label text="Teammedlem navn:" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </Label>
-                  <TextField promptText="Teammedlem navn:" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                     <GridPane.margin>
-                        <Insets left="30.0" right="40.0" />
-                     </GridPane.margin>
-                  </TextField>
+                  </Button>
                </children>
             </GridPane>
          </children>
       </FlowPane>
       <FlowPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <TableView prefHeight="393.0" prefWidth="930.0">
+            <TableView fx:id="tableView" prefHeight="478.0" prefWidth="934.0">
                <columns>
                   <TableColumn prefWidth="75.0" text="Projekt" />
                   <TableColumn prefWidth="75.0" text="Kraver" />
@@ -106,8 +89,10 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Registere tid:">
@@ -115,14 +100,21 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Vælg opgave ID:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Tid:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField promptText="Opgave ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Label text="Vælg opgave ID:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Tid:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="inputTaskIDForTime" promptText="Opgave ID:" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="30.0" right="165.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="Tid:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="inputTime" promptText="Tid:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="30.0" right="165.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Button fx:id="save" mnemonicParsing="false" onAction="#setSave" text="gem" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Label prefWidth="88.0" text="Vælg krav ID:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="inputRequirementID" promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" right="165.0" />
                      </GridPane.margin>
@@ -142,12 +134,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Afslut">
+                  <Button fx:id="cancel" mnemonicParsing="false" onAction="#setCancel" text="Afslut">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1">
+                  <Button fx:id="accept" mnemonicParsing="false" onAction="#setAccept" text="Godkendt" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="385.0" />
                      </GridPane.margin>

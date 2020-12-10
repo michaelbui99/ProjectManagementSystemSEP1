@@ -22,6 +22,13 @@ public class TeamMember implements Serializable
     registeredHours = 0;
   }
 
+  public TeamMember(String name, String role)
+  {
+    this.name = name;
+    this.role = role;
+    registeredHours = 0;
+  }
+
 
   //Getter
 

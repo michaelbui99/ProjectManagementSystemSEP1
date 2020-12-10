@@ -180,7 +180,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="accept" mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1">
+                  <Button fx:id="accept" mnemonicParsing="false" onAction="#setAccept" text="Godkendt" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="400.0" />
                      </GridPane.margin>

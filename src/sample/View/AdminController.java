@@ -1,14 +1,38 @@
 package sample.View;
 
-import javafx.fxml.FXML;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-
-import java.awt.*;
+import sample.Model.ManagementSystemModel;
 
 public class AdminController
 {
+  private ManagementSystemModel model;
+  private ViewHandler viewHandler;
+  private Region root;
 
-  @FXML private Button cancel;
+
+  public void setModel( ManagementSystemModel model)
+  {
+    this.model = model;
+  }
+
+  public void setViewHandler(ViewHandler viewHandler)
+  {
+    this.viewHandler = viewHandler;
+  }
+
+  public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root)
+  {
+    this.viewHandler = viewHandler;
+    this.model = model;
+    this.root = root;
+  }
+
+  public Region getRoot()
+  {
+    return root;
+  }
+
 
   public void setCancel()
   {
@@ -16,4 +40,3 @@ public class AdminController
     stage.close();
   }
 }
-

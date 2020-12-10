@@ -8,12 +8,14 @@ public class ProjectFile implements Serializable
   private String fileName;
 
   //Constructors
-  private ProjectFile(String fileName)
+  public ProjectFile(String fileName)
   {
     this.fileName = fileName;
   }
 
   //Getters
+  public String getFileName;
+
   public ProjectList readProjectListFile()
       throws IOException, ClassNotFoundException
   {
@@ -113,7 +115,7 @@ public class ProjectFile implements Serializable
   public void writeProjectListFile(ProjectList projectList) throws IOException
 
   {
-    File file = new File(fileName); //Angiver path til filen.
+    File file = new File(fileName + ".bin"); //Angiver path til filen.
     FileOutputStream fos = null;
     ObjectOutputStream out = null;
 
@@ -130,9 +132,10 @@ public class ProjectFile implements Serializable
 
   }
 
-  public void writeEmployeeListFile(EmployeeList employeeList) throws IOException
+  public void writeEmployeeListFile(EmployeeList employeeList, String fileName) throws IOException
   {
-    File file = new File(fileName); //Angiver path til filen.
+    setFile(fileName);
+    File file = new File(fileName + ".bin"); //Angiver path til filen.
     FileOutputStream fos = null;
     ObjectOutputStream out = null;
 

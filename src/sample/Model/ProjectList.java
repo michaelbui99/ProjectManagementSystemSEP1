@@ -1,8 +1,9 @@
 package sample.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProjectList
+public class ProjectList implements Serializable
 {
   //Fields
   private ArrayList<Project> projects;

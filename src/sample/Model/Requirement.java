@@ -1,8 +1,9 @@
 package sample.Model;
 
+import java.io.Serializable;
 
-
-public class Requirement //oprettelse af nyt krav, angiv værdier af:
+public class Requirement implements
+    Serializable //oprettelse af nyt krav, angiv værdier af:
 {
 
   //Fields

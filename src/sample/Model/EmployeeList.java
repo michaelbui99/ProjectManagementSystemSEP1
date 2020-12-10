@@ -1,8 +1,9 @@
 package sample.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EmployeeList
+public class EmployeeList implements Serializable
 {
 
   //Fields
@@ -23,12 +24,8 @@ public class EmployeeList
     teamMembers.add(teamMember);
   }
 
-  public void addTeamMember(String name, int employeeID){
-    for (int i = 0; i < teamMembers.size(); i++)
-    {
-      teamMembers.get(i).addName(name);
-      teamMembers.get(i).addEmployeeID(employeeID);
-    }
+  public void addTeamMember(String name, int employeeID, String role){
+    teamMembers.add(new TeamMember(name, employeeID, role));
   }
 
   public void removeEmployee(int employeeID)

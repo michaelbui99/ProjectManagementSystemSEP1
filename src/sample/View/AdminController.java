@@ -55,24 +55,25 @@ public class AdminController
   public void addTeamMember()
   {
     RadioButton selectRadio = (RadioButton) jaNej.getSelectedToggle();
-    model.setUser(selectRadio.getText());
     int ID = Integer.parseInt(inputID.getText());
-    ArrayList<EmployeeList> employeeLists1 = new ArrayList<>();
-    for (int i = 0; i < employeeLists1.size(); i++)
-    {
-      if (model.getUser().toLowerCase().equals("ja"))
+    //ArrayList<EmployeeList> employeeLists1 = new ArrayList<>();
+    /*for (int i = 0; i < model.getEmployeeList().getAllEmployees().size(); i++)
+    {*/
+      if (selectRadio.getText().equals("Ja"))
       {
-        employeeLists1.get(i).addTeamMember(inputName.getText(), ID);
-        model.assignTeamMemberRole(inputName.getText(),"projectcreator");
+        model.addEmployeeToSystem(inputName.getText(), ID, "projectcreator");
+        //model.getEmployeeList().addEmployee(teamMemberToAdd);
+
       }
       else
       {
-        employeeLists1.get(i).addTeamMember(inputName.getText(), ID);
+        model.addEmployeeToSystem(inputName.getText(), ID, "teammember");
+
       }
       status.setText("Medarbejder er tilføjert");
       status.setVisible(true);
     }
-  }
+
 
   public void removeEmployee()
   {
@@ -93,9 +94,9 @@ public class AdminController
     }
   }
 
-  public void setApprove(EmployeeList employeeList) throws IOException
+  public void setApprove() throws IOException
   {
-    model.saveProject(employeeList);
+    model.saveProject( "EmployeeList");
   }
   public void setCancel()
   {

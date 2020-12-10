@@ -69,7 +69,7 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                      <toggleGroup>
-                        <ToggleGroup fx:id="JA_NEJ" />
+                        <ToggleGroup fx:id="jaNej" />
                      </toggleGroup>
                   </RadioButton>
                   <TextField fx:id="inputID" promptText="Indsæt ID" GridPane.columnIndex="2" GridPane.rowIndex="2">
@@ -77,13 +77,10 @@
                         <Insets left="30.0" right="40.0" />
                      </GridPane.margin>
                   </TextField>
-                  <RadioButton mnemonicParsing="false" text="Nej" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <RadioButton mnemonicParsing="false" text="Nej" toggleGroup="$jaNej" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="jaNej" />
-                     </toggleGroup>
                   </RadioButton>
                </children>
             </GridPane>
@@ -172,7 +169,7 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="approve" mnemonicParsing="false" text="Godkend" GridPane.columnIndex="1">
+                  <Button fx:id="approve" mnemonicParsing="false" onAction="#setApprove" text="Godkend" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="220.0" />
                      </GridPane.margin>

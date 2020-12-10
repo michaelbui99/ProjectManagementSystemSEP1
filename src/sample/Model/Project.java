@@ -2,7 +2,9 @@ package sample.Model;
 
 //TODO: Rename Date --> MyDate i astah Class Diagram, da Date en API implementeret class.
 
-public class Project
+import java.io.Serializable;
+
+public class Project implements Serializable
 {
   //Fields
   private String projectName;

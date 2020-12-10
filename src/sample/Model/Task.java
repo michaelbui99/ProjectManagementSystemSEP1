@@ -1,8 +1,9 @@
 package sample.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Task
+public class Task implements Serializable
 {
   //Fields
   private String name;

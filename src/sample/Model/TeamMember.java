@@ -1,7 +1,8 @@
 package sample.Model;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class TeamMember
+public class TeamMember implements Serializable
 {
 
   //Fields
@@ -13,7 +14,7 @@ public class TeamMember
 
   //Constructor
 
-  TeamMember(String name, int employeeID, String role)
+  public TeamMember(String name, int employeeID, String role)
   {
     this.name = name;
     this.employeeID = employeeID;

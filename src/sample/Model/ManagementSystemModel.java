@@ -20,7 +20,7 @@ public class ManagementSystemModel
     projectList = new ProjectList();
     employeeList = new EmployeeList();
     currentProject = ""; //Ved start er der ingen projekter valgt endnu.
-    projectFile = null;
+    projectFile = new ProjectFile("Hello");
   }
 
   public void setUser(String userRole) {
@@ -134,13 +134,13 @@ public class ManagementSystemModel
        return projectFile.readProjectListFile().getAllProjects();
   }
 
-  public void saveProject(EmployeeList employeeList) throws IOException
+  public void saveProject(String filename) throws IOException
   {
-    projectFile.writeEmployeeListFile(employeeList);
+    projectFile.writeEmployeeListFile(employeeList, filename);
   }
 
-  public void addEmployeeToSystem(String name, int ID) {
-      employeeList.addTeamMember(name,ID);
+  public void addEmployeeToSystem(String name, int ID, String role) {
+      employeeList.addTeamMember(name,ID,role);
   }
 
   public void removeEmployeeFromSystem(int ID) {

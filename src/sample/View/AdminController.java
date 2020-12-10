@@ -1,10 +1,14 @@
 package sample.View;
 
+import javafx.fxml.FXML;
 import javafx.stage.Stage;
+
+import java.awt.*;
 
 public class AdminController
 {
 
+  @FXML private Button cancel;
 
   public void setCancel()
   {
@@ -12,3 +16,4 @@ public class AdminController
     stage.close();
   }
 }
+

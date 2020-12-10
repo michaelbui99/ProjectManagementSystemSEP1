@@ -164,7 +164,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Afslut">
+                  <Button fx:id="cancel" mnemonicParsing="false" text="Afslut">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>

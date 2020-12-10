@@ -52,7 +52,7 @@ public class AdminController
   {
     return root;
   }
-
+/*
   public void setName(String name)
   {
     ArrayList<EmployeeList> employeeLists1 = new ArrayList<>();
@@ -62,7 +62,7 @@ public class AdminController
       employeeLists1.get(i).a
     }
   }
-
+*/
   public void setCancel()
   {
     Stage stage = (Stage) cancel.getScene().getWindow();

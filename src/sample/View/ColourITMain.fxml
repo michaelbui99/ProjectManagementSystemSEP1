@@ -50,9 +50,9 @@
                         <ToggleGroup fx:id="role" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="scrumMasterRadio" mnemonicParsing="false" text="Scrum-master" toggleGroup="$role" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <RadioButton fx:id="projectOwnerRadio" mnemonicParsing="false" text="Projekt ejer" toggleGroup="$role" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <RadioButton fx:id="projectCreatorRadio" mnemonicParsing="false" text="Projekt skaber" toggleGroup="$role" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <RadioButton fx:id="scrumMasterRadio" mnemonicParsing="false" text="Scrummaster" toggleGroup="$role" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <RadioButton fx:id="projectOwnerRadio" mnemonicParsing="false" text="Projektejer" toggleGroup="$role" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <RadioButton fx:id="projectCreatorRadio" mnemonicParsing="false" text="Projektskaber" toggleGroup="$role" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <RadioButton fx:id="adminRadio" mnemonicParsing="false" text="Admin" toggleGroup="$role" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>

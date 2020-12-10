@@ -52,11 +52,11 @@ public class ColourITMainController
     {
       viewHandler.openView("admin");
     }
-    else if (model.getUser().toLowerCase().equals("projectowner"))
+    else if (model.getUser().toLowerCase().equals("projektejer"))
     {
       viewHandler.openView("projectOwner");
     }
-    else if (model.getUser().toLowerCase().equals("projektcreator"))
+    else if (model.getUser().toLowerCase().equals("projektskaber"))
     {
       viewHandler.openView("projektCreator");
     }
@@ -64,10 +64,11 @@ public class ColourITMainController
     {
       viewHandler.openView("scrumMaster");
     }
-    else if (model.getUser().toLowerCase().equals("teammemberview"))
+    else if (model.getUser().toLowerCase().equals("teammedlem"))
     {
-      viewHandler.openView("teamMemberView");
+      viewHandler.openView("teammember");
     }
+    System.out.println(model.getUser());
   }
 
   public void setCancel()

@@ -45,17 +45,20 @@ public class ViewHandler
       case "main":
         root = loadMainView();
         break;
-      case "projectOwner":
+      case "projectowner":
         root = loadProjectOwnerView();
         break;
-      case "projektCreator":
+      case "projektcreator":
         root = loadProjektCreatorView();
         break;
-      case "scrumMaster":
+      case "scrummaster":
         root = loadScrumMasterView();
         break;
-      case "teamMemberView":
+      case "teammember":
         root = loadTeamMemberView();
+        break;
+      default:
+        System.out.println("None role set yet.");
         break;
     }
     currentScene.setRoot(root);

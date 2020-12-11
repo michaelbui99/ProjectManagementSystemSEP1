@@ -7,9 +7,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import sample.Model.ManagementSystemModel;
-import sample.Model.ProjectList;
-import sample.Model.Requirement;
+import sample.Model.*;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -27,6 +25,10 @@ public class ProjectOwnerController
   @FXML private TextField inputApprovalRequirementID;
   @FXML private TextField inputAddRequirementID;
   @FXML private TextField inputAddRequirementName;
+  @FXML private TextField inputResponsibleTeamMember;
+  @FXML private TextField day;
+  @FXML private TextField month;
+  @FXML private TextField year;
   @FXML private TextField inputRemoveRequirementID;
   @FXML private TableView tableView;
   @FXML private Label status;
@@ -87,7 +89,19 @@ public class ProjectOwnerController
   public void setAddRequirement()
   {
     int ID = Integer.parseInt(inputAddRequirementID.getText());
-    model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().addRequirement(new Requirement(inputAddRequirementName.getText(), ID));
+    int d = Integer.parseInt(day.getText());
+    int m = Integer.parseInt(month.getText());
+    int y = Integer.parseInt(year.getText());
+
+    model.getProjectList().getProject(inputAddProjectName.getText()).
+        getRequirementList().addRequirement(new Requirement(inputAddRequirementName.
+        getText(), ID));
+
+    model.assignTeamMemberToRequirement(ID, model.getProjectList().
+        getProject(inputAddProjectName.getText()).getEmployeeList().
+        getEmployee(inputResponsibleTeamMember.getText()));
+
+    model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().getRequirement(ID).setDeadline(new MyDate(d,m,y));
   }
 
   public void setRemoveRequirement()

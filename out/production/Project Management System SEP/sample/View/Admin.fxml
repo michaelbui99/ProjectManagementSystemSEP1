@@ -149,11 +149,6 @@
                      </GridPane.margin>
                   </Button>
                   <Label text="Status" visible="false" GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
-                     <GridPane.margin>
-                        <Insets right="20.0" />
-                     </GridPane.margin>
-                  </Button>
                </children>
             </GridPane>
          </children>
@@ -174,9 +169,9 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="approve" mnemonicParsing="false" onAction="#setApprove" text="Godkend" GridPane.columnIndex="1">
+                  <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                      <GridPane.margin>
-                        <Insets left="220.0" />
+                        <Insets right="20.0" />
                      </GridPane.margin>
                   </Button>
                </children>

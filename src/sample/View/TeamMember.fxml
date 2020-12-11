@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <ScrollPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.TeamMemberController">
    <content>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="952.0" prefWidth="938.0">
@@ -143,14 +142,9 @@
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="accept" mnemonicParsing="false" onAction="#setAccept" text="Godkendt" GridPane.columnIndex="1">
+                        <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="1">
                            <GridPane.margin>
-                              <Insets left="385.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#logOut" text="Log ud">
-                           <GridPane.margin>
-                              <Insets left="80.0" />
+                              <Insets left="400.0" />
                            </GridPane.margin>
                         </Button>
                      </children>

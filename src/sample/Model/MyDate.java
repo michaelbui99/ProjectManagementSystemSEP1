@@ -1,8 +1,9 @@
 package sample.Model;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class MyDate
+public class MyDate implements Serializable
 {
   /*
   Fields

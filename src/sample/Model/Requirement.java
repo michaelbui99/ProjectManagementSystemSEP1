@@ -43,7 +43,8 @@ public class Requirement implements
     this.requirementID = requirementID;
   }
 
-  Requirement(String name, int requirementID, TeamMember responsibleTeamMember, String priority)
+  public Requirement(String name, int requirementID,
+      TeamMember responsibleTeamMember, String priority)
   {
     this.name = name;
     this.requirementID = requirementID;

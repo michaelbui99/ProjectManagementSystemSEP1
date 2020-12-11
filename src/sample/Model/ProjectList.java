@@ -21,7 +21,7 @@ public class ProjectList implements Serializable
     {
       if (project.getProjectName().equals(projectName))
       {
-        return new Project(project.getProjectName(), project.getProjectID(), project.getDeadline());
+        return  project;
       }
     }
     return null;

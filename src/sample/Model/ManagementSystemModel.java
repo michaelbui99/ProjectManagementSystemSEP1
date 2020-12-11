@@ -80,6 +80,18 @@ public class ManagementSystemModel
     currentProject = projectName;
   }
 
+  public void saveProjectList() throws IOException
+  {
+    projectFile.writeProjectListFile("ProjectList.bin",projectList);
+  }
+
+  public ProjectList readProjectList(String fileName)
+      throws IOException, ClassNotFoundException
+  {
+    return projectFile.readProjectListFile(fileName);
+
+  }
+
   /*TODO: Michael implements the 8 first methods.*/
 
   public void assignTeamMemberToRequirement(int requirementID, TeamMember teamMember)
@@ -137,6 +149,7 @@ public class ManagementSystemModel
     return projectList.getProject(projectName);
   }
 
+  /*
   public float getProjectProgress(String projectName) {
     return (projectList.getProject(projectName).getRequirementList().getNumberOfRequirements()) / (projectList.getProject(projectName).getRequirementList().getNumberOfApprovedRequirement()) * 100;
   }
@@ -145,8 +158,11 @@ public class ManagementSystemModel
         throws IOException, ClassNotFoundException
     {
 
-       return projectFile.readProjectListFile().getAllProjects();
+       return projectFile.readProjectListFile("ProjectList.bin");
   }
+
+
+   */
 
   public void saveProject(String filename) throws IOException
   {

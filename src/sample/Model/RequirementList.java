@@ -8,7 +8,7 @@ public class RequirementList implements Serializable
   //Fields
 
 
-  RequirementList ()
+  public RequirementList()
   {
     this.requirements = new ArrayList<Requirement>();
   }
@@ -40,7 +40,9 @@ public class RequirementList implements Serializable
     for (int i = 0; i < requirements.size(); i++)
     {
       if (requirements.get(i).getRequirementID() == requirementID)
+      {
         return requirements.get(i);
+      }
     }
     return null;
   }

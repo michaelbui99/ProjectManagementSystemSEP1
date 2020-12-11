@@ -1,6 +1,8 @@
 package sample.Model;
 
 import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class ProjectFile implements Serializable
 {
@@ -15,26 +17,44 @@ public class ProjectFile implements Serializable
 
   //Getters
   public String getFileName;
-
-  public ProjectList readProjectListFile()
+/*
+  public ArrayList<Project> readProjectListFile(String fileName)
       throws IOException, ClassNotFoundException
   {
-    ProjectList projectList = new ProjectList(); //Bruges som return for metoden.
+    File file = new File(fileName);
+    ArrayList<Project> projectList = new ArrayList<>(); //Bruges som return for metoden.
     FileInputStream fis = null;
     ObjectInputStream in = null;
-    fis = new FileInputStream(fileName); //Angiver path til filen
+    fis = new FileInputStream(file); //Angiver path til filen
     in = new ObjectInputStream(fis);
     int counter = in.readInt();
+
     for (int i = 0; i < counter; i++)
     {
       if (in.readObject() instanceof Project) //Checker om objektet vi læser er et Project object inden vi caster.
       {
-        projectList.addProject((Project) in.readObject());
+        projectList.add((Project) in.readObject());
       }
     }
     in.close();
 
     return projectList;
+  }
+
+ */
+
+  public ProjectList readProjectListFile(String fileName)
+      throws IOException, ClassNotFoundException
+  {
+    File file = new File(fileName);
+    ProjectList projectList = null;
+    FileInputStream fis = new FileInputStream(file);
+    ObjectInputStream in = new ObjectInputStream(fis);
+    int counter = in.readInt();
+    projectList = (ProjectList) in.readObject();
+    in.close();
+    return projectList;
+
   }
 
   public EmployeeList readEmployeeListFile()
@@ -130,6 +150,18 @@ public class ProjectFile implements Serializable
 
     out.close();
 
+  }
+
+  public void writeProjectListFile(String fileName, ProjectList projectList)
+      throws IOException
+  {
+    File file = new File(fileName);
+    FileOutputStream fos = new FileOutputStream(file);
+    ObjectOutputStream out = new ObjectOutputStream(fos);
+    out.writeInt(1);
+    out.writeObject(projectList);
+    out.flush();
+    out.close();
   }
 
   public void writeEmployeeListFile(EmployeeList employeeList, String fileName) throws IOException

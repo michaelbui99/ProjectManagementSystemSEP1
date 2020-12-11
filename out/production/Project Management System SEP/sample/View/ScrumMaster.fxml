@@ -294,7 +294,7 @@
             </FlowPane>
             <FlowPane prefHeight="142.0" prefWidth="974.0">
                <children>
-                  <GridPane prefHeight="73.0" prefWidth="826.0">
+                  <GridPane prefHeight="97.0" prefWidth="988.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -308,14 +308,9 @@
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#saveRequirementList" text="Godkendt" GridPane.columnIndex="1">
+                        <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="1">
                            <GridPane.margin>
-                              <Insets left="315.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#logOut" text="Log ud">
-                           <GridPane.margin>
-                              <Insets left="80.0" />
+                              <Insets left="427.0" />
                            </GridPane.margin>
                         </Button>
                      </children>

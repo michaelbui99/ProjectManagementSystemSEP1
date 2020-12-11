@@ -8,7 +8,7 @@ import sample.Model.*;
 
 public class ScrumMasterController
 {
-  @FXML
+ /* @FXML
   private Button cancel;
   @FXML
   private TextField responsibleMember;
@@ -56,7 +56,23 @@ public class ScrumMasterController
   private TextField deadlineYear;
 
   @FXML
-  private TextField deadlineMonth;
+  private TextField deadlineMonth;*/
+
+  @FXML private ChoiceBox requirementPriority;
+  @FXML private ChoiceBox requirementStatus;
+  @FXML private ChoiceBox taskPriority;
+  @FXML private ChoiceBox responsibleTeamMember;
+  @FXML private Button cancel;
+  @FXML private Button approveRequirement;
+  @FXML private Button logOut;
+  @FXML private TableView requirementTable;
+  @FXML private TableView taskTable;
+  @FXML private TextField inputTaskName;
+  @FXML private TextField inputTaskID;
+  @FXML private TextField inputDay;
+  @FXML private TextField inputMonth;
+  @FXML private TextField inputYear;
+  @FXML private TextField approveTask;
 
 
   private ManagementSystemModel model;
@@ -96,7 +112,7 @@ public class ScrumMasterController
   }
 
 
-  public void chooseProject()
+  /*public void chooseProject()
   {
     if (projectName.getText() != null || projectName.getText()!= "")
     {
@@ -126,10 +142,35 @@ public class ScrumMasterController
     String responsibleName = responsibleMember.getText();
     TeamMember responsibleMember = chosenRequirement.getEmployees().getEmployee(responsibleName);
     chosenRequirement.getTaskList().addTask(new Task(taskName.getText(),Integer.parseInt(taskID.getText()),"Ikke påbegyndt",responsibleMember,selectedTaskPrio.getText(),new MyDate(Integer.parseInt(deadlineDay.getText()),Integer.parseInt(deadlineMonth.getText()),Integer.parseInt(deadlineYear.getText()))));
+  }*/
+
+  public void setRequirementPriority()
+  {
+
+  }
+
+  public void setRequirementStatus()
+  {
+
   }
 
 
   public void saveRequirementList()
+  {
+
+  }
+
+  public void setResponsibleTeamMember()
+  {
+
+  }
+
+  public void setTaskPriority()
+  {
+
+  }
+
+  public void seTaskDeadline()
   {
 
   }

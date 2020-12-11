@@ -3,10 +3,11 @@ package sample.util;
 import sample.Model.Requirement;
 
 import javax.management.openmbean.KeyAlreadyExistsException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class IDGenerator
+public class IDGenerator implements Serializable
 {
   //Fields
   /*

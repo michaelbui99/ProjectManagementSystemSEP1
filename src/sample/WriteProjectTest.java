@@ -1,4 +1,4 @@
-package sample;
+/*package sample;
 
 import sample.Model.*;
 
@@ -19,7 +19,7 @@ public class WriteProjectTest
     Requirement req1 = new Requirement("Test", 201, new TeamMember("Michael", 2020, "teammember"),"Høj");
     model.getProjectList().getProject("Project1").getRequirementList().addRequirement(req1);
 
-    
+
 
     ProjectList loadedList = model.readProjectList("ProjectListd11m12y2020.bin");
 
@@ -32,3 +32,4 @@ public class WriteProjectTest
 
 
 }
+*/

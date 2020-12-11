@@ -1,6 +1,7 @@
 package sample.Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Requirement implements
     Serializable //oprettelse af nyt krav, angiv værdier af:
@@ -21,6 +22,7 @@ public class Requirement implements
   private boolean isApproved;
   private int timeSpendInHours;
   private double estimatedCompletionTimeInHours;
+  private ArrayList<String> priorityList;
 
   //Constructors
 
@@ -41,6 +43,11 @@ public class Requirement implements
   {
     this.name = name;
     this.requirementID = requirementID;
+  }
+
+  public Requirement()
+  {
+    priorityList = new ArrayList<>();
   }
 
   public Requirement(String name, int requirementID,
@@ -127,6 +134,16 @@ public class Requirement implements
   {
     estimatedCompletionTimeInHours = calculateEstimatedTimeInHours(); //Calculate the estimated time total of all task, such that estimated time for requirement is up-to-date
     return estimatedCompletionTimeInHours;
+  }
+
+  public ArrayList<String> getPriorityList()
+  {
+    ArrayList<String> prioList = new ArrayList<>();
+    prioList.add("Lav");
+    prioList.add("Normal");
+    prioList.add("Høj");
+    prioList.add("Kritisk");
+    return prioList;
   }
   //Setters
 

@@ -272,6 +272,11 @@ public class ManagementSystemModel
     return projectList.getProject(projectName).getDeadline();
   }
 
+  public ArrayList<String> getPriorityList(String projectName, int requirementID)
+  {
+    return projectList.getProject(projectName).getRequirementList().getRequirement(requirementID).getPriorityList();
+  }
+
   /*TODO: Christian implements the last 8 methods*/
 
 }

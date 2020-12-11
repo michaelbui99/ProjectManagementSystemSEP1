@@ -144,7 +144,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button fx:id="approveTask" mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Button fx:id="" mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="454.0" />
                                                    </GridPane.margin>

@@ -28,6 +28,7 @@ public class TeamMemberController
   private Region root;
 
 
+
   public void setModel( ManagementSystemModel model)
   {
     this.model = model;
@@ -78,6 +79,11 @@ public class TeamMemberController
   {
     Stage stage = (Stage) cancel.getScene().getWindow();
     stage.close();
+  }
+
+  public void setTableView()
+  {
+    
   }
 
   public void logOut()

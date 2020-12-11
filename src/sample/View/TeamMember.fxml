@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.TeamMemberController">
+<ScrollPane prefHeight="920.0" prefWidth="1067.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.TeamMemberController">
    <content>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="919.0" prefWidth="1063.0">
          <children>
             <FlowPane alignment="CENTER" prefHeight="41.0" prefWidth="600.0">
                <children>
@@ -27,18 +27,56 @@
                   </Label>
                </children>
             </FlowPane>
+            <FlowPane prefHeight="144.0" prefWidth="938.0">
+               <children>
+                  <GridPane prefHeight="145.0" prefWidth="938.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="464.0" minWidth="10.0" prefWidth="266.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="672.0" minWidth="10.0" prefWidth="672.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Søg projekt">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Prokejt navn" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="140.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="inputProjectName" prefHeight="32.0" prefWidth="672.0" promptText="Projket navn:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="30.0" right="165.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Button fx:id="search" mnemonicParsing="false" text="Søg" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="26.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </FlowPane>
             <FlowPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="tableView" prefHeight="478.0" prefWidth="934.0">
+                  <TableView fx:id="tableView" prefHeight="480.0" prefWidth="1056.0">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="Projekt" />
-                        <TableColumn prefWidth="75.0" text="Kraver" />
-                        <TableColumn prefWidth="185.0" text="Ansvarlig teammedlem" />
-                        <TableColumn prefWidth="86.0" text="Opgaver" />
-                        <TableColumn prefWidth="159.0" text="Tid brugt på hver opgave" />
-                        <TableColumn prefWidth="67.0" text="Deadline" />
-                        <TableColumn prefWidth="65.0" text="Partnere" />
-                        <TableColumn prefWidth="143.0" text="Tid bruget med partner" />
+                        <TableColumn prefWidth="75.0" text="Kravnavn" />
+                        <TableColumn prefWidth="99.0" text="KravID" />
+                        <TableColumn prefWidth="172.0" text="Ansvarlig Medlem for krav" />
+                        <TableColumn prefWidth="108.0" text="Krav Status" />
+                        <TableColumn prefWidth="118.0" text="Krav deadline" />
+                        <TableColumn prefWidth="65.0" text="OpgaveID" />
+                        <TableColumn prefWidth="107.0" text="Opgave status" />
+                        <TableColumn prefWidth="107.0" text="Opgave deadline" />
+                        <TableColumn prefWidth="200.0" text="tid mellem teammedlemmer" />
                      </columns>
                   </TableView>
                </children>

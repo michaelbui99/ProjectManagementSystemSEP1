@@ -1,5 +1,7 @@
 package sample.Model;
 
+import sample.util.IDGenerator;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -15,6 +17,8 @@ public class ManagementSystemModel
   private EmployeeList employeeList;
 
   private ProjectFile projectFile;
+
+  private IDGenerator idGenerator;
 
   public ManagementSystemModel() {
     projectList = new ProjectList();

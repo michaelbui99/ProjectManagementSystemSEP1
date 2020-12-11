@@ -108,7 +108,7 @@
             </FlowPane>
             <FlowPane prefHeight="184.0" prefWidth="602.0">
                <children>
-                  <GridPane prefHeight="165.0" prefWidth="976.0">
+                  <GridPane prefHeight="100.0" prefWidth="976.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="0.0" prefWidth="168.0" />

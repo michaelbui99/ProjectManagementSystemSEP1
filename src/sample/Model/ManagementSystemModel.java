@@ -18,7 +18,7 @@ public class ManagementSystemModel
 
   private ProjectFile projectFile;
 
-  private IDGenerator idGenerator;
+
 
   public ManagementSystemModel() {
     projectList = new ProjectList();
@@ -32,17 +32,17 @@ public class ManagementSystemModel
   }
 
   public void createProject(String name, int projectID, MyDate deadLine) {
-    projectList.addProject(new Project(name, projectID, deadLine));
+    projectList.addProject(new Project(name, projectList.getIdGenerator().generateProjectID(), deadLine));
   }
 
   public void createRequirement(String name, int requirementID, TeamMember responsibleTeamMember,
       String status, String priority, MyDate deadline) {
-    projectList.getProject(currentProject).getRequirementList().addRequirement(new Requirement(name, requirementID, responsibleTeamMember, status,priority,deadline));
+    projectList.getProject(currentProject).getRequirementList().addRequirement(new Requirement(name, projectList.getIdGenerator().generateRequirementID(), responsibleTeamMember, status,priority,deadline));
   }
 
   public void createTask(int requirementID, String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline) {
     projectList.getProject(currentProject).getRequirementList().getRequirement(requirementID)
-        .getTaskList().addTask(new Task(name, taskID,status,responsibleTeamMember, priority, deadline));
+        .getTaskList().addTask(new Task(name, projectList.getIdGenerator().generateTaskID(),status,responsibleTeamMember, priority, deadline));
   }
 
   public void removeProject(String name) {
@@ -80,6 +80,19 @@ public class ManagementSystemModel
     currentProject = projectName;
   }
 
+  public void saveProjectList() throws IOException
+  {
+    projectFile.writeProjectListFile("ProjectList" + MyDate.now().toString() + ".bin",projectList);
+  }
+
+  public ProjectList readProjectList(String fileName)
+      throws IOException, ClassNotFoundException
+  {
+    return projectFile.readProjectListFile(fileName);
+
+  }
+
+  
   /*TODO: Michael implements the 8 first methods.*/
 
   public void assignTeamMemberToRequirement(int requirementID, TeamMember teamMember)
@@ -137,6 +150,7 @@ public class ManagementSystemModel
     return projectList.getProject(projectName);
   }
 
+  /*
   public float getProjectProgress(String projectName) {
     return (projectList.getProject(projectName).getRequirementList().getNumberOfRequirements()) / (projectList.getProject(projectName).getRequirementList().getNumberOfApprovedRequirement()) * 100;
   }
@@ -145,8 +159,11 @@ public class ManagementSystemModel
         throws IOException, ClassNotFoundException
     {
 
-       return projectFile.readProjectListFile().getAllProjects();
+       return projectFile.readProjectListFile("ProjectList.bin");
   }
+
+
+   */
 
   public void saveProject(String filename) throws IOException
   {

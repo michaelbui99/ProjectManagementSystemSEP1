@@ -1,5 +1,7 @@
 package sample.Model;
 
+import sample.util.IDGenerator;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -7,11 +9,13 @@ public class ProjectList implements Serializable
 {
   //Fields
   private ArrayList<Project> projects;
+  private IDGenerator idGenerator;
 
   //Constructors
   public ProjectList()
   {
     projects = new ArrayList<>();
+    idGenerator = new IDGenerator();
   }
 
   //Getters
@@ -21,7 +25,7 @@ public class ProjectList implements Serializable
     {
       if (project.getProjectName().equals(projectName))
       {
-        return new Project(project.getProjectName(), project.getProjectID(), project.getDeadline());
+        return  project;
       }
     }
     return null;
@@ -30,6 +34,11 @@ public class ProjectList implements Serializable
   public ArrayList<Project> getAllProjects()
   {
     return projects;
+  }
+
+  public IDGenerator getIdGenerator()
+  {
+    return idGenerator;
   }
 
 

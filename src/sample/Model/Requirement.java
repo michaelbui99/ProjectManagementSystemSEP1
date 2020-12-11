@@ -51,6 +51,8 @@ public class Requirement implements
   }
 
   Requirement(String name, int requirementID, TeamMember responsibleTeamMember, String priority)
+  public Requirement(String name, int requirementID,
+      TeamMember responsibleTeamMember, String priority)
   {
     this.name = name;
     this.requirementID = requirementID;
@@ -172,9 +174,9 @@ public class Requirement implements
       this.status=status;
       break;
     }
+
+
   }
-
-
 
   public void setResponsibleTeamMember(TeamMember responsibleTeamMember)
   {

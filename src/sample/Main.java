@@ -15,6 +15,7 @@ public class Main extends Application {
         ManagementSystemModel model = new ManagementSystemModel();
         ViewHandler viewHandler = new ViewHandler(model);
         viewHandler.start(primaryStage);
+        primaryStage.setTitle("Colour-IT");
     }
 
 

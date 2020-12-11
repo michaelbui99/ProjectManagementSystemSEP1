@@ -50,7 +50,6 @@ public class Requirement implements
     priorityList = new ArrayList<>();
   }
 
-  Requirement(String name, int requirementID, TeamMember responsibleTeamMember, String priority)
   public Requirement(String name, int requirementID,
       TeamMember responsibleTeamMember, String priority)
   {

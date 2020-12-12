@@ -92,11 +92,11 @@ public class ProjectOwnerController
 
 
 
-  public void setRemoveRequirement() throws IOException, ClassNotFoundException
+  public void removeRequirement() throws IOException, ClassNotFoundException
   {
     int ID = Integer.parseInt(inputRemoveRequirementID.getText());
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
-    model.setProjectList(loadedList);
+    model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
     model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().removeRequirement(ID);
     model.saveProjectList();
   }
@@ -112,7 +112,8 @@ public class ProjectOwnerController
   {
     //Loads all saved projects and set the inputted project as current project.
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
-    chosenProject = loadedList.getProject(inputAddProjectName.getText());
+    model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
+    chosenProject = model.getProjectList().getProject(inputAddProjectName.getText());
   }
 
   public ObservableList<Requirement> getAllRequirements()
@@ -138,6 +139,9 @@ public class ProjectOwnerController
     * Method populates the tableView with all requirements
     * */
 
+    //Resets table
+    requirementTable.getItems().clear();
+    requirementTable.getColumns().clear();
 
     //Name column
     TableColumn<Requirement,String> nameColumn = new TableColumn<>("Navn");
@@ -189,8 +193,8 @@ public class ProjectOwnerController
 
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
-    loadedList.getProject(chosenProject.getProjectName()).addRequirement(
-        inputAddRequirementName.getText(), 321321, model.readEmployeeList("EmployeeList.bin").getEmployee(responsibleTeamMember.getText())
+    model.getProjectList().getProject(chosenProject.getProjectName()).addRequirement(
+        inputAddRequirementName.getText(), model.getProjectList().getIdGenerator().generateRequirementID(), model.readEmployeeList("EmployeeList.bin").getEmployee(responsibleTeamMember.getText())
         ,"Ikke påbegyndt", "Lav",new MyDate(d,m,y)
     );
 

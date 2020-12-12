@@ -65,11 +65,13 @@
                     <columns>
                       <TableColumn fx:id="reqName" prefWidth="75.0" text="Navn" />
                       <TableColumn fx:id="reqID" prefWidth="75.0" text="ID" />
-                        <TableColumn fx:id="reqResponsibleMember" prefWidth="186.39999389648438" text="Ansvarlig Medlem " />
-                        <TableColumn fx:id="reqStatus" prefWidth="75.0" text="Status" />
+                        <TableColumn fx:id="reqResponsibleMember" prefWidth="114.0" text="Ansvarlig Medlem " />
+                        <TableColumn fx:id="reqStatus" prefWidth="148.0" text="Status" />
                         <TableColumn fx:id="reqPrioritet" prefWidth="125.60003662109375" text="Prioritet" />
+                        <TableColumn prefWidth="75.0" text="Tid Brugt" />
                         <TableColumn fx:id="reqDeadline" prefWidth="75.0" text="Deadline" />
                         <TableColumn fx:id="reqCreationDate" prefWidth="136.0" text="Oprettelsesdato" />
+                        <TableColumn prefWidth="156.0" text="Estimeret afslutningstid" />
                     </columns>
                      <FlowPane.margin>
                         <Insets />

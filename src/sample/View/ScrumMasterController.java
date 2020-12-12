@@ -66,7 +66,11 @@ public class ScrumMasterController
 
   public void addTask()
   {
-    model.get
+  }
+
+  public void chooseRequirement()
+  {
+
   }
 
   public void logOut()

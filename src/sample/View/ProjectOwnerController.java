@@ -35,6 +35,7 @@ public class ProjectOwnerController
   @FXML private TableView<Requirement> requirementTable;
   @FXML private Label status;
   @FXML private ComboBox<String> requirementPriority;
+  @FXML private ComboBox<String> createRequirementPriority;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -179,6 +180,10 @@ public class ProjectOwnerController
     TableColumn<Requirement,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
     estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
 
+    createRequirementPriority.getItems().addAll(
+        "Lav","Normal","Høj","Kritisk"
+    );
+
     requirementTable.setItems(getAllRequirements());
     requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
         priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
@@ -195,7 +200,7 @@ public class ProjectOwnerController
     model.setProjectList(loadedList);
     model.getProjectList().getProject(chosenProject.getProjectName()).addRequirement(
         inputAddRequirementName.getText(), model.getProjectList().getIdGenerator().generateRequirementID(), model.readEmployeeList("EmployeeList.bin").getEmployee(responsibleTeamMember.getText())
-        ,"Ikke påbegyndt", "Lav",new MyDate(d,m,y)
+        ,"Ikke påbegyndt", createRequirementPriority.getValue(),new MyDate(d,m,y)
     );
 
     model.saveProjectList();

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="1040.0" prefWidth="975.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ProjectOwnerController">
+<ScrollPane prefHeight="1129.0" prefWidth="976.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ProjectOwnerController">
    <content>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1038.0" prefWidth="973.0">
          <children>
@@ -118,7 +118,7 @@
             </FlowPane>
             <FlowPane prefHeight="184.0" prefWidth="602.0">
                <children>
-                  <GridPane prefHeight="138.0" prefWidth="1001.0">
+                  <GridPane prefHeight="301.0" prefWidth="1010.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="0.0" prefWidth="168.0" />
@@ -165,23 +165,14 @@
                            </GridPane.margin>
                         </TextField>
                         <Label text="Prioritet:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <GridPane GridPane.columnIndex="2" GridPane.rowIndex="4">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
+                        <ComboBox fx:id="createRequirementPriority" prefWidth="150.0" promptText="Vælg Prioritet" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                </children>
             </FlowPane>
             <FlowPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <GridPane prefHeight="111.0" prefWidth="967.0">
+                  <GridPane prefHeight="69.0" prefWidth="956.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="0.0" prefWidth="0.0" />
@@ -189,17 +180,15 @@
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label text="Fjern krav:" />
-                        <Label text="Fjern krav:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="inputRemoveRequirementID" promptText="Indtast Krav ID" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Label text="Fjern krav:" GridPane.columnIndex="1" />
+                        <TextField fx:id="inputRemoveRequirementID" promptText="Indtast Krav ID" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets left="1.0" right="160.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="remove" mnemonicParsing="false" onAction="#removeRequirement" text="Fjern" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <Button fx:id="remove" mnemonicParsing="false" onAction="#removeRequirement" text="Fjern" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin></Button>

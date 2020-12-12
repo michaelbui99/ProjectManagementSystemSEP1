@@ -1,18 +1,21 @@
 package sample.View;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.*;
 
+import java.util.ArrayList;
+
 public class ScrumMasterController
 {
 
-  @FXML private ChoiceBox requirementPriority;
-  @FXML private ChoiceBox requirementStatus;
-  @FXML private ChoiceBox taskPriority;
-  @FXML private ChoiceBox responsibleTeamMember;
+  @FXML private ComboBox<String> requirementStatus;
+  @FXML private ComboBox<String> taskPriority;
+  @FXML private ComboBox<String> responsibleTeamMember;
   @FXML private Button cancel;
   @FXML private Button approveRequirement;
   @FXML private Button logOut;
@@ -70,6 +73,14 @@ public class ScrumMasterController
 
   public void chooseRequirement()
   {
+
+  }
+
+  public void setRequirementStatus()
+  {
+    requirementStatus = new ComboBox<>();
+    String[] status = {"aa","ss","dd"};
+    requirementStatus = new ComboBox<String>(FXCollections.observableArrayList(status));
 
   }
 

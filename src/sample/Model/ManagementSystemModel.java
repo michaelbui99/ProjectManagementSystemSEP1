@@ -175,7 +175,7 @@ public class ManagementSystemModel
 
    */
 
-  public void saveProject()
+  public void saveProject() throws IOException
   {
     saveEmployeeList();
     saveProjectList();

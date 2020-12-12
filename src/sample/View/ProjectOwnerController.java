@@ -1,6 +1,8 @@
 package sample.View;
 
+import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -10,8 +12,7 @@ import javafx.stage.Stage;
 import sample.Model.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
+import java.util.*;
 
 public class ProjectOwnerController
 {
@@ -33,13 +34,12 @@ public class ProjectOwnerController
   @FXML private TextField inputRemoveRequirementID;
   @FXML private TableView<Requirement> requirementTable;
   @FXML private Label status;
+  @FXML private ComboBox<String> requirementPriority;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
   private Region root;
   private Project chosenProject; //Keeps track of which project we will add requirements to.
-
-
 
 
   public void setModel( ManagementSystemModel model)
@@ -207,6 +207,13 @@ public class ProjectOwnerController
     );
 
   }
+
+  public void setRequirementPriority()
+  {
+  requirementPriority = new ComboBox<>();
+
+  }
+
 
   public void logOut()
   {

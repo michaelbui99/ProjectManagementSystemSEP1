@@ -139,6 +139,9 @@ public class ProjectOwnerController
     * Method populates the tableView with all requirements
     * */
 
+    //Resets table
+    requirementTable.getItems().clear();
+    requirementTable.getColumns().clear();
 
     //Name column
     TableColumn<Requirement,String> nameColumn = new TableColumn<>("Navn");

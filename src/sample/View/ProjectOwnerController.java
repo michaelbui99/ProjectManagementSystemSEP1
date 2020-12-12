@@ -113,7 +113,7 @@ public class ProjectOwnerController
     //Loads all saved projects and set the inputted project as current project.
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
-    chosenProject = model.getProject(inputAddProjectName.getText());
+    chosenProject = model.getProjectList().getProject(inputAddProjectName.getText());
   }
 
   public ObservableList<Requirement> getAllRequirements()

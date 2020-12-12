@@ -183,7 +183,10 @@
                               <Insets left="1.0" right="160.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="remove" mnemonicParsing="false" text="Fjern" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="remove" mnemonicParsing="false" onAction="#setRemoveRequirement" text="Fjern" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin></Button>
                         <Label text="Status" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>

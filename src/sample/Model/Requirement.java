@@ -67,6 +67,9 @@ public class Requirement implements
 
   //Getters
 
+
+
+
   public int getRequirementID()
   {
     return requirementID;
@@ -154,6 +157,9 @@ public class Requirement implements
     prioList.add("Kritisk");
     return prioList;
   }
+
+
+
   //Setters
 
   public void setApprovement(boolean approvement)

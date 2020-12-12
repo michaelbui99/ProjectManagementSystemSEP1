@@ -102,7 +102,17 @@ public class ManagementSystemModel
     return projectFile.readEmployeeListFile(fileName);
   }
 
-  
+  public void setProjectList(ProjectList projectList)
+  {
+    this.projectList = projectList;
+  }
+
+  public void setEmployeeList(EmployeeList employeeList)
+  {
+    this.employeeList = employeeList;
+  }
+
+
   /*TODO: Michael implements the 8 first methods.*/
 
   public void assignTeamMemberToRequirement(int requirementID, TeamMember teamMember)
@@ -175,7 +185,7 @@ public class ManagementSystemModel
 
    */
 
-  public void saveProject()
+  public void saveProject() throws IOException
   {
     saveEmployeeList();
     saveProjectList();

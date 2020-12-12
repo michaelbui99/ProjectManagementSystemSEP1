@@ -106,10 +106,14 @@ public class ProjectOwnerController
     model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().getRequirement(ID).setDeadline(new MyDate(d,m,y));
   }
 
-  public void setRemoveRequirement()
+  public void setRemoveRequirement() throws IOException, ClassNotFoundException
   {
     int ID = Integer.parseInt(inputAddRequirementID.getText());
-    model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().removeRequirement(ID);
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+
+    loadedList.getProject(inputAddProjectName.getText()).getRequirementList().removeRequirement(ID);
+    model.setProjectList(loadedList);
+    model.saveProjectList();
   }
 
 
@@ -202,9 +206,11 @@ public class ProjectOwnerController
 
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     loadedList.getProject(chosenProject.getProjectName()).addRequirement(
-        inputAddRequirementName.getText(), Integer.parseInt(inputAddRequirementID.getText()), model.readEmployeeList("EmployeeList.bin").getEmployee(inputResponsibleTeamMember.getText())
+        inputAddRequirementName.getText(), 321321, model.readEmployeeList("EmployeeList.bin").getEmployee(inputResponsibleTeamMember.getText())
         ,"Ikke påbegyndt", "Lav",new MyDate(d,m,y)
     );
+    model.setProjectList(loadedList);
+    model.saveProjectList();
 
   }
 

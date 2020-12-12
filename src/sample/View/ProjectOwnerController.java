@@ -1,15 +1,16 @@
 package sample.View;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 public class ProjectOwnerController
@@ -30,12 +31,13 @@ public class ProjectOwnerController
   @FXML private TextField month;
   @FXML private TextField year;
   @FXML private TextField inputRemoveRequirementID;
-  @FXML private TableView tableView;
+  @FXML private TableView<Requirement> requirementTable;
   @FXML private Label status;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
   private Region root;
+  private Project chosenProject; //Keeps track of which project we will add requirements to.
 
 
 
@@ -70,7 +72,7 @@ public class ProjectOwnerController
     }
     catch (Exception e)
     {
-      status.setText("Bruge igen!");
+      status.setText("Brug igen!");
     }
   }
 
@@ -120,8 +122,85 @@ public class ProjectOwnerController
     stage.close();
   }
 
+  public void setChosenProject() throws IOException, ClassNotFoundException
+  {
+    //Loads all saved projects and set the inputted project as current project.
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    chosenProject = loadedList.getProject(inputAddProjectName.getText());
+  }
+
+  public ObservableList<Requirement> getAllRequirements()
+      throws IOException, ClassNotFoundException
+  {
+    /*
+    * Method used for loading Requirements to the tableView.
+    * */
+
+    ObservableList<Requirement> requirements = FXCollections.observableArrayList();
+    //Reading projectList file and getting requirements of chosen project
+    ArrayList<Requirement> projectRequirements = model.readProjectList("ProjectList.bin")
+        .getProject(chosenProject.getProjectName()).getRequirementList().getAllRequirements();
+
+    //Adding all requirements to observable list.
+    for (Requirement requirement : projectRequirements)
+    {
+      requirements.add(requirement);
+    }
+    return requirements;
+  }
+
+  public void populateTableView() throws IOException, ClassNotFoundException
+  {
+    /*
+    * Method populates the tableView with all requirements
+    * */
+
+    //Name column
+    TableColumn<Requirement,String> nameColumn = new TableColumn<>("Navn");
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+    //ID column
+    TableColumn<Requirement,Integer> IDColumn = new TableColumn<>("ID");
+    IDColumn.setCellValueFactory(new PropertyValueFactory<>("requirementID"));
+
+    //responsible TeamMember column
+    TableColumn<Requirement,TeamMember> responsibleMemberColumn = new TableColumn<>("Ansvarlig Teammedlem");
+    responsibleMemberColumn.setCellValueFactory(new PropertyValueFactory<>("responsibleTeamMember"));
+
+    //Status column
+    TableColumn<Requirement,String> statusColumn = new TableColumn<>("Status");
+    statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+    //Priority column
+    TableColumn<Requirement,String> priorityColumn = new TableColumn<>("Priority");
+    priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
+
+    //Time spent column
+    TableColumn<Requirement,Integer> timeSpent = new TableColumn<>("Tid Brugt");
+    timeSpent.setCellValueFactory(new PropertyValueFactory<>("timeSpendInHours"));
+
+    //Deadline column
+    TableColumn<Requirement,MyDate> deadlineColumn = new TableColumn<>("Deadline");
+    deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+
+    //Creation Date column
+    TableColumn<Requirement,MyDate> creationDateColumn = new TableColumn<>("Oprettelsesdato");
+    creationDateColumn.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
+
+    //Estimated completion time column
+    TableColumn<Requirement,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
+    estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
+
+    requirementTable.setItems(getAllRequirements());
+    requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
+        priorityColumn, timeSpent, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
+  }
+
+
   public void logOut()
   {
     viewHandler.openView("main");
   }
+
+
 }

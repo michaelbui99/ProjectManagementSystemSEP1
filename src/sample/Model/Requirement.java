@@ -37,6 +37,7 @@ public class Requirement implements
     timeSpendInHours = 0;
     isApproved = false;
     this.deadline = deadline;
+    this.creationDate = MyDate.now();
   }
 
   public Requirement(String name, int requirementID)

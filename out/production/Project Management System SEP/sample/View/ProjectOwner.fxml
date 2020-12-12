@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -53,26 +52,16 @@
                               <Insets left="30.0" right="160.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="search" mnemonicParsing="false" text="Søg" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="search" mnemonicParsing="false" onAction="#populateTableView" text="Load Krav" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label fx:id="status" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#setChosenProject" text="Vælg Project" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
             </FlowPane>
             <FlowPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="tableView" prefHeight="429.0" prefWidth="981.0">
-                    <columns>
-                      <TableColumn fx:id="reqName" prefWidth="75.0" text="Navn" />
-                      <TableColumn fx:id="reqID" prefWidth="75.0" text="ID" />
-                        <TableColumn fx:id="reqResponsibleMember" prefWidth="114.0" text="Ansvarlig Medlem " />
-                        <TableColumn fx:id="reqStatus" prefWidth="148.0" text="Status" />
-                        <TableColumn fx:id="reqPrioritet" prefWidth="125.60003662109375" text="Prioritet" />
-                        <TableColumn prefWidth="75.0" text="Tid Brugt" />
-                        <TableColumn fx:id="reqDeadline" prefWidth="75.0" text="Deadline" />
-                        <TableColumn fx:id="reqCreationDate" prefWidth="136.0" text="Oprettelsesdato" />
-                        <TableColumn prefWidth="156.0" text="Estimeret afslutningstid" />
-                    </columns>
+                  <TableView fx:id="requirementTable" prefHeight="429.0" prefWidth="981.0">
                      <FlowPane.margin>
                         <Insets />
                      </FlowPane.margin>
@@ -116,7 +105,8 @@
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="reqPriorityChange" prefWidth="150.0" GridPane.columnIndex="1" />
+                        <Button fx:id="changePriorityBtn" mnemonicParsing="false" text="Skift" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                </children>

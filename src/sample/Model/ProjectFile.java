@@ -1,8 +1,7 @@
 package sample.Model;
 
 import java.io.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+
 
 public class ProjectFile implements Serializable
 {
@@ -82,7 +81,8 @@ public class ProjectFile implements Serializable
     return employeeList;
   }
 
-
+/*
+//TODO: Delete these methods, because we only read projectListFiles and EmployeeListFiles
   public TaskList readTaskListFile() throws IOException, ClassNotFoundException
   {
     TaskList taskList = new TaskList(); //Bruges som return for metoden.
@@ -124,37 +124,19 @@ public class ProjectFile implements Serializable
 
     return requirementList;
   }
-
+*/
 
 
   //Setters
 
 
 
-
-  public void writeProjectListFile(ProjectList projectList, String fileName) throws IOException
-
-  {
-    File file = new File(fileName + ".bin"); //Angiver path til filen.
-    FileOutputStream fos = null;
-    ObjectOutputStream out = null;
-
-    fos = new FileOutputStream(file);
-    out = new ObjectOutputStream(fos);
-    out.writeInt(projectList.getAllProjects().size());
-    for (int i = 0; i < projectList.getAllProjects().size(); i++)
-    {
-      out.writeObject(projectList.getAllProjects().get(i));
-      out.flush();
-    }
-
-    out.close();
-
-  }
-
   public void writeProjectListFile(String fileName, ProjectList projectList)
       throws IOException
   {
+    /*
+    * Method writes the entire ProjectListFile with all projects + requirementLists + TaskLists.
+    * */
     File file = new File(fileName);
     FileOutputStream fos = new FileOutputStream(file);
     ObjectOutputStream out = new ObjectOutputStream(fos);
@@ -166,6 +148,9 @@ public class ProjectFile implements Serializable
 
   public void writeEmployeeListFile(EmployeeList employeeList, String fileName) throws IOException
   {
+    /*
+    * Method writes all the employees registered in the system to file.
+    * */
     setFile(fileName);
     File file = new File(fileName + ".bin"); //Angiver path til filen.
     FileOutputStream fos = null;
@@ -183,6 +168,9 @@ public class ProjectFile implements Serializable
     out.close();
   }
 
+  /*
+
+  //TODO: Delete these methods, because writeProjectListFile will save all projects
   public void writeTaskListFile(TaskList taskList, String fileName) throws IOException
   {
     File file = new File(fileName + ".bin"); //Angiver path til filen.
@@ -221,7 +209,7 @@ public class ProjectFile implements Serializable
 
 
 
-
+*/
 
   public void setFile(String fileName)
   {

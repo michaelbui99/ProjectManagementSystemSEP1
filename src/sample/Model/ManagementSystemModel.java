@@ -82,7 +82,7 @@ public class ManagementSystemModel
 
   public void saveProjectList() throws IOException
   {
-    projectFile.writeProjectListFile("ProjectList" + MyDate.now().toString() + ".bin",projectList);
+    projectFile.writeProjectListFile("ProjectList.bin",projectList);
   }
 
   public ProjectList readProjectList(String fileName)

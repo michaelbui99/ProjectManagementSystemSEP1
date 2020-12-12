@@ -179,7 +179,7 @@ public class ProjectOwnerController
     //Estimated completion time column
     TableColumn<Requirement,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
     estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
-
+    
     createRequirementPriority.getItems().addAll(
         "Lav","Normal","Høj","Kritisk"
     );

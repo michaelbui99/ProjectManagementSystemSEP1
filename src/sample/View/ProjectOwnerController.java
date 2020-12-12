@@ -172,12 +172,12 @@ public class ProjectOwnerController
     statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     //Priority column
-    TableColumn<Requirement,String> priorityColumn = new TableColumn<>("Priority");
+    TableColumn<Requirement,String> priorityColumn = new TableColumn<>("Prioritet");
     priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
 
     //Time spent column
-    TableColumn<Requirement,Integer> timeSpent = new TableColumn<>("Tid Brugt");
-    timeSpent.setCellValueFactory(new PropertyValueFactory<>("timeSpendInHours"));
+    TableColumn<Requirement,Integer> timeSpentColumn = new TableColumn<>("Tid Brugt");
+    timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpendInHours"));
 
     //Deadline column
     TableColumn<Requirement,MyDate> deadlineColumn = new TableColumn<>("Deadline");
@@ -193,7 +193,7 @@ public class ProjectOwnerController
 
     requirementTable.setItems(getAllRequirements());
     requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
-        priorityColumn, timeSpent, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
+        priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
   }
 
 

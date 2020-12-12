@@ -18,7 +18,7 @@ public class WriteProjectTest
     model.createRequirement("TestReq", 2020, new TeamMember("Michael", 2020, "teammember"), "Ikke påbegyndt", "Lav", MyDate.now());
     Requirement req1 = new Requirement("Test", 201, new TeamMember("Michael", 2020, "teammember"),"Høj");
     model.getProjectList().getProject("Project1").getRequirementList().addRequirement(req1);
-
+    model.createTask(2020,"Tasktest",393939,"Ikke påbegyndt", new TeamMember("Michael", 2020, "teammember") , "Lav", MyDate.now(), 321);
     model.saveProjectList();
 
 

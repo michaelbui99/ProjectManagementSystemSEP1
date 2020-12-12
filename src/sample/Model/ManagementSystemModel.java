@@ -40,9 +40,9 @@ public class ManagementSystemModel
     projectList.getProject(currentProject).getRequirementList().addRequirement(new Requirement(name, projectList.getIdGenerator().generateRequirementID(), responsibleTeamMember, status,priority,deadline));
   }
 
-  public void createTask(int requirementID, String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline) {
+  public void createTask(int requirementID, String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline, double estimatedCompletionTime) {
     projectList.getProject(currentProject).getRequirementList().getRequirement(requirementID)
-        .getTaskList().addTask(new Task(name, projectList.getIdGenerator().generateTaskID(),status,responsibleTeamMember, priority, deadline));
+        .getTaskList().addTask(new Task(name, projectList.getIdGenerator().generateTaskID(),status,responsibleTeamMember, priority, deadline, estimatedCompletionTime));
   }
 
   public void removeProject(String name) {

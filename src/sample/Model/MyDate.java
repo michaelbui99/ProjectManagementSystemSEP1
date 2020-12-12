@@ -108,7 +108,7 @@ public class MyDate implements Serializable
 
   public String toString()
   {
-    return String.format("d%sm%sy%s", day, month, year);
+    return String.format("%s/%s/%s", day, month, year);
 
   }
 

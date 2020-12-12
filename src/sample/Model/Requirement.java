@@ -38,6 +38,7 @@ public class Requirement implements
     isApproved = false;
     this.deadline = deadline;
     this.creationDate = MyDate.now();
+    estimatedCompletionTimeInHours = calculateEstimatedTimeInHours();
   }
 
   public Requirement(String name, int requirementID)
@@ -124,9 +125,16 @@ public class Requirement implements
   public double calculateEstimatedTimeInHours()
   {
     double totalTime = 0; //Running total for calculating sum of task completion estimates.
-    for (Task task: taskList.getAllTasks())
+    try
     {
-      totalTime += task.getEstimatedCompletionTimeInHours();
+      for (Task task : taskList.getAllTasks())
+      {
+        totalTime += task.getEstimatedCompletionTimeInHours();
+      }
+    }
+    catch (NullPointerException e)
+    {
+      totalTime = 0;
     }
     return totalTime;
   }

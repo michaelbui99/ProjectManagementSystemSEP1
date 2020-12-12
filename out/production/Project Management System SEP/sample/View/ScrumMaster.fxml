@@ -58,21 +58,11 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <ChoiceBox fx:id="requirementPriority" prefWidth="150.0">
-                                                   <opaqueInsets>
-                                                      <Insets />
-                                                   </opaqueInsets>
-                                                   <GridPane.margin>
-                                                      <Insets left="106.0" />
-                                                   </GridPane.margin>
-                                                </ChoiceBox>
-                                                <Label text="Krav prioritet:">
+                                                <Label text="Krav status">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
-                                                   </GridPane.margin>
-                                                </Label>
-                                                <Label text="Krav status" GridPane.columnIndex="1" />
-                                                <ChoiceBox fx:id="requirementStatus" prefWidth="150.0" GridPane.columnIndex="1">
+                                                   </GridPane.margin></Label>
+                                                <ChoiceBox fx:id="requirementStatus" prefWidth="150.0">
                                                    <opaqueInsets>
                                                       <Insets />
                                                    </opaqueInsets>

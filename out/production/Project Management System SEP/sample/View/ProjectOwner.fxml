@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="1078.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ProjectOwnerController">
+<ScrollPane prefHeight="1154.0" prefWidth="976.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ProjectOwnerController">
    <content>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="961.0" prefWidth="964.0">
          <children>
@@ -62,8 +63,13 @@
                <children>
                   <TableView fx:id="tableView" prefHeight="429.0" prefWidth="981.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn fx:id="reqName" prefWidth="75.0" text="Navn" />
+                      <TableColumn fx:id="reqID" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="reqResponsibleMember" prefWidth="186.39999389648438" text="Ansvarlig Medlem " />
+                        <TableColumn fx:id="reqStatus" prefWidth="75.0" text="Status" />
+                        <TableColumn fx:id="reqPrioritet" prefWidth="125.60003662109375" text="Prioritet" />
+                        <TableColumn fx:id="reqDeadline" prefWidth="75.0" text="Deadline" />
+                        <TableColumn fx:id="reqCreationDate" prefWidth="136.0" text="Oprettelsesdato" />
                     </columns>
                      <FlowPane.margin>
                         <Insets />
@@ -80,35 +86,42 @@
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="601.0" minWidth="10.0" prefWidth="601.0" />
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Godkend krav:">
+                        <Label text="Godkend krav:" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Krav ID:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label text="Krav ID:" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="30.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="inputApprovalRequirementID" promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <TextField fx:id="inputApprovalRequirementID" promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="30.0" right="160.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="approve" mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Button fx:id="notApprove" mnemonicParsing="false" text="Ikke Godkendt" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button fx:id="approve" mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="notApprove" mnemonicParsing="false" text="Ikke Godkendt" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label text="Ændre kravprioritet:">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                </children>
             </FlowPane>
             <FlowPane prefHeight="184.0" prefWidth="602.0">
                <children>
-                  <GridPane prefHeight="100.0" prefWidth="976.0">
+                  <GridPane prefHeight="138.0" prefWidth="1001.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="0.0" prefWidth="168.0" />

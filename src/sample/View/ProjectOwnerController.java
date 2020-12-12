@@ -80,31 +80,17 @@ public class ProjectOwnerController
   {
     int ID = Integer.parseInt(inputApprovalRequirementID.getText());
     model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setApprovement(true);
+    model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setStatus("Godkendt");
   }
 
   public void setNotApprove()
   {
     int ID = Integer.parseInt(inputApprovalRequirementID.getText());
     model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setApprovement(false);
+    model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setStatus("Ikke godkendt");
   }
 
-  public void setAddRequirement()
-  {
-    //int ID = Integer.parseInt(inputAddRequirementID.getText());
-    int d = Integer.parseInt(day.getText());
-    int m = Integer.parseInt(month.getText());
-    int y = Integer.parseInt(year.getText());
 
-    model.getProjectList().getProject(inputAddProjectName.getText()).
-        getRequirementList().addRequirement(new Requirement(inputAddRequirementName.
-        getText(),2020));
-
-    model.assignTeamMemberToRequirement(2020, model.getProjectList().
-        getProject(inputAddProjectName.getText()).getEmployeeList().
-        getEmployee(responsibleTeamMember.getText()));
-
-    model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().getRequirement(2020).setDeadline(new MyDate(d,m,y));
-  }
 
   public void setRemoveRequirement() throws IOException, ClassNotFoundException
   {

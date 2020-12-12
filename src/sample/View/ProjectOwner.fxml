@@ -98,8 +98,8 @@
                               <Insets left="30.0" right="160.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="approve" mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Button fx:id="notApprove" mnemonicParsing="false" text="Ikke Godkendt" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button fx:id="approve" mnemonicParsing="false" onAction="#setApprove" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="notApprove" mnemonicParsing="false" onAction="#setNotApprove" text="Ikke Godkendt" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                         <Label text="Ændre kravprioritet:">
                            <GridPane.margin>
                               <Insets left="10.0" />

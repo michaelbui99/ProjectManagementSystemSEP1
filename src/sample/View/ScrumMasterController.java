@@ -24,7 +24,7 @@ public class ScrumMasterController
   @FXML private TextField inputMonth;
   @FXML private TextField inputYear;
   @FXML private TextField approveTask;
-
+  @FXML private TextField estimatedCompletionTime;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -62,35 +62,11 @@ public class ScrumMasterController
     stage.close();
   }
 
-  public void setRequirementPriority()
+
+
+  public void addTask()
   {
-
-  }
-
-  public void setRequirementStatus()
-  {
-
-  }
-
-
-  public void saveRequirementList()
-  {
-
-  }
-
-  public void setResponsibleTeamMember()
-  {
-
-  }
-
-  public void setTaskPriority()
-  {
-
-  }
-
-  public void seTaskDeadline()
-  {
-
+    model.get
   }
 
   public void logOut()

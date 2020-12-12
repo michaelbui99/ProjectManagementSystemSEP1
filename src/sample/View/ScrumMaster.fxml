@@ -134,7 +134,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button fx:id="" mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Button fx:id="" mnemonicParsing="false" text="Godkend" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="454.0" />
                                                    </GridPane.margin>
@@ -167,7 +167,10 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label text="Opgave ID:" GridPane.columnIndex="1" />
+                                                <Label text="Opgave ID:" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin></Label>
                                                 <TextField fx:id="inputTaskName" promptText="Opgave navn:">
                                                    <GridPane.margin>
                                                       <Insets left="90.0" right="60.0" />
@@ -196,6 +199,19 @@
                                                 <TextField fx:id="inputYear" promptText="yyyy" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="172.0" right="305.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <Label text="Estimteret afslutningstid:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <TextField fx:id="estimatedCompletionTime" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                   <GridPane.margin>
+                                                      <Insets left="150.0" right="100.0" />
                                                    </GridPane.margin>
                                                 </TextField>
                                              </children>

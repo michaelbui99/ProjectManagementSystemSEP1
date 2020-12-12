@@ -68,14 +68,9 @@ public class ProjektCreatorController
       ProjectList loadedList = model.readProjectList("ProjectList.bin");
       model.setProjectList(loadedList);
       model.getProjectList().addProject(new Project(inputProjectName.getText(),ID, new MyDate(day,month,year)));
-
-    }
-    catch (IOException e)
-    {
-      model.getProjectList().addProject(new Project(inputProjectName.getText(),ID, new MyDate(day,month,year)));
       model.saveProjectList();
     }
-    catch (ClassNotFoundException e)
+    catch (IOException | ClassNotFoundException e)
     {
       model.getProjectList().addProject(new Project(inputProjectName.getText(),ID, new MyDate(day,month,year)));
       model.saveProjectList();

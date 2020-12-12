@@ -27,7 +27,7 @@ public class ProjectOwnerController
   @FXML private TextField inputApprovalRequirementID;
   @FXML private TextField inputAddRequirementID;
   @FXML private TextField inputAddRequirementName;
-  @FXML private TextField inputResponsibleTeamMember;
+  @FXML private TextField responsibleTeamMember;
   @FXML private TextField day;
   @FXML private TextField month;
   @FXML private TextField year;
@@ -80,36 +80,25 @@ public class ProjectOwnerController
   {
     int ID = Integer.parseInt(inputApprovalRequirementID.getText());
     model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setApprovement(true);
+    model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setStatus("Godkendt");
   }
 
   public void setNotApprove()
   {
     int ID = Integer.parseInt(inputApprovalRequirementID.getText());
     model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setApprovement(false);
+    model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setStatus("Ikke godkendt");
   }
 
-  public void setAddRequirement()
+
+
+  public void setRemoveRequirement() throws IOException, ClassNotFoundException
   {
-    int ID = Integer.parseInt(inputAddRequirementID.getText());
-    int d = Integer.parseInt(day.getText());
-    int m = Integer.parseInt(month.getText());
-    int y = Integer.parseInt(year.getText());
-
-    model.getProjectList().getProject(inputAddProjectName.getText()).
-        getRequirementList().addRequirement(new Requirement(inputAddRequirementName.
-        getText(), ID));
-
-    model.assignTeamMemberToRequirement(ID, model.getProjectList().
-        getProject(inputAddProjectName.getText()).getEmployeeList().
-        getEmployee(inputResponsibleTeamMember.getText()));
-
-    model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().getRequirement(ID).setDeadline(new MyDate(d,m,y));
-  }
-
-  public void setRemoveRequirement()
-  {
-    int ID = Integer.parseInt(inputAddRequirementID.getText());
+    int ID = Integer.parseInt(inputRemoveRequirementID.getText());
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
     model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().removeRequirement(ID);
+    model.saveProjectList();
   }
 
 
@@ -139,10 +128,7 @@ public class ProjectOwnerController
         .getProject(chosenProject.getProjectName()).getRequirementList().getAllRequirements();
 
     //Adding all requirements to observable list.
-    for (Requirement requirement : projectRequirements)
-    {
-      requirements.add(requirement);
-    }
+    requirements.addAll(projectRequirements);
     return requirements;
   }
 
@@ -151,6 +137,7 @@ public class ProjectOwnerController
     /*
     * Method populates the tableView with all requirements
     * */
+
 
     //Name column
     TableColumn<Requirement,String> nameColumn = new TableColumn<>("Navn");
@@ -201,10 +188,13 @@ public class ProjectOwnerController
     int y = Integer.parseInt(year.getText());
 
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
     loadedList.getProject(chosenProject.getProjectName()).addRequirement(
-        inputAddRequirementName.getText(), Integer.parseInt(inputAddRequirementID.getText()), model.readEmployeeList("EmployeeList.bin").getEmployee(inputResponsibleTeamMember.getText())
+        inputAddRequirementName.getText(), 321321, model.readEmployeeList("EmployeeList.bin").getEmployee(responsibleTeamMember.getText())
         ,"Ikke påbegyndt", "Lav",new MyDate(d,m,y)
     );
+
+    model.saveProjectList();
 
   }
 

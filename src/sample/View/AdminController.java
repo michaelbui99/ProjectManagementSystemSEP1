@@ -52,7 +52,7 @@ public class AdminController
   }
 
 
-  public void addTeamMember()
+  public void addTeamMember() throws IOException
   {
     RadioButton selectRadio = (RadioButton) jaNej.getSelectedToggle();
     int ID = Integer.parseInt(inputID.getText());
@@ -75,6 +75,7 @@ public class AdminController
       status.setVisible(true);
 
        */
+      model.saveEmployeeList();
     }
 
 

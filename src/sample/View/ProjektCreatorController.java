@@ -5,10 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import sample.Model.ManagementSystemModel;
-import sample.Model.MyDate;
-import sample.Model.Project;
-import sample.Model.TeamMember;
+import sample.Model.*;
 
 import java.io.IOException;
 
@@ -58,14 +55,31 @@ public class ProjektCreatorController
     return root;
   }
 
-  public void setCreateProject()
+  public void setCreateProject() throws IOException, ClassNotFoundException
   {
     int ID = Integer.parseInt(inputProjectID.getText());
     int day = Integer.parseInt(inputDay.getText());
     int month = Integer.parseInt(inputMonth.getText());
     int year = Integer.parseInt(inputYear.getText());
 
-    model.getProjectList().addProject(new Project(inputProjectName.getText(),ID, new MyDate(day,month,year)));
+    //Try to load existing ProjectList file else create a file if no file is found.
+    try
+    {
+      ProjectList loadedList = model.readProjectList("ProjectList.bin");
+      model.setProjectList(loadedList);
+      model.getProjectList().addProject(new Project(inputProjectName.getText(),ID, new MyDate(day,month,year)));
+
+    }
+    catch (IOException e)
+    {
+      model.getProjectList().addProject(new Project(inputProjectName.getText(),ID, new MyDate(day,month,year)));
+      model.saveProjectList();
+    }
+    catch (ClassNotFoundException e)
+    {
+      model.getProjectList().addProject(new Project(inputProjectName.getText(),ID, new MyDate(day,month,year)));
+      model.saveProjectList();
+    }
   }
 
   public void serAddTeamMemberToProject()

@@ -59,7 +59,7 @@ public class ProjectFile implements Serializable
   public EmployeeList readEmployeeListFile(String fileName)
       throws IOException, ClassNotFoundException
   {
-    File file = new File(this.fileName);
+    File file = new File(fileName);
     EmployeeList employeeList = null;
     FileInputStream fis = new FileInputStream(file);
     ObjectInputStream in = new ObjectInputStream(fis);

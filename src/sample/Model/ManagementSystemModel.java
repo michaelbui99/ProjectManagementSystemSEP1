@@ -85,11 +85,21 @@ public class ManagementSystemModel
     projectFile.writeProjectListFile("ProjectList.bin",projectList);
   }
 
+  public void saveEmployeeList() throws IOException
+  {
+    projectFile.writeEmployeeListFile("EmployeeList.bin",employeeList);
+  }
   public ProjectList readProjectList(String fileName)
       throws IOException, ClassNotFoundException
   {
     return projectFile.readProjectListFile(fileName);
 
+  }
+
+  public EmployeeList readEmployeeList(String fileName)
+      throws IOException, ClassNotFoundException
+  {
+    return projectFile.readEmployeeListFile(fileName);
   }
 
   
@@ -165,9 +175,10 @@ public class ManagementSystemModel
 
    */
 
-  public void saveProject(String filename) throws IOException
+  public void saveProject()
   {
-    projectFile.writeEmployeeListFile(employeeList, filename);
+    saveEmployeeList();
+    saveProjectList();
   }
 
   public void addEmployeeToSystem(String name, int ID, String role) {

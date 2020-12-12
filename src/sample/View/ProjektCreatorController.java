@@ -82,10 +82,7 @@ public class ProjektCreatorController
     model.removeTeamMemberFromProject(inputProjectForTeamMemberRemoval.getText(), ID);
   }
 
-  public void setAccept() throws IOException
-  {
-    model.saveProject(inputProjectName.getText());
-  }
+
 
   public void setCancel()
   {

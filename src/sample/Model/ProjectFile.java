@@ -56,28 +56,16 @@ public class ProjectFile implements Serializable
 
   }
 
-  public EmployeeList readEmployeeListFile()
+  public EmployeeList readEmployeeListFile(String fileName)
       throws IOException, ClassNotFoundException
   {
-    EmployeeList employeeList = new EmployeeList(); //Bruges som return for metoden.
-    FileInputStream fis = null;
-    ObjectInputStream in = null;
-    fis = new FileInputStream(fileName); //Angiver path til filen
-    in = new ObjectInputStream(fis);
+    File file = new File(this.fileName);
+    EmployeeList employeeList = null;
+    FileInputStream fis = new FileInputStream(file);
+    ObjectInputStream in = new ObjectInputStream(fis);
     int counter = in.readInt();
-    for (int i = 0; i < counter; i++)
-    {
-      if (in.readObject() instanceof TeamMember)
-      /*
-      * Vi Checker om vi prøver at læse et TeamMember object før vi caster.
-      * */
-      {
-        employeeList.addEmployee((TeamMember) in.readObject());
-      }
-    }
-
+    employeeList = (EmployeeList) in.readObject();
     in.close();
-
     return employeeList;
   }
 
@@ -146,25 +134,17 @@ public class ProjectFile implements Serializable
     out.close();
   }
 
-  public void writeEmployeeListFile(EmployeeList employeeList, String fileName) throws IOException
+  public void writeEmployeeListFile(String fileName, EmployeeList employeeList) throws IOException
   {
     /*
     * Method writes all the employees registered in the system to file.
     * */
-    setFile(fileName);
-    File file = new File(fileName + ".bin"); //Angiver path til filen.
-    FileOutputStream fos = null;
-    ObjectOutputStream out = null;
-
-    fos = new FileOutputStream(file);
-    out = new ObjectOutputStream(fos);
-    out.writeInt(employeeList.getAllEmployees().size());
-    for (int i = 0; i < employeeList.getAllEmployees().size(); i++)
-    {
-      out.writeObject(employeeList.getEmployee(i));
-      out.flush();
-    }
-
+    File file = new File(fileName);
+    FileOutputStream fos = new FileOutputStream(file);
+    ObjectOutputStream out = new ObjectOutputStream(fos);
+    out.writeInt(1);
+    out.writeObject(employeeList);
+    out.flush();
     out.close();
   }
 

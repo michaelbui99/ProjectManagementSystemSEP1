@@ -112,10 +112,7 @@ public class ProjectOwnerController
     model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().removeRequirement(ID);
   }
 
-  public void setAccept() throws IOException
-  {
-    model.saveProject(inputAddProjectName.getText());
-  }
+
   public void setCancel()
   {
     Stage stage = (Stage) cancel.getScene().getWindow();
@@ -196,6 +193,20 @@ public class ProjectOwnerController
         priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
   }
 
+  public void addRequirement() throws IOException, ClassNotFoundException
+  {
+    //Deadline data parsed to ints
+    int d = Integer.parseInt(day.getText());
+    int m = Integer.parseInt(month.getText());
+    int y = Integer.parseInt(year.getText());
+
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    loadedList.getProject(chosenProject.getProjectName()).addRequirement(
+        inputAddRequirementName.getText(), Integer.parseInt(inputAddRequirementID.getText()), model.readEmployeeList("EmployeeList.bin").getEmployee(inputResponsibleTeamMember.getText())
+        ,"Ikke påbegyndt", "Lav",new MyDate(d,m,y)
+    );
+
+  }
 
   public void logOut()
   {

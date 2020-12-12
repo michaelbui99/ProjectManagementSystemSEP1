@@ -108,7 +108,7 @@ public class AdminController
   public void setApprove() throws IOException
   {
 
-    model.saveProject( "EmployeeList" + MyDate.now().toString());
+    model.saveEmployeeList();
   }
   public void setCancel()
   {

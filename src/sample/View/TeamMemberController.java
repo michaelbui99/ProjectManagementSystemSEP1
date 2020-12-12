@@ -70,10 +70,7 @@ public class TeamMemberController
     model.registerTaskTime(time,reqID,taskID);
   }
 
-  public void setAccept() throws IOException
-  {
-    model.saveProject(inputProjectName.getText());
-  }
+
 
   public void setCancel()
   {

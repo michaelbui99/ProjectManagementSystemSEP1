@@ -135,7 +135,7 @@
                               <Insets right="160.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="add" mnemonicParsing="false" onAction="#setAddRequirement" text="Tilføj" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="add" mnemonicParsing="false" onAction="#addRequirement" text="Tilføj" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label text="Status" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                         <TextField fx:id="responsibleTeamMember" promptText="Tilføj ansvarlig teammedlem" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>

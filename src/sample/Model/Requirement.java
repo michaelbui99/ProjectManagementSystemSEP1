@@ -1,5 +1,7 @@
 package sample.Model;
 
+import javafx.scene.layout.Priority;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -8,7 +10,7 @@ public class Requirement implements
 {
 
   //Fields
-
+  private static final long serialVersionUID = 1345606179531482449L;
   private String name;
   private TaskList taskList;
   private String userStory;
@@ -68,7 +70,10 @@ public class Requirement implements
   //Getters
 
 
-
+public String getPriority()
+{
+  return priority;
+}
 
   public int getRequirementID()
   {
@@ -142,7 +147,7 @@ public class Requirement implements
     return totalTime;
   }
 
-  public double getEstimatedTimeInHours()
+  public double getEstimatedCompletionTimeInHours()
   {
     estimatedCompletionTimeInHours = calculateEstimatedTimeInHours(); //Calculate the estimated time total of all task, such that estimated time for requirement is up-to-date
     return estimatedCompletionTimeInHours;

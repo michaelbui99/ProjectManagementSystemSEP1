@@ -115,7 +115,7 @@
                               <Insets right="50.0" />
                            </GridPane.margin></Button>
                         <ComboBox fx:id="requirementPriority" onAction="#setRequirementPriority" prefWidth="150.0" promptText="Vælg prioritet" GridPane.columnIndex="1" />
-                        <TextField promptText="Indtast Krav ID" GridPane.columnIndex="2">
+                        <TextField fx:id="changeRequirementPriorityInput" promptText="Indtast Krav ID" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets right="100.0" />
                            </GridPane.margin>

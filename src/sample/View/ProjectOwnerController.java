@@ -216,10 +216,12 @@ public class ProjectOwnerController
   public void setRequirementPriority()
       throws IOException, ClassNotFoundException
   {
+    int priorityChangeTargetID = Integer.parseInt(changeRequirementPriorityInput.getText());
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
     model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList()
-        .getRequirement(Integer.parseInt(changeRequirementPriorityInput.getText())).setPriority(requirementPriority.getValue());
+        .getRequirement(priorityChangeTargetID).setPriority(requirementPriority.getValue());
+    model.saveProjectList();
   }
 
 

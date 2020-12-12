@@ -36,6 +36,8 @@ public class ProjectOwnerController
   @FXML private Label status;
   @FXML private ComboBox<String> requirementPriority;
   @FXML private ComboBox<String> createRequirementPriority;
+  @FXML private TextField changeRequirementPriorityInput;
+
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -179,8 +181,12 @@ public class ProjectOwnerController
     //Estimated completion time column
     TableColumn<Requirement,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
     estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
-    
+
     createRequirementPriority.getItems().addAll(
+        "Lav","Normal","Høj","Kritisk"
+    );
+
+    requirementPriority.getItems().addAll(
         "Lav","Normal","Høj","Kritisk"
     );
 
@@ -208,9 +214,12 @@ public class ProjectOwnerController
   }
 
   public void setRequirementPriority()
+      throws IOException, ClassNotFoundException
   {
-  requirementPriority = new ComboBox<>();
-
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
+    model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList()
+        .getRequirement(Integer.parseInt(changeRequirementPriorityInput.getText())).setPriority(requirementPriority.getValue());
   }
 
 

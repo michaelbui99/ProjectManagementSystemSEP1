@@ -110,8 +110,16 @@
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Button fx:id="changePriorityBtn" mnemonicParsing="false" text="Skift" GridPane.columnIndex="2" />
+                        <Button fx:id="changePriorityBtn" mnemonicParsing="false" onAction="#setRequirementPriority" text="Skift" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets right="50.0" />
+                           </GridPane.margin></Button>
                         <ComboBox fx:id="requirementPriority" onAction="#setRequirementPriority" prefWidth="150.0" promptText="Vælg prioritet" GridPane.columnIndex="1" />
+                        <TextField fx:id="changeRequirementPriorityInput" promptText="Indtast Krav ID" GridPane.columnIndex="2">
+                           <GridPane.margin>
+                              <Insets right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
                      </children>
                   </GridPane>
                </children>

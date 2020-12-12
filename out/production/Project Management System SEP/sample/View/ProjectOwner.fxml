@@ -55,6 +55,11 @@
                         <Button fx:id="search" mnemonicParsing="false" onAction="#populateTableView" text="Load Krav" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label fx:id="status" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Button mnemonicParsing="false" onAction="#setChosenProject" text="Vælg Project" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </Button>
                      </children>
                   </GridPane>
                </children>
@@ -98,8 +103,8 @@
                               <Insets left="30.0" right="160.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="approve" mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Button fx:id="notApprove" mnemonicParsing="false" text="Ikke Godkendt" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button fx:id="approve" mnemonicParsing="false" onAction="#setApprove" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="notApprove" mnemonicParsing="false" onAction="#setNotApprove" text="Ikke Godkendt" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                         <Label text="Ændre kravprioritet:">
                            <GridPane.margin>
                               <Insets left="10.0" />
@@ -178,7 +183,7 @@
                      <children>
                         <Label text="Fjern krav:" />
                         <Label text="Fjern krav:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="inputRemoveRequirementID" promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <TextField fx:id="inputRemoveRequirementID" promptText="Krav ID" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="1.0" right="160.0" />
                            </GridPane.margin>

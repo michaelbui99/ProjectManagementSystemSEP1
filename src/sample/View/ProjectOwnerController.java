@@ -94,11 +94,10 @@ public class ProjectOwnerController
 
   public void setRemoveRequirement() throws IOException, ClassNotFoundException
   {
-    //int ID = Integer.parseInt(inputAddRequirementID.getText());
+    int ID = Integer.parseInt(inputRemoveRequirementID.getText());
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
-
-    loadedList.getProject(inputAddProjectName.getText()).getRequirementList().removeRequirement(2020);
     model.setProjectList(loadedList);
+    model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().removeRequirement(ID);
     model.saveProjectList();
   }
 
@@ -129,10 +128,7 @@ public class ProjectOwnerController
         .getProject(chosenProject.getProjectName()).getRequirementList().getAllRequirements();
 
     //Adding all requirements to observable list.
-    for (Requirement requirement : projectRequirements)
-    {
-      requirements.add(requirement);
-    }
+    requirements.addAll(projectRequirements);
     return requirements;
   }
 

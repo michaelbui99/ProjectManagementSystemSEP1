@@ -80,7 +80,6 @@ public class TeamMemberController
 
   public void setTableView()
   {
-    
   }
 
   public void logOut()

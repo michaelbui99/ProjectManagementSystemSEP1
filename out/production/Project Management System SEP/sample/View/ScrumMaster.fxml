@@ -120,12 +120,7 @@
                            <children>
                               <FlowPane layoutY="16.0" prefHeight="551.0" prefWidth="1072.0">
                                  <children>
-                                    <TableView fx:id="taskTable" prefHeight="553.0" prefWidth="1070.0">
-                                       <columns>
-                                          <TableColumn prefWidth="75.0" text="C1" />
-                                          <TableColumn prefWidth="75.0" text="C2" />
-                                       </columns>
-                                    </TableView>
+                                    <TableView fx:id="taskTable" prefHeight="553.0" prefWidth="1070.0" />
                                     <FlowPane prefHeight="110.0" prefWidth="1074.0">
                                        <children>
                                           <GridPane prefHeight="159.0" prefWidth="1074.0">
@@ -170,16 +165,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label text="Opgave ID:" GridPane.columnIndex="1">
-                                                   <GridPane.margin>
-                                                      <Insets left="10.0" />
-                                                   </GridPane.margin></Label>
                                                 <TextField fx:id="inputTaskName" promptText="Opgave navn:">
-                                                   <GridPane.margin>
-                                                      <Insets left="90.0" right="60.0" />
-                                                   </GridPane.margin>
-                                                </TextField>
-                                                <TextField fx:id="inputTaskID" promptText="Opgave ID:" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="90.0" right="60.0" />
                                                    </GridPane.margin>

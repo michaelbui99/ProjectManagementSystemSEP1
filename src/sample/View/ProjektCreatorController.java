@@ -2,12 +2,15 @@ package sample.View;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ProjektCreatorController
 {
@@ -27,6 +30,12 @@ public class ProjektCreatorController
   @FXML private TextField inputAssignTeamMemberToAssignment;
   @FXML private TextField inputRemovalTeamMemberFromProject;
   @FXML private TextField inputProjectForTeamMemberRemoval;
+  @FXML private ComboBox<TeamMember> teamMemberComboBox;
+  @FXML private ComboBox<TeamMember> removeTeamMemberComboBox;
+  @FXML private ComboBox<Project> projectComboBox;
+  @FXML private ComboBox<Project> removeProjectComboBox;
+  @FXML private ComboBox<Requirement> requirementComboBox;
+  @FXML  private ToggleGroup role;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -83,6 +92,24 @@ public class ProjektCreatorController
     }
   }
 
+  public void initializeComboBoxes() throws IOException, ClassNotFoundException
+  {
+    ArrayList<Project> systemProjects = model.readProjectList("ProjectList.bin").getAllProjects();
+    projectComboBox.getItems().addAll(systemProjects);
+
+    ArrayList<Project> systemProjectsRemove = model.readProjectList("ProjectList.bin").getAllProjects();
+    removeProjectComboBox.getItems().addAll(systemProjects);
+
+    ArrayList<TeamMember> systemEmployees = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
+    teamMemberComboBox.getItems().addAll(systemEmployees);
+
+    ArrayList<TeamMember> systemEmployeesRemove = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
+    removeTeamMemberComboBox.getItems().addAll(systemEmployees);
+
+    ArrayList<Requirement> projectRequirement = model.readProjectList("ProjectList.bin").getProject(projectComboBox.getValue().getProjectName()).getRequirementList().getAllRequirements();
+    requirementComboBox.getItems().addAll(projectRequirement);
+  }
+
   public void serAddTeamMemberToProject()
   {
     int ID = Integer.parseInt(inputAssignTeamMemberToAssignment.getText());
@@ -104,6 +131,7 @@ public class ProjektCreatorController
     Stage stage = (Stage) cancel.getScene().getWindow();
     stage.close();
   }
+
   public void logOut()
   {
     viewHandler.openView("main");

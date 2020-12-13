@@ -139,7 +139,7 @@ public class ViewHandler
         projectOwnerController = loader.getController();
         projectOwnerController.init(this, model, root);
       }
-      catch (IOException e)
+      catch (IOException | ClassNotFoundException e)
       {
         e.printStackTrace();
       }
@@ -194,7 +194,7 @@ public class ViewHandler
           scrumMasterController = loader.getController();
           scrumMasterController.init(this, model, root);
         }
-        catch (IOException e)
+        catch (IOException | ClassNotFoundException e)
         {
           e.printStackTrace();
         }

@@ -53,10 +53,12 @@ public class ScrumMasterController
   }
 
   public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root)
+      throws IOException, ClassNotFoundException
   {
     this.viewHandler = viewHandler;
     this.model = model;
     this.root = root;
+    initializeComboBoxes(); //Populates the comboBoxes on load;
   }
 
   public Region getRoot()
@@ -93,7 +95,7 @@ public class ScrumMasterController
     /*
      * Method populates the tableView with all requirements
      * */
-    initializeComboBoxes();
+    setChosenProject();
 
     //Resets table
     requirementTable.getItems().clear();
@@ -163,6 +165,13 @@ public class ScrumMasterController
   public void setRequirementStatus()
   {
 
+  }
+
+  public void setChosenProject() throws IOException, ClassNotFoundException
+  {
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
+    chosenProject = model.getProjectList().getProject(comboBoxProjects.getValue().getProjectName());
   }
 
   public void logOut()

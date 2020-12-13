@@ -56,10 +56,12 @@ public class ProjectOwnerController
   }
 
   public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root)
+      throws IOException, ClassNotFoundException
   {
     this.viewHandler = viewHandler;
     this.model = model;
     this.root = root;
+    initializeComboBoxes(); //Initializes the ComboBoxes on load;
   }
 
   public Region getRoot()
@@ -130,7 +132,7 @@ public class ProjectOwnerController
     /*
     * Method populates the tableView with all requirements
     * */
-    initializeComboBoxes();
+
 
     //Resets table
     requirementTable.getItems().clear();

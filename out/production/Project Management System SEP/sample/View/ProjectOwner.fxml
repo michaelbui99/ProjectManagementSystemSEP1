@@ -47,11 +47,6 @@
                            </GridPane.margin>
                         </Label>
                         <Label text="Projekt navn:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="inputAddProjectName" promptText="Projekt navn:" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="30.0" right="160.0" />
-                           </GridPane.margin>
-                        </TextField>
                         <Button fx:id="search" mnemonicParsing="false" onAction="#populateTableView" text="Load Krav" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label fx:id="status" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Button mnemonicParsing="false" onAction="#setChosenProject" text="Vælg Project" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -60,6 +55,7 @@
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </Button>
+                        <ComboBox fx:id="comboBoxProjects" prefWidth="150.0" promptText="Vælg projekt" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>
@@ -110,16 +106,11 @@
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Button fx:id="changePriorityBtn" mnemonicParsing="false" onAction="#setRequirementPriority" text="Skift" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                        <Button fx:id="changePriorityBtn" mnemonicParsing="false" onAction="#setRequirementPriority" text="Skift" GridPane.columnIndex="2" GridPane.halignment="LEFT">
                            <GridPane.margin>
-                              <Insets right="50.0" />
+                              <Insets left="10.0" />
                            </GridPane.margin></Button>
                         <ComboBox fx:id="requirementPriority" onAction="#setRequirementPriority" prefWidth="150.0" promptText="Vælg prioritet" GridPane.columnIndex="1" />
-                        <TextField fx:id="changeRequirementPriorityInput" promptText="Indtast Krav ID" GridPane.columnIndex="2">
-                           <GridPane.margin>
-                              <Insets right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
                      </children>
                   </GridPane>
                </children>
@@ -187,14 +178,9 @@
                      </rowConstraints>
                      <children>
                         <Label text="Fjern krav:" GridPane.columnIndex="1" />
-                        <TextField fx:id="inputRemoveRequirementID" promptText="Indtast Krav ID" GridPane.columnIndex="2">
+                        <Button fx:id="remove" mnemonicParsing="false" onAction="#removeRequirement" text="Fjern" GridPane.columnIndex="2" GridPane.halignment="LEFT">
                            <GridPane.margin>
-                              <Insets left="1.0" right="160.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <Button fx:id="remove" mnemonicParsing="false" onAction="#removeRequirement" text="Fjern" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-                           <GridPane.margin>
-                              <Insets right="20.0" />
+                              <Insets left="10.0" />
                            </GridPane.margin></Button>
                      </children>
                   </GridPane>

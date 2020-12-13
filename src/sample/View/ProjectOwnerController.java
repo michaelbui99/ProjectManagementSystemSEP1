@@ -72,28 +72,29 @@ public class ProjectOwnerController
   }
 
 
-  public void setApprove()
+  public void setApprove() throws IOException
   {
-    int ID = Integer.parseInt(inputApprovalRequirementID.getText());
-    model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setApprovement(true);
-    model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setStatus("Godkendt");
+    int ID = requirementTable.getSelectionModel().getSelectedItem().getRequirementID();
+    model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setApprovement(true);
+    model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setStatus("Godkendt");
+    model.saveProjectList();
   }
 
   public void setNotApprove()
   {
-    int ID = Integer.parseInt(inputApprovalRequirementID.getText());
-    model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setApprovement(false);
-    model.getRequirementList(inputAddProjectName.getText()).getRequirement(ID).setStatus("Ikke godkendt");
+    int ID = requirementTable.getSelectionModel().getSelectedItem().getRequirementID();
+    model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setApprovement(false);
+    model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setStatus("Ikke godkendt");
   }
 
 
 
   public void removeRequirement() throws IOException, ClassNotFoundException
   {
-    int ID = Integer.parseInt(inputRemoveRequirementID.getText());
+    int ID = requirementTable.getSelectionModel().getSelectedItem().getRequirementID();
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
-    model.getProjectList().getProject(inputAddProjectName.getText()).getRequirementList().removeRequirement(ID);
+    model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList().removeRequirement(ID);
     model.saveProjectList();
   }
 
@@ -109,7 +110,7 @@ public class ProjectOwnerController
     //Loads all saved projects and set the inputted project as current project.
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
-    chosenProject = model.getProjectList().getProject(inputAddProjectName.getText());
+    chosenProject = model.getProjectList().getProject(comboBoxProjects.getSelectionModel().getSelectedItem().getProjectName());
   }
 
   public ObservableList<Requirement> getAllRequirements()
@@ -221,7 +222,7 @@ public class ProjectOwnerController
   public void setRequirementPriority()
       throws IOException, ClassNotFoundException
   {
-    int priorityChangeTargetID = Integer.parseInt(changeRequirementPriorityInput.getText());
+    int priorityChangeTargetID = requirementTable.getSelectionModel().getSelectedItem().getRequirementID();
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
     model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList()

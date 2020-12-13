@@ -145,7 +145,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button mnemonicParsing="false" text="Godkend" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Button fx:id="" mnemonicParsing="false" onAction="#addTask" text="Godkend" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="454.0" />
                                                    </GridPane.margin>
@@ -199,7 +199,7 @@
                                                       <Insets left="118.0" right="384.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="inputYear" promptText="yyyy" GridPane.rowIndex="2">
+                                                <TextField fx:id="inputDeadlineYear" promptText="yyyy" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="172.0" right="305.0" />
                                                    </GridPane.margin>

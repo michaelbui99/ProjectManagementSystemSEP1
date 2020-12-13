@@ -38,6 +38,8 @@ public class ProjectOwnerController
   @FXML private ComboBox<String> createRequirementPriority;
   @FXML private TextField changeRequirementPriorityInput;
   @FXML private ComboBox<TeamMember> comboBoxResponsibleMember;
+  @FXML private ComboBox<Project> comboBoxProjects;
+
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -194,6 +196,8 @@ public class ProjectOwnerController
     ArrayList<TeamMember> systemEmployees = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
     comboBoxResponsibleMember.getItems().addAll(systemEmployees);
 
+    ArrayList<Project> systemProjects = model.readProjectList("ProjectList.bin").getAllProjects();
+    comboBoxProjects.getItems().addAll(systemProjects);
   }
 
   public void addRequirement() throws IOException, ClassNotFoundException

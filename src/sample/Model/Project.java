@@ -14,7 +14,7 @@ public class Project implements Serializable
   private MyDate deadline;
   private RequirementList requirementList;
   private EmployeeList employeeList; //vi har denne variabel, så vi kan gemme medarbejderne under projektet
-
+  private static final long serialVersionUID = 1429120686047595232L;
 
   //Constructors
   public Project(String projectName, int projectID, MyDate deadline)
@@ -25,6 +25,7 @@ public class Project implements Serializable
     creationDate = new MyDate();
     requirementList = new RequirementList();
     employeeList = new EmployeeList();
+
   }
 
 
@@ -65,6 +66,10 @@ public class Project implements Serializable
     return requirementList;
   }
 
+  public String toString()
+  {
+    return projectName + " " + projectID + " " + deadline.toString();
+  }
 
 
   //Setters

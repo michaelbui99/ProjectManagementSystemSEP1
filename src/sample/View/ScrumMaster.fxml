@@ -39,7 +39,7 @@
                            <children>
                               <FlowPane layoutY="16.0" prefHeight="551.0" prefWidth="1072.0">
                                  <children>
-                                    <TableView fx:id="requirementTable" prefHeight="553.0" prefWidth="1070.0">
+                                    <TableView fx:id="requirementTable" prefHeight="343.0" prefWidth="1070.0">
                                       <columns>
                                         <TableColumn prefWidth="75.0" text="C1" />
                                         <TableColumn prefWidth="75.0" text="C2" />
@@ -58,13 +58,13 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <Label text="Krav status">
+                                                <Label text="Kravstatus">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin></Label>
-                                                <Button fx:id="approveRequirement" mnemonicParsing="false" text="Godkendt" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Button fx:id="approveRequirement" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Godkendt ændring" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                                                    <GridPane.margin>
-                                                      <Insets left="454.0" />
+                                                      <Insets right="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
                                                 <Button fx:id="cancel" mnemonicParsing="false" onAction="#setCancel" text="Afslut" GridPane.rowIndex="2">
@@ -77,11 +77,26 @@
                                                       <Insets left="471.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <ComboBox fx:id="requirementStatus" onAction="#setRequirementStatus" prefWidth="150.0">
+                                                <ComboBox fx:id="comboBoxRequirementStatus" onAction="#setRequirementStatus" prefHeight="25.0" prefWidth="219.0" promptText="Vælg kravstatus">
                                                    <GridPane.margin>
                                                       <Insets left="86.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
+                                                <Label text="Vælg projekt" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <ComboBox fx:id="comboBoxProjects" prefHeight="25.0" prefWidth="219.0" promptText="Vælg projekt, som skal ændres." GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="86.0" />
+                                                   </GridPane.margin>
+                                                </ComboBox>
+                                                <Button mnemonicParsing="false" text="Load projekt" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets right="10.0" />
+                                                   </GridPane.margin>
+                                                </Button>
                                              </children>
                                           </GridPane>
                                        </children>

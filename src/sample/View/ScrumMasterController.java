@@ -4,10 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.*;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ScrumMasterController
@@ -19,8 +22,8 @@ public class ScrumMasterController
   @FXML private Button cancel;
   @FXML private Button approveRequirement;
   @FXML private Button logOut;
-  @FXML private TableView requirementTable;
-  @FXML private TableView taskTable;
+  @FXML private TableView<Requirement> requirementTable;
+  @FXML private TableView<Task> taskTable;
   @FXML private TextField inputTaskName;
   @FXML private TextField inputTaskID;
   @FXML private TextField inputDay;
@@ -28,6 +31,9 @@ public class ScrumMasterController
   @FXML private TextField inputYear;
   @FXML private TextField approveTask;
   @FXML private TextField estimatedCompletionTime;
+  @FXML private ComboBox<Project> comboBoxProjects;
+  @FXML private ComboBox<String> comboBoxRequirementStatus;
+
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -71,16 +77,91 @@ public class ScrumMasterController
   {
   }
 
-  public void chooseRequirement()
-  {
 
+  public void initializeComboBoxes() throws IOException, ClassNotFoundException
+  {
+    ArrayList<Project> systemProjects = model.readProjectList("ProjectList.bin").getAllProjects();
+    comboBoxProjects.getItems().addAll(systemProjects);
+
+    comboBoxRequirementStatus.getItems().addAll(
+        "Ikke påbegyndt", "Påbegyndt", "Afsluttet"
+    );
+  }
+
+  public void populateTableView() throws IOException, ClassNotFoundException
+  {
+    /*
+     * Method populates the tableView with all requirements
+     * */
+    initializeComboBoxes();
+
+    //Resets table
+    requirementTable.getItems().clear();
+    requirementTable.getColumns().clear();
+
+    //Name column
+    TableColumn<Requirement,String> nameColumn = new TableColumn<>("Navn");
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+    //ID column
+    TableColumn<Requirement,Integer> IDColumn = new TableColumn<>("ID");
+    IDColumn.setCellValueFactory(new PropertyValueFactory<>("requirementID"));
+
+    //responsible TeamMember column
+    TableColumn<Requirement,TeamMember> responsibleMemberColumn = new TableColumn<>("Ansvarlig Teammedlem");
+    responsibleMemberColumn.setCellValueFactory(new PropertyValueFactory<>("responsibleTeamMember"));
+
+    //Status column
+    TableColumn<Requirement,String> statusColumn = new TableColumn<>("Status");
+    statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+    //Priority column
+    TableColumn<Requirement,String> priorityColumn = new TableColumn<>("Prioritet");
+    priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
+
+    //Time spent column
+    TableColumn<Requirement,Integer> timeSpentColumn = new TableColumn<>("Tid Brugt");
+    timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpendInHours"));
+
+    //Deadline column
+    TableColumn<Requirement,MyDate> deadlineColumn = new TableColumn<>("Deadline");
+    deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+
+    //Creation Date column
+    TableColumn<Requirement,MyDate> creationDateColumn = new TableColumn<>("Oprettelsesdato");
+    creationDateColumn.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
+
+    //Estimated completion time column
+    TableColumn<Requirement,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
+    estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
+
+
+
+    requirementTable.setItems(getAllRequirements());
+    requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
+        priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
+  }
+
+
+  public ObservableList<Requirement> getAllRequirements()
+      throws IOException, ClassNotFoundException
+  {
+    /*
+     * Method used for loading Requirements to the tableView.
+     * */
+
+    ObservableList<Requirement> requirements = FXCollections.observableArrayList();
+    //Reading projectList file and getting requirements of chosen project
+    ArrayList<Requirement> projectRequirements = model.readProjectList("ProjectList.bin")
+        .getProject(chosenProject.getProjectName()).getRequirementList().getAllRequirements();
+
+    //Adding all requirements to observable list.
+    requirements.addAll(projectRequirements);
+    return requirements;
   }
 
   public void setRequirementStatus()
   {
-    requirementStatus = new ComboBox<>();
-    String[] status = {"aa","ss","dd"};
-    requirementStatus = new ComboBox<String>(FXCollections.observableArrayList(status));
 
   }
 

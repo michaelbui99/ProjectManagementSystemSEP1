@@ -90,7 +90,7 @@ public class ScrumMasterController
     );
   }
 
-  public void populateTableView() throws IOException, ClassNotFoundException
+  public void populateTableViewRequirement() throws IOException, ClassNotFoundException
   {
     /*
      * Method populates the tableView with all requirements
@@ -162,10 +162,12 @@ public class ScrumMasterController
     return requirements;
   }
 
-  public void setRequirementStatus()
+  public void setRequirementStatus() throws IOException
   {
     chosenProject.getRequirementList().getRequirement(requirementTable.getSelectionModel().getSelectedItem().getRequirementID()).setStatus(comboBoxRequirementStatus.getValue());
+    model.saveProjectList();
   }
+
 
   public void setChosenProject() throws IOException, ClassNotFoundException
   {

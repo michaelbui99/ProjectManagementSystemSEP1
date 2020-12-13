@@ -92,7 +92,7 @@
                                                       <Insets left="86.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <Button mnemonicParsing="false" onAction="#populateTableView" text="Load projekt" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                <Button mnemonicParsing="false" onAction="#populateTableViewRequirement" text="Load projekt" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets right="10.0" />
                                                    </GridPane.margin>

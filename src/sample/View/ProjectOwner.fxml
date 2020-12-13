@@ -47,11 +47,6 @@
                            </GridPane.margin>
                         </Label>
                         <Label text="Projekt navn:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="inputAddProjectName" promptText="Projekt navn:" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="30.0" right="160.0" />
-                           </GridPane.margin>
-                        </TextField>
                         <Button fx:id="search" mnemonicParsing="false" onAction="#populateTableView" text="Load Krav" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label fx:id="status" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Button mnemonicParsing="false" onAction="#setChosenProject" text="Vælg Project" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -60,6 +55,7 @@
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </Button>
+                        <ComboBox fx:id="comboBoxProjects" prefWidth="150.0" promptText="Vælg projekt" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>

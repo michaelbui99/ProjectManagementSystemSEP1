@@ -184,8 +184,8 @@ public class ViewHandler
 
     private Region loadScrumMasterView ()
     {
-      if (scrumMasterController == null)
-      {
+      //if (scrumMasterController == null)
+      //{
         try
         {
           FXMLLoader loader = new FXMLLoader();
@@ -199,7 +199,7 @@ public class ViewHandler
           e.printStackTrace();
         }
 
-      }
+      //}
     /*
     else
     {

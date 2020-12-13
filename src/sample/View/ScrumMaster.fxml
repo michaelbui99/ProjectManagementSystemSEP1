@@ -62,7 +62,7 @@
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin></Label>
-                                                <Button fx:id="approveRequirement" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Godkendt ændring" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                                <Button fx:id="approveRequirement" mnemonicParsing="false" onAction="#setRequirementStatus" prefHeight="25.0" prefWidth="155.0" text="Godkend ændring" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                                                    <GridPane.margin>
                                                       <Insets right="10.0" />
                                                    </GridPane.margin>

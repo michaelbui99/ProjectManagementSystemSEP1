@@ -164,7 +164,7 @@ public class ScrumMasterController
 
   public void setRequirementStatus()
   {
-
+    chosenProject.getRequirementList().getRequirement(requirementTable.getSelectionModel().getSelectedItem().getRequirementID()).setStatus(comboBoxRequirementStatus.getValue());
   }
 
   public void setChosenProject() throws IOException, ClassNotFoundException

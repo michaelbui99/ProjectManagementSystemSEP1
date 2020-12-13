@@ -41,8 +41,15 @@
                                  <children>
                                     <TableView fx:id="requirementTable" prefHeight="343.0" prefWidth="1070.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="C1" />
-                                        <TableColumn prefWidth="75.0" text="C2" />
+                                        <TableColumn prefWidth="75.0" text="Navn" />
+                                        <TableColumn prefWidth="75.0" text="ID" />
+                                          <TableColumn prefWidth="147.0" text="Ansvarlig Teammedlem" />
+                                          <TableColumn onEditStart="#setRequirementStatus" prefWidth="75.0" text="Status" />
+                                          <TableColumn prefWidth="75.0" text="Prioritet" />
+                                          <TableColumn prefWidth="75.0" text="Tid Bruget" />
+                                          <TableColumn prefWidth="75.0" text="Deadline" />
+                                          <TableColumn prefWidth="120.0" text="Oprettelsesdato" />
+                                          <TableColumn prefWidth="165.0" text="Estimeret Afslutningstid " />
                                       </columns>
                                     </TableView>
                                     <FlowPane prefHeight="110.0" prefWidth="1074.0">
@@ -77,7 +84,7 @@
                                                       <Insets left="471.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <ComboBox fx:id="comboBoxRequirementStatus" onAction="#setRequirementStatus" prefHeight="25.0" prefWidth="219.0" promptText="Vælg kravstatus">
+                                                <ComboBox fx:id="comboBoxRequirementStatus" prefHeight="25.0" prefWidth="219.0" promptText="Vælg kravstatus">
                                                    <GridPane.margin>
                                                       <Insets left="86.0" />
                                                    </GridPane.margin>

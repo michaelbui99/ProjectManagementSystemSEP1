@@ -30,12 +30,13 @@ public class TeamMemberController
   @FXML private ComboBox<TeamMember> teamMemberComboBox;
   @FXML private ComboBox<Project> comboBoxProjects;
 
+
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
   private Region root;
   private Project chosenProject;
   private Requirement chosenRequirement;
-
+  private Task chosenTask;
 
 
   public void setModel( ManagementSystemModel model)
@@ -49,10 +50,16 @@ public class TeamMemberController
   }
 
   public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root)
+      throws IOException, ClassNotFoundException
   {
     this.viewHandler = viewHandler;
     this.model = model;
     this.root = root;
+    //Setting the most recent saved ProjectList file as projectList for model on init.
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
+
+    initializeComboBoxes();
   }
 
   public Region getRoot()
@@ -72,8 +79,9 @@ public class TeamMemberController
 
   public void setSave()
   {
-    int reqID = Integer.parseInt(inputRequirementID.getText());
-    int taskID = Integer.parseInt(inputTaskID.getText());
+    setChosenTask();
+    int reqID = chosenRequirement.getRequirementID();
+    int taskID = chosenTask.getID();
     int time = Integer.parseInt(inputTime.getText());
 
     model.registerTaskTime(time,reqID,taskID);
@@ -89,6 +97,9 @@ public class TeamMemberController
 
   public void initializeComboBoxes() throws IOException, ClassNotFoundException
   {
+  /*
+  * Method initializes all ComboBoxes.
+  * */
     ArrayList<Project> systemProjects = model.readProjectList("ProjectList.bin").getAllProjects();
     comboBoxProjects.getItems().addAll(systemProjects);
     ArrayList<TeamMember> systemEmployees = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
@@ -98,6 +109,9 @@ public class TeamMemberController
 
   public void setChosenProject() throws IOException, ClassNotFoundException
   {
+    /*
+    * Method sets the current Project the user is editing/viewing.
+    * */
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
     chosenProject = model.getProjectList().getProject(comboBoxProjects.getValue().getProjectName());
@@ -144,6 +158,7 @@ public class TeamMemberController
      * Method populates the tableView with all requirements
      * */
     setChosenProject();
+
 
     //Resets table to prevent adding new columns on refresh
     requirementTable.getItems().clear();
@@ -199,7 +214,7 @@ public class TeamMemberController
   public void populateTableViewTask() throws IOException, ClassNotFoundException
   {
     setChosenProject();
-    chosenRequirement = requirementTable.getSelectionModel().getSelectedItem();
+    setChosenRequirement();
 
     //Resets TableView to prevent adding new columns on refresh
     //Name column
@@ -242,8 +257,24 @@ public class TeamMemberController
     taskTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
         priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
   }
+
+  public void setChosenRequirement()
+  {
+    chosenRequirement = requirementTable.getSelectionModel().getSelectedItem();
+  }
+
+  public void setChosenTask()
+  {
+    chosenTask = taskTable.getSelectionModel().getSelectedItem();
+
+  }
+
+
   public void logOut()
   {
+    /*
+    * Method returns the user to Main menu, where the user can choose a new role.
+    * */
     viewHandler.openView("main");
   }
 }

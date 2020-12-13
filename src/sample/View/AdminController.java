@@ -4,10 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import sample.Model.EmployeeList;
-import sample.Model.ManagementSystemModel;
-import sample.Model.MyDate;
-import sample.Model.TeamMember;
+import sample.Model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,10 +37,15 @@ public class AdminController
   }
 
   public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root)
+      throws IOException, ClassNotFoundException
   {
     this.viewHandler = viewHandler;
     this.model = model;
     this.root = root;
+
+    //Setting the most recent saved ProjectList file as projectList for model on init.
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
   }
 
   public Region getRoot()

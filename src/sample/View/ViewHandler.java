@@ -86,7 +86,7 @@ public class ViewHandler
         adminController = loader.getController();
         adminController.init(this, model, root);
       }
-      catch (IOException e)
+      catch (IOException | ClassNotFoundException e)
       {
         e.printStackTrace();
       }
@@ -166,7 +166,7 @@ public class ViewHandler
         projektCreatorController = loader.getController();
         projektCreatorController.init(this, model, root);
       }
-      catch (IOException e)
+      catch (IOException | ClassNotFoundException e)
       {
         e.printStackTrace();
       }
@@ -221,7 +221,7 @@ public class ViewHandler
           teamMemberController = loader.getController();
           teamMemberController.init(this, model, root);
         }
-        catch (IOException e)
+        catch (IOException | ClassNotFoundException e)
         {
           e.printStackTrace();
         }

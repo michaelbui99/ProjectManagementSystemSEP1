@@ -44,10 +44,16 @@ public class ProjektCreatorController
   }
 
   public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root)
+      throws IOException, ClassNotFoundException
   {
     this.viewHandler = viewHandler;
     this.model = model;
     this.root = root;
+
+    //Setting the most recent saved ProjectList file as projectList for model on init.
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
+
   }
 
   public Region getRoot()

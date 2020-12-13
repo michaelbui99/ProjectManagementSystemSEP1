@@ -16,7 +16,7 @@
 
 <ScrollPane prefHeight="1129.0" prefWidth="976.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ProjectOwnerController">
    <content>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1038.0" prefWidth="973.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1119.0" prefWidth="971.0">
          <children>
             <FlowPane alignment="CENTER" prefHeight="61.0" prefWidth="600.0">
                <children>

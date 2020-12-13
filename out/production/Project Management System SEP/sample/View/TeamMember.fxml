@@ -133,7 +133,7 @@
                               </Label>
                            </children>
                         </FlowPane>
-                        <TableView fx:id="taskTable" prefHeight="586.0" prefWidth="1062.0">
+                        <TableView fx:id="tableView" prefHeight="586.0" prefWidth="1062.0">
                            <columns>
                               <TableColumn prefWidth="75.0" text="C1" />
                               <TableColumn prefWidth="99.0" text="C2" />

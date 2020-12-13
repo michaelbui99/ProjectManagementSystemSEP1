@@ -255,12 +255,7 @@ public class ScrumMasterController
     chosenProject = model.getProjectList().getProject(comboBoxProjects.getValue().getProjectName());
   }
 
-  public Project getChosenProject() throws IOException, ClassNotFoundException
-  {
-    ProjectList loadedList = model.readProjectList("ProjectList.bin");
-    model.setProjectList(loadedList);
-    return chosenProject = model.getProjectList().getProject(comboBoxProjects.getValue().getProjectName());
-  }
+
 
 
   public void logOut()

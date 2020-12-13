@@ -36,7 +36,7 @@
                         </FlowPane>
                         <FlowPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <TableView fx:id="tableView1" prefHeight="480.0" prefWidth="1056.0">
+                              <TableView fx:id="requirementTable" prefHeight="480.0" prefWidth="1056.0">
                                  <columns>
                                     <TableColumn prefWidth="75.0" text="C1" />
                                     <TableColumn prefWidth="99.0" text="C2" />
@@ -53,6 +53,7 @@
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="607.0" minWidth="10.0" prefWidth="607.0" />
                                 </columnConstraints>
                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -60,26 +61,28 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label text="Registere tid:">
+                                    <Label text="Registere tid:" GridPane.rowIndex="1">
                                        <GridPane.margin>
                                           <Insets left="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label text="Tid brugt på opgave:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <TextField fx:id="inputTime" promptText="Tid:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                    <Label text="Tid brugt på opgave:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField fx:id="inputTime" promptText="Tid:" GridPane.columnIndex="2" GridPane.rowIndex="4">
                                        <GridPane.margin>
                                           <Insets left="30.0" right="500.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <Button fx:id="save" mnemonicParsing="false" onAction="#setSave" text="gem" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                    <Button fx:id="save" mnemonicParsing="false" onAction="#setSave" text="gem" GridPane.columnIndex="2" GridPane.rowIndex="5">
                                        <GridPane.margin>
                                           <Insets left="30.0" />
                                        </GridPane.margin>
                                     </Button>
-                                    <ComboBox prefWidth="150.0" promptText="Vælg krav:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <ComboBox prefWidth="150.0" promptText="Vælg Opgave:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Button mnemonicParsing="false" text="Godkendt vælge" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="requirementComboBox" prefWidth="150.0" promptText="Vælg krav:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="taskComboBox" prefWidth="150.0" promptText="Vælg Opgave:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                     <Button mnemonicParsing="false" text="Godkendt vælge" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Button mnemonicParsing="false" text="Godkendt vælge" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <ComboBox fx:id="comboBoxProjects" prefWidth="150.0" promptText="Vælg Projekt:" GridPane.columnIndex="1" />
+                                    <Button mnemonicParsing="false" onAction="#populateTableViewRequirement" text="Load Projekt" GridPane.columnIndex="2" />
                                  </children>
                               </GridPane>
                            </children>
@@ -130,7 +133,7 @@
                               </Label>
                            </children>
                         </FlowPane>
-                        <TableView fx:id="tableView" prefHeight="586.0" prefWidth="1062.0">
+                        <TableView fx:id="taskTable" prefHeight="586.0" prefWidth="1062.0">
                            <columns>
                               <TableColumn prefWidth="75.0" text="C1" />
                               <TableColumn prefWidth="99.0" text="C2" />
@@ -147,7 +150,7 @@
                                   <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <ComboBox prefWidth="150.0" promptText="Teammedlem List">
+                                    <ComboBox fx:id="teamMemberComboBox" prefWidth="150.0" promptText="Teammedlem List">
                                        <GridPane.margin>
                                           <Insets left="10.0" />
                                        </GridPane.margin>

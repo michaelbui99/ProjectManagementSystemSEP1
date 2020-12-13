@@ -39,7 +39,7 @@
                            <children>
                               <FlowPane layoutY="16.0" prefHeight="551.0" prefWidth="1072.0">
                                  <children>
-                                    <TableView fx:id="requirementTable" prefHeight="343.0" prefWidth="1070.0">
+                                    <TableView fx:id="requirementTable" prefHeight="544.0" prefWidth="1097.0">
                                       <columns>
                                         <TableColumn prefWidth="75.0" text="Navn" />
                                         <TableColumn prefWidth="75.0" text="ID" />

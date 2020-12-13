@@ -185,11 +185,15 @@ public class TeamMemberController
     TableColumn<Requirement,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
     estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
 
+    //User Story column
+    TableColumn<Requirement, String> userStoryColumn = new TableColumn<>("User Story");
+    userStoryColumn.setCellValueFactory(new PropertyValueFactory<>("userStory"));
+
 
 
     requirementTable.setItems(getAllRequirements());
     requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
-        priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
+        priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn, userStoryColumn);
   }
 
   public void populateTableViewTask() throws IOException, ClassNotFoundException

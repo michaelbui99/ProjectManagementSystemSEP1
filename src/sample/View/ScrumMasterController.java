@@ -18,7 +18,7 @@ public class ScrumMasterController
 
   @FXML private ComboBox<String> requirementStatus;
   @FXML private ComboBox<String> taskPriority;
-  @FXML private ComboBox<String> responsibleTeamMember;
+  @FXML private ComboBox<TeamMember> responsibleTeamMember;
   @FXML private Button cancel;
   @FXML private Button approveRequirement;
   @FXML private Button logOut;
@@ -75,18 +75,21 @@ public class ScrumMasterController
   }
 
 
-/*
-  public void addTask()
+
+  public void addTask() throws IOException
   {
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     //Makes sure the list we are editing are the most current saved list.
     model.setProjectList(loadedList);
     chosenRequirement = requirementTable.getSelectionModel().getSelectedItem();
-    //model.getProjectList().getProject(chosenProject.getProjectName()).
-       // getRequirementList().getRequirement(chosenRequirement.getRequirementID()).a;
-
+    Task taskToAdd = new Task(inputTaskName.getText(), model.getProjectList().getIdGenerator().generateTaskID(), "Ikke påbegyndt"
+    , responsibleTeamMember.getValue(), taskPriority.getValue(), new MyDate(Integer.parseInt(inputDay.getText()), Integer.parseInt(inputMonth.getText()),Integer.parseInt(inputYear.getText())),
+        Double.parseDouble(estimatedCompletionTime.getText()));
+    model.getProjectList().getProject(chosenProject.getProjectName()).
+        getRequirementList().getRequirement(chosenRequirement.getRequirementID()).getTaskList().addTask(taskToAdd);
+    model.saveProjectList();
   }
-*/
+
 
   public void initializeComboBoxes() throws IOException, ClassNotFoundException
   {
@@ -98,7 +101,11 @@ public class ScrumMasterController
     );
 
     ArrayList<TeamMember> systemEmployees = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
+    responsibleTeamMember.getItems().addAll(systemEmployees);
 
+    taskPriority.getItems().addAll(
+        "Lav", "Normal", "Høj", "Kritisk"
+    );
   }
 
   public void populateTableViewRequirement() throws IOException, ClassNotFoundException

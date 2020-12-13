@@ -36,8 +36,8 @@ public class ManagementSystemModel
   }
 
   public void createRequirement(String name, int requirementID, TeamMember responsibleTeamMember,
-      String status, String priority, MyDate deadline) {
-    projectList.getProject(currentProject).getRequirementList().addRequirement(new Requirement(name, projectList.getIdGenerator().generateRequirementID(), responsibleTeamMember, status,priority,deadline));
+      String status, String priority, MyDate deadline, String userStory) {
+    projectList.getProject(currentProject).getRequirementList().addRequirement(new Requirement(name, projectList.getIdGenerator().generateRequirementID(), responsibleTeamMember, status,priority,deadline, userStory));
   }
 
   public void createTask(int requirementID, String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline, double estimatedCompletionTime) {

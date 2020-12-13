@@ -29,7 +29,7 @@ public class Requirement implements
   //Constructors
 
   Requirement(String name, int requirementID, TeamMember responsibleTeamMember,
-      String status, String priority, MyDate deadline)
+      String status, String priority, MyDate deadline, String userStory)
   {
     this.name = name;
     this.requirementID = requirementID;
@@ -41,6 +41,8 @@ public class Requirement implements
     this.deadline = deadline;
     this.creationDate = MyDate.now();
     estimatedCompletionTimeInHours = calculateEstimatedTimeInHours();
+    taskList = new TaskList();
+    this.userStory = userStory;
   }
 
   public Requirement(String name, int requirementID)

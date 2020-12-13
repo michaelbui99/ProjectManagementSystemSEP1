@@ -76,7 +76,7 @@ public class ScrumMasterController
 
 
 
-  public void addTask() throws IOException
+  public void addTask() throws IOException, ClassNotFoundException
   {
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     //Makes sure the list we are editing are the most current saved list.

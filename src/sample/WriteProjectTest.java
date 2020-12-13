@@ -15,7 +15,7 @@ public class WriteProjectTest
     model.addEmployeeToSystem("Michael", 2020,"teammember");
     model.createProject("Project1", 23, MyDate.now());
     model.setCurrentProject("Project1");
-    model.createRequirement("TestReq", 2020, new TeamMember("Michael", 2020, "teammember"), "Ikke påbegyndt", "Lav", MyDate.now());
+    model.createRequirement("TestReq", 2020, new TeamMember("Michael", 2020, "teammember"), "Ikke påbegyndt", "Lav", MyDate.now(), "Userstory");
     Requirement req1 = new Requirement("Test", 201, new TeamMember("Michael", 2020, "teammember"),"Høj");
     model.getProjectList().getProject("Project1").getRequirementList().addRequirement(req1);
 

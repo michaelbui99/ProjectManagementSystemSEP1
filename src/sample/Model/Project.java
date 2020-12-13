@@ -73,9 +73,9 @@ public class Project implements Serializable
 
 
   //Setters
-  public void addRequirement(String requirementName, int requirementID, TeamMember responsibleTeamMember, String status, String priority, MyDate deadline)
+  public void addRequirement(String requirementName, int requirementID, TeamMember responsibleTeamMember, String status, String priority, MyDate deadline, String userStory)
   {
-    requirementList.addRequirement(new Requirement(requirementName,requirementID, responsibleTeamMember, status,priority, deadline));
+    requirementList.addRequirement(new Requirement(requirementName,requirementID, responsibleTeamMember, status,priority, deadline, userStory));
   }
 
   public void removeRequirement(int requirementID)

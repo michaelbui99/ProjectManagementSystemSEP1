@@ -39,7 +39,7 @@ public class ProjectOwnerController
   @FXML private TextField changeRequirementPriorityInput;
   @FXML private ComboBox<TeamMember> comboBoxResponsibleMember;
   @FXML private ComboBox<Project> comboBoxProjects;
-
+  @FXML private TextArea createRequirementUserStory;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -177,11 +177,14 @@ public class ProjectOwnerController
     TableColumn<Requirement,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
     estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
 
+    //User Story column
+    TableColumn<Requirement, String> userStoryColumn = new TableColumn<>("User Story");
+    userStoryColumn.setCellValueFactory(new PropertyValueFactory<>("userStory"));
 
 
     requirementTable.setItems(getAllRequirements());
     requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
-        priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
+        priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn, userStoryColumn);
   }
 
   public void initializeComboBoxes() throws IOException, ClassNotFoundException
@@ -212,8 +215,7 @@ public class ProjectOwnerController
     model.setProjectList(loadedList);
     model.getProjectList().getProject(chosenProject.getProjectName()).addRequirement(
         inputAddRequirementName.getText(), model.getProjectList().getIdGenerator().generateRequirementID(), model.readEmployeeList("EmployeeList.bin").getEmployee(comboBoxResponsibleMember.getValue().getName())
-        ,"Ikke påbegyndt", createRequirementPriority.getValue(),new MyDate(d,m,y)
-    );
+        ,"Ikke påbegyndt", createRequirementPriority.getValue(),new MyDate(d,m,y), createRequirementUserStory.getText());
 
     model.saveProjectList();
 

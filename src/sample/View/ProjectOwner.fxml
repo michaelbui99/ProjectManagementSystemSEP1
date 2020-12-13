@@ -151,11 +151,6 @@
                         </TextField>
                         <Button fx:id="add" mnemonicParsing="false" onAction="#addRequirement" text="Tilføj" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label text="Status" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                        <TextField fx:id="responsibleTeamMember" promptText="Tilføj ansvarlig teammedlem" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets right="160.0" />
-                           </GridPane.margin>
-                        </TextField>
                         <TextField fx:id="day" prefHeight="25.0" prefWidth="349.0" promptText="dd" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets right="536.0" />
@@ -174,6 +169,7 @@
                         </TextField>
                         <Label text="Prioritet:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <ComboBox fx:id="createRequirementPriority" prefWidth="150.0" promptText="Vælg Prioritet" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="comboBoxResponsibleMember" prefWidth="150.0" promptText="Vælg Teammedlem" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>

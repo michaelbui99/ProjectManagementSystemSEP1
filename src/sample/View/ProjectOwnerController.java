@@ -27,7 +27,7 @@ public class ProjectOwnerController
   @FXML private TextField inputApprovalRequirementID;
   @FXML private TextField inputAddRequirementID;
   @FXML private TextField inputAddRequirementName;
-  @FXML private TextField responsibleTeamMember;
+ // @FXML private TextField responsibleTeamMember;
   @FXML private TextField day;
   @FXML private TextField month;
   @FXML private TextField year;
@@ -37,7 +37,7 @@ public class ProjectOwnerController
   @FXML private ComboBox<String> requirementPriority;
   @FXML private ComboBox<String> createRequirementPriority;
   @FXML private TextField changeRequirementPriorityInput;
-
+  @FXML private ComboBox<TeamMember> comboBoxResponsibleMember;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -67,17 +67,6 @@ public class ProjectOwnerController
     return root;
   }
 
-  public void getProject()
-  {
-    try
-    {
-      model.getProjectInfo(inputAddProjectName.getText());
-    }
-    catch (Exception e)
-    {
-      status.setText("Brug igen!");
-    }
-  }
 
   public void setApprove()
   {
@@ -141,6 +130,7 @@ public class ProjectOwnerController
     /*
     * Method populates the tableView with all requirements
     * */
+    initializeComboBoxes();
 
     //Resets table
     requirementTable.getItems().clear();
@@ -182,6 +172,15 @@ public class ProjectOwnerController
     TableColumn<Requirement,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
     estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
 
+
+
+    requirementTable.setItems(getAllRequirements());
+    requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
+        priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
+  }
+
+  public void initializeComboBoxes() throws IOException, ClassNotFoundException
+  {
     createRequirementPriority.getItems().addAll(
         "Lav","Normal","Høj","Kritisk"
     );
@@ -190,9 +189,9 @@ public class ProjectOwnerController
         "Lav","Normal","Høj","Kritisk"
     );
 
-    requirementTable.setItems(getAllRequirements());
-    requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
-        priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
+    ArrayList<TeamMember> systemEmployees = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
+    comboBoxResponsibleMember.getItems().addAll(systemEmployees);
+
   }
 
   public void addRequirement() throws IOException, ClassNotFoundException
@@ -205,7 +204,7 @@ public class ProjectOwnerController
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
     model.getProjectList().getProject(chosenProject.getProjectName()).addRequirement(
-        inputAddRequirementName.getText(), model.getProjectList().getIdGenerator().generateRequirementID(), model.readEmployeeList("EmployeeList.bin").getEmployee(responsibleTeamMember.getText())
+        inputAddRequirementName.getText(), model.getProjectList().getIdGenerator().generateRequirementID(), model.readEmployeeList("EmployeeList.bin").getEmployee(comboBoxResponsibleMember.getValue().getName())
         ,"Ikke påbegyndt", createRequirementPriority.getValue(),new MyDate(d,m,y)
     );
 

@@ -76,8 +76,8 @@ public class ViewHandler
 
   private Region loadAdminView()
   {
-    if (adminController == null)
-    {
+    //if (adminController == null)
+    //{
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -90,7 +90,7 @@ public class ViewHandler
       {
         e.printStackTrace();
       }
-    }
+    //}
     /*else
     {
       adminController.reset();
@@ -102,8 +102,8 @@ public class ViewHandler
 
   private Region loadMainView()
   {
-    if (colourITMainController == null)
-    {
+    //if (colourITMainController == null)
+    //{
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -116,7 +116,7 @@ public class ViewHandler
       {
         e.printStackTrace();
       }
-    }
+    //}
     /*
     else
     {
@@ -129,8 +129,8 @@ public class ViewHandler
 
   private Region loadProjectOwnerView()
   {
-    if (projectOwnerController == null)
-    {
+ //   if (projectOwnerController == null)
+   // {
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -143,7 +143,7 @@ public class ViewHandler
       {
         e.printStackTrace();
       }
-    }
+  //  }
     /*
     else
     {
@@ -156,8 +156,8 @@ public class ViewHandler
 
   private Region loadProjektCreatorView()
   {
-    if (projektCreatorController == null)
-    {
+    //if (projektCreatorController == null)
+    //{
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -170,7 +170,7 @@ public class ViewHandler
       {
         e.printStackTrace();
       }
-    }
+    //}
     /*
     else
     {
@@ -211,8 +211,8 @@ public class ViewHandler
 
     private Region loadTeamMemberView ()
     {
-      if (teamMemberController == null)
-      {
+    //  if (teamMemberController == null)
+      //{
         try
         {
           FXMLLoader loader = new FXMLLoader();
@@ -225,7 +225,7 @@ public class ViewHandler
         {
           e.printStackTrace();
         }
-      }
+    //  }
     /*
     else
     {

@@ -2,8 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -14,146 +17,177 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="920.0" prefWidth="1067.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.TeamMemberController">
-   <content>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="919.0" prefWidth="1063.0">
-         <children>
-            <FlowPane alignment="CENTER" prefHeight="41.0" prefWidth="600.0">
-               <children>
-                  <Label text="Teammedlem">
-                     <font>
-                        <Font size="27.0" />
-                     </font>
-                  </Label>
-               </children>
-            </FlowPane>
-            <FlowPane prefHeight="144.0" prefWidth="938.0">
-               <children>
-                  <GridPane prefHeight="145.0" prefWidth="1053.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="464.0" minWidth="10.0" prefWidth="266.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="672.0" minWidth="10.0" prefWidth="672.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+
+<TabPane prefHeight="813.0" prefWidth="1068.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.TeamMemberController">
+   <tabs>
+      <Tab text="Projekt info">
+         <content>
+            <ScrollPane prefHeight="920.0" prefWidth="1067.0">
+               <content>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="919.0" prefWidth="1063.0">
                      <children>
-                        <Label text="Søg projekt">
-                           <GridPane.margin>
-                              <Insets left="10.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label text="Prokejt navn" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="140.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="inputProjectName" prefHeight="32.0" prefWidth="672.0" promptText="Projket navn:" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="30.0" right="165.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <Button fx:id="search" mnemonicParsing="false" text="Søg" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="26.0" />
-                           </GridPane.margin>
-                        </Button>
+                        <FlowPane alignment="CENTER" prefHeight="41.0" prefWidth="600.0">
+                           <children>
+                              <Label text="Teammedlem">
+                                 <font>
+                                    <Font size="27.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </FlowPane>
+                        <FlowPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tableView1" prefHeight="480.0" prefWidth="1056.0">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="C1" />
+                                    <TableColumn prefWidth="99.0" text="C2" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </FlowPane>
+                        <FlowPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <GridPane prefHeight="200.0" prefWidth="1057.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="17.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="607.0" minWidth="10.0" prefWidth="607.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Registere tid:">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Tid brugt på opgave:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="inputTime" promptText="Tid:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" right="500.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Button fx:id="save" mnemonicParsing="false" onAction="#setSave" text="gem" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                    <ComboBox prefWidth="150.0" promptText="Vælg krav:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ComboBox prefWidth="150.0" promptText="Vælg Opgave:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Button mnemonicParsing="false" text="Godkendt vælge" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Button mnemonicParsing="false" text="Godkendt vælge" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </FlowPane>
+                        <FlowPane prefHeight="42.0" prefWidth="938.0">
+                           <children>
+                              <GridPane prefHeight="57.0" prefWidth="1055.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="cancel" mnemonicParsing="false" onAction="#setCancel" text="Afslut">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#logOut" prefHeight="17.0" prefWidth="159.0" text="Log ud" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="409.0" right="30.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </FlowPane>
                      </children>
-                  </GridPane>
-               </children>
-            </FlowPane>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </content>
+      </Tab>
+      <Tab text="Teammedlem info">
+         <content>
             <FlowPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="tableView" prefHeight="480.0" prefWidth="1056.0">
+                  <FlowPane alignment="CENTER" prefHeight="61.0" prefWidth="1068.0">
+                     <children>
+                        <Label text="Teammedlem">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <TableView fx:id="tableView" prefHeight="586.0" prefWidth="1062.0">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="Kravnavn" />
-                        <TableColumn prefWidth="99.0" text="KravID" />
-                        <TableColumn prefWidth="172.0" text="Ansvarlig Medlem for krav" />
-                        <TableColumn prefWidth="108.0" text="Krav Status" />
-                        <TableColumn prefWidth="118.0" text="Krav deadline" />
-                        <TableColumn prefWidth="65.0" text="OpgaveID" />
-                        <TableColumn prefWidth="107.0" text="Opgave status" />
-                        <TableColumn prefWidth="107.0" text="Opgave deadline" />
-                        <TableColumn prefWidth="200.0" text="tid mellem teammedlemmer" />
+                        <TableColumn prefWidth="75.0" text="C1" />
+                        <TableColumn prefWidth="99.0" text="C2" />
                      </columns>
                   </TableView>
-               </children>
-            </FlowPane>
-            <FlowPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <GridPane prefHeight="185.0" prefWidth="937.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="17.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="607.0" minWidth="10.0" prefWidth="607.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <FlowPane prefHeight="65.0" prefWidth="1032.0">
                      <children>
-                        <Label text="Registere tid:">
-                           <GridPane.margin>
-                              <Insets left="10.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label text="Vælg opgave ID:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Tid:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="inputTaskIDForTime" promptText="Opgave ID:" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="30.0" right="165.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <TextField fx:id="inputTime" promptText="Tid:" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets left="30.0" right="165.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <Button fx:id="save" mnemonicParsing="false" onAction="#setSave" text="gem" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                           <GridPane.margin>
-                              <Insets left="30.0" />
-                           </GridPane.margin></Button>
-                        <Label prefWidth="88.0" text="Vælg krav ID:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="inputRequirementID" promptText="Krav ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="30.0" right="165.0" />
-                           </GridPane.margin>
-                        </TextField>
+                        <GridPane prefHeight="87.0" prefWidth="1041.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="527.0" minWidth="10.0" prefWidth="265.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="827.0" minWidth="10.0" prefWidth="798.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ComboBox prefWidth="150.0" promptText="Teammedlem List">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <Button mnemonicParsing="false" text="Load Info" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
                      </children>
-                  </GridPane>
-               </children>
-            </FlowPane>
-            <FlowPane prefHeight="42.0" prefWidth="938.0">
-               <children>
-                  <GridPane prefHeight="52.0" prefWidth="936.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  </FlowPane>
+                  <FlowPane prefHeight="42.0" prefWidth="938.0">
                      <children>
-                        <Button fx:id="cancel" mnemonicParsing="false" onAction="#setCancel" text="Afslut">
-                           <GridPane.margin>
-                              <Insets left="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="1">
-                           <GridPane.margin>
-                              <Insets left="405.0" />
-                           </GridPane.margin>
-                        </Button>
+                        <GridPane prefHeight="57.0" prefWidth="1055.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Button fx:id="cancel1" mnemonicParsing="false" onAction="#setCancel" text="Afslut">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#logOut" prefHeight="17.0" prefWidth="159.0" text="Log ud" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="409.0" right="30.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
                      </children>
-                  </GridPane>
+                  </FlowPane>
                </children>
             </FlowPane>
-         </children>
-      </VBox>
-   </content>
-</ScrollPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>

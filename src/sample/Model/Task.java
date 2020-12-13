@@ -16,6 +16,7 @@ public class Task implements Serializable
   private MyDate creationDate;
   private MyDate deadline;
   private double estimatedCompletionTimeInHours;
+  private static final long serialVersionUID = 374347049712624210L;
 
   //Constructors
   public Task(String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline)
@@ -51,7 +52,7 @@ public class Task implements Serializable
     return name;
   }
 
-  public int getID()
+  public int getTaskID()
   {
     return taskID;
   }

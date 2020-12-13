@@ -24,7 +24,7 @@ public class TaskList implements Serializable
   {
     for (Task task : tasks)
     {
-      if (task.getID()==(taskID))
+      if (task.getTaskID()==(taskID))
       {
         return task;
       }
@@ -49,7 +49,7 @@ public class TaskList implements Serializable
   {
     for (Task task: tasks)
     {
-      if (task.getID()==(taskID))
+      if (task.getTaskID()==(taskID))
       {
         tasks.remove(task);
       }

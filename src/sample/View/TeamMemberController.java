@@ -70,7 +70,7 @@ public class TeamMemberController
 
     setChosenTask();
     int reqID = chosenRequirement.getRequirementID();
-    int taskID = chosenTask.getID();
+    int taskID = chosenTask.getTaskID();
     int time = Integer.parseInt(inputTime.getText());
 
     model.registerTaskTime(time,reqID,taskID);

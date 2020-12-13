@@ -26,9 +26,9 @@ public class ScrumMasterController
   @FXML private TableView<Task> taskTable;
   @FXML private TextField inputTaskName;
   @FXML private TextField inputTaskID;
-  @FXML private TextField inputDay;
-  @FXML private TextField inputMonth;
-  @FXML private TextField inputYear;
+  @FXML private TextField inputDeadlineDay;
+  @FXML private TextField inputDeadlineMonth;
+  @FXML private TextField inputDeadlineYear;
   @FXML private TextField approveTask;
   @FXML private TextField estimatedCompletionTime;
   @FXML private TextField requirementID;
@@ -82,8 +82,9 @@ public class ScrumMasterController
     //Makes sure the list we are editing are the most current saved list.
     model.setProjectList(loadedList);
     chosenRequirement = requirementTable.getSelectionModel().getSelectedItem();
+
     Task taskToAdd = new Task(inputTaskName.getText(), model.getProjectList().getIdGenerator().generateTaskID(), "Ikke påbegyndt"
-    , responsibleTeamMember.getValue(), taskPriority.getValue(), new MyDate(Integer.parseInt(inputDay.getText()), Integer.parseInt(inputMonth.getText()),Integer.parseInt(inputYear.getText())),
+    , responsibleTeamMember.getValue(), taskPriority.getValue(), new MyDate(Integer.parseInt(inputDeadlineDay.getText()), Integer.parseInt(inputDeadlineMonth.getText()),Integer.parseInt(inputDeadlineYear.getText())),
         Double.parseDouble(estimatedCompletionTime.getText()));
     model.getProjectList().getProject(chosenProject.getProjectName()).
         getRequirementList().getRequirement(chosenRequirement.getRequirementID()).getTaskList().addTask(taskToAdd);

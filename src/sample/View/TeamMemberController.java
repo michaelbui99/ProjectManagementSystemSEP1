@@ -62,11 +62,8 @@ public class TeamMemberController
   {
     return root;
   }
-  
-  public void setShowAllProjects()
-  {
-    model.getProjectList();
-  }
+
+
 
   public void setSave()
   {

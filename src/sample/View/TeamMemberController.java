@@ -19,14 +19,10 @@ public class TeamMemberController
   @FXML private Button search;
   @FXML private Button save;
   @FXML private Button showAllProjects;
-  @FXML private TextField inputProjectName;
-  @FXML private TextField inputRequirementID;
-  @FXML private TextField inputTaskID;
   @FXML private TextField inputTime;
   @FXML private TableView<Requirement> requirementTable;
   @FXML private TableView<Task> taskTable;
-  @FXML private ComboBox<Requirement> requirementComboBox;
-  @FXML private ComboBox<Task> taskComboBox;
+  @FXML private TableView<TeamMember> memberTableView;
   @FXML private ComboBox<TeamMember> teamMemberComboBox;
   @FXML private ComboBox<Project> comboBoxProjects;
 
@@ -66,12 +62,7 @@ public class TeamMemberController
   {
     return root;
   }
-
-  public void setSearchForProject()
-  {
-    model.getProjectList().getProject(inputProjectName.getText());
-  }
-
+  
   public void setShowAllProjects()
   {
     model.getProjectList();

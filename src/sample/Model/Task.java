@@ -27,6 +27,7 @@ public class Task implements Serializable
     setPriority(priority);
     employees = new EmployeeList();
     this.deadline = new MyDate(deadline.getDay(),deadline.getMonth(),deadline.getYear());
+    creationDate = MyDate.now();
     timeSpendInHours = 0; //Defaultes til 0, når projektet oprettes, da der ikke er blevet brugt til på projektet ved oprettelse.
   }
 
@@ -75,6 +76,10 @@ public class Task implements Serializable
     return deadline;
   }
 
+  public MyDate getCreationDate()
+  {
+    return creationDate;
+  }
 
   public ArrayList<TeamMember> getAllTaskEmployees()
   {

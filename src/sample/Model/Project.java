@@ -68,7 +68,7 @@ public class Project implements Serializable
 
   public String toString()
   {
-    return "Name: " + projectName +" ID: " + projectID + " Deadline" + deadline.toString();
+    return "Name: " + projectName +" ID: " + projectID + " Deadline: " + deadline.toString();
   }
 
 

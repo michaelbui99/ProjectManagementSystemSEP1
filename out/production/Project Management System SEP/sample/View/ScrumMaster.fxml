@@ -92,7 +92,7 @@
                                                       <Insets left="86.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <Button mnemonicParsing="false" onAction="#populateTableView" text="Load projekt" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                <Button mnemonicParsing="false" onAction="#populateTableViewRequirement" text="Load projekt" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets right="10.0" />
                                                    </GridPane.margin>
@@ -138,7 +138,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button fx:id="" mnemonicParsing="false" onAction="#addTask" text="Godkend" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Button mnemonicParsing="false" text="Godkend" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="454.0" />
                                                    </GridPane.margin>
@@ -182,12 +182,12 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <TextField fx:id="inputDay" promptText="dd" GridPane.rowIndex="2">
+                                                <TextField fx:id="inputDeadlineDay" promptText="dd" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="66.0" right="433.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="inputMonth" promptText="mm" GridPane.rowIndex="2">
+                                                <TextField fx:id="inputDeadlineMonth" promptText="mm" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="118.0" right="384.0" />
                                                    </GridPane.margin>
@@ -220,6 +220,11 @@
                                                       <Insets left="115.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
+                                                <Button mnemonicParsing="false" onAction="#populateTableViewTask" text="Indlæs Tabeldata" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="100.0" />
+                                                   </GridPane.margin>
+                                                </Button>
                                              </children>
                                           </GridPane>
                                        </children>

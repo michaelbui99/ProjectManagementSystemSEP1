@@ -74,11 +74,18 @@ public class ScrumMasterController
   }
 
 
-
+/*
   public void addTask()
   {
-  }
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    //Makes sure the list we are editing are the most current saved list.
+    model.setProjectList(loadedList);
+    chosenRequirement = requirementTable.getSelectionModel().getSelectedItem();
+    //model.getProjectList().getProject(chosenProject.getProjectName()).
+       // getRequirementList().getRequirement(chosenRequirement.getRequirementID()).a;
 
+  }
+*/
 
   public void initializeComboBoxes() throws IOException, ClassNotFoundException
   {
@@ -88,6 +95,9 @@ public class ScrumMasterController
     comboBoxRequirementStatus.getItems().addAll(
         "Ikke påbegyndt", "Påbegyndt", "Afsluttet"
     );
+
+    ArrayList<TeamMember> systemEmployees = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
+
   }
 
   public void populateTableViewRequirement() throws IOException, ClassNotFoundException
@@ -97,7 +107,7 @@ public class ScrumMasterController
      * */
     setChosenProject();
 
-    //Resets table
+    //Resets table to prevent adding new columns on refresh
     requirementTable.getItems().clear();
     requirementTable.getColumns().clear();
 
@@ -144,6 +154,53 @@ public class ScrumMasterController
         priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
   }
 
+  public void populateTableViewTask() throws IOException, ClassNotFoundException
+  {
+    setChosenProject();
+    chosenRequirement = requirementTable.getSelectionModel().getSelectedItem();
+
+    //Resets TableView to prevent adding new columns on refresh
+    //Name column
+    TableColumn<Task,String> nameColumn = new TableColumn<>("Navn");
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+    //ID column
+    TableColumn<Task,Integer> IDColumn = new TableColumn<>("ID");
+    IDColumn.setCellValueFactory(new PropertyValueFactory<>("taskID"));
+
+    //responsible TeamMember column
+    TableColumn<Task,TeamMember> responsibleMemberColumn = new TableColumn<>("Ansvarlig Teammedlem");
+    responsibleMemberColumn.setCellValueFactory(new PropertyValueFactory<>("responsibleTeamMember"));
+
+    //Status column
+    TableColumn<Task,String> statusColumn = new TableColumn<>("Status");
+    statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+    //Priority column
+    TableColumn<Task,String> priorityColumn = new TableColumn<>("Prioritet");
+    priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
+
+    //Time spent column
+    TableColumn<Task,Integer> timeSpentColumn = new TableColumn<>("Tid Brugt");
+    timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpendInHours"));
+
+    //Deadline column
+    TableColumn<Task,MyDate> deadlineColumn = new TableColumn<>("Deadline");
+    deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+
+    //Creation Date column
+    TableColumn<Task,MyDate> creationDateColumn = new TableColumn<>("Oprettelsesdato");
+    creationDateColumn.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
+
+    //Estimated completion time column
+    TableColumn<Task,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
+    estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
+
+    taskTable.setItems(getAllTasks());
+    taskTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
+        priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
+  }
+
 
   public ObservableList<Requirement> getAllRequirements()
       throws IOException, ClassNotFoundException
@@ -161,6 +218,27 @@ public class ScrumMasterController
     requirements.addAll(projectRequirements);
     return requirements;
   }
+
+  public ObservableList<Task> getAllTasks()
+      throws IOException, ClassNotFoundException
+  {
+    /*
+     * Method used for loading Requirements to the tableView.
+     * */
+
+    ObservableList<Task> tasks = FXCollections.observableArrayList();
+    //Reading projectList file and getting requirements of chosen project
+    ArrayList<Task> projectTasks = model.readProjectList("ProjectList.bin")
+        .getProject(chosenProject.getProjectName()).getRequirementList().getRequirement(requirementTable
+            .getSelectionModel().getSelectedItem().getRequirementID()).getTaskList().getAllTasks();
+
+    //Adding all requirements to observable list.
+    tasks.addAll(projectTasks);
+    return tasks;
+  }
+
+
+
 
   public void setRequirementStatus() throws IOException
   {

@@ -39,6 +39,7 @@ public class ProjektCreatorController
   private Region root;
 
 
+
   public void setModel( ManagementSystemModel model)
   {
     this.model = model;
@@ -94,6 +95,7 @@ public class ProjektCreatorController
     //Method to initialize ComboBoxes.
 
     ArrayList<Project> systemProjects = model.readProjectList("ProjectList.bin").getAllProjects();
+
     projectComboBox.getItems().addAll(systemProjects);
 
     ArrayList<Project> systemProjectsRemove = model.readProjectList("ProjectList.bin").getAllProjects();
@@ -105,7 +107,8 @@ public class ProjektCreatorController
     ArrayList<TeamMember> systemEmployeesRemove = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
     removeTeamMemberComboBox.getItems().addAll(systemEmployeesRemove);
 
-    ArrayList<Requirement> projectRequirement = model.readProjectList("ProjectList.bin").getProject(projectComboBox.getValue().getProjectName()).getRequirementList().getAllRequirements();
+    ArrayList<Requirement> projectRequirement = model.readProjectList("ProjectList.bin").
+        getProject(projectComboBox.getValue().getProjectName()).getRequirementList().getAllRequirements();
     requirementComboBox.getItems().addAll(projectRequirement);
   }
 

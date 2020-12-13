@@ -10,6 +10,7 @@ public class ProjectList implements Serializable
   //Fields
   private ArrayList<Project> projects;
   private IDGenerator idGenerator;
+  private static final long serialVersionUID = -6193483688463054101L;
 
   //Constructors
   public ProjectList()
@@ -29,6 +30,11 @@ public class ProjectList implements Serializable
       }
     }
     return null;
+  }
+
+  public Project getProject(int index)
+  {
+    return projects.get(index);
   }
 
   public ArrayList<Project> getAllProjects()

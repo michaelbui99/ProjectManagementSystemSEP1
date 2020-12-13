@@ -6,7 +6,6 @@ public class TeamMember implements Serializable
 {
 
   //Fields
-
   private String name;
   private int employeeID;
   private String role;

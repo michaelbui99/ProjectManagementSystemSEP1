@@ -33,7 +33,7 @@ public class TeamMemberController
   private Project chosenProject;
   private Requirement chosenRequirement;
   private Task chosenTask;
-
+  private TeamMember selectedTeamMember;
 
   public void setModel( ManagementSystemModel model)
   {
@@ -65,14 +65,16 @@ public class TeamMemberController
 
 
 
-  public void setSave()
+  public void setSave() throws IOException
   {
+
     setChosenTask();
     int reqID = chosenRequirement.getRequirementID();
     int taskID = chosenTask.getID();
     int time = Integer.parseInt(inputTime.getText());
 
     model.registerTaskTime(time,reqID,taskID);
+    model.saveProjectList();
   }
 
 
@@ -91,7 +93,7 @@ public class TeamMemberController
     ArrayList<Project> systemProjects = model.readProjectList("ProjectList.bin").getAllProjects();
     comboBoxProjects.getItems().addAll(systemProjects);
     ArrayList<TeamMember> systemEmployees = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
-
+    teamMemberComboBox.getItems().addAll(systemEmployees);
   }
 
 
@@ -138,6 +140,23 @@ public class TeamMemberController
     //Adding all requirements to observable list.
     tasks.addAll(projectTasks);
     return tasks;
+  }
+
+
+  public ObservableList<TeamMember> getAllTeamMembers()
+      throws IOException, ClassNotFoundException
+  {
+    /*
+     * Method returns all TeamMembers in system as an ObservableList
+     * */
+
+    ObservableList<TeamMember> teamMembers = FXCollections.observableArrayList();
+    //Reading projectList file and getting requirements of chosen project
+    ArrayList<TeamMember> systemTeamMembers = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
+
+    //Adding all requirements to observable list.
+    teamMembers.addAll(systemTeamMembers);
+    return teamMembers;
   }
 
   public void populateTableViewRequirement() throws IOException, ClassNotFoundException
@@ -205,6 +224,9 @@ public class TeamMemberController
     setChosenRequirement();
 
     //Resets TableView to prevent adding new columns on refresh
+    taskTable.getColumns().clear();
+    taskTable.getItems().clear();
+
     //Name column
     TableColumn<Task,String> nameColumn = new TableColumn<>("Navn");
     nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -246,6 +268,39 @@ public class TeamMemberController
         priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn);
   }
 
+
+  public void populateTableViewMember()
+      throws IOException, ClassNotFoundException
+  {
+    /*
+    * Method populates the tableview with information about the selected
+    * employee
+    * */
+    setSelectedTeamMember();
+
+    //Resets the table
+    memberTableView.getItems().clear();
+    memberTableView.getColumns().clear();
+
+    //Name Column
+    TableColumn<TeamMember, String> nameColumn = new TableColumn<>("Name");
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+    //ID column
+    TableColumn<TeamMember, Integer> IDColumn = new TableColumn<>("ID");
+    IDColumn.setCellValueFactory(new PropertyValueFactory<>("employeeID"));
+
+    //Role column
+    TableColumn<TeamMember,String> roleColumn = new TableColumn<>("Role");
+    roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
+
+
+    memberTableView.setItems(getAllTeamMembers());
+    memberTableView.getColumns().addAll(nameColumn, IDColumn, roleColumn);
+
+  }
+
+
   public void setChosenRequirement()
   {
     chosenRequirement = requirementTable.getSelectionModel().getSelectedItem();
@@ -257,6 +312,10 @@ public class TeamMemberController
 
   }
 
+  public void setSelectedTeamMember()
+  {
+    selectedTeamMember = teamMemberComboBox.getValue();
+  }
 
   public void logOut()
   {

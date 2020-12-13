@@ -112,6 +112,25 @@ public class ManagementSystemModel
     this.employeeList = employeeList;
   }
 
+  public ArrayList<Project> getAllProjectsByEmployeeName(String name)
+  {
+    /*
+    * Method returns an ArrayList containing all the projects
+    * the TeamMember is assigned to.
+    * */
+    ArrayList<Project> returnArray = new ArrayList<>();
+    for (Project project: projectList.getAllProjects())
+    {
+      for (TeamMember teamMember: project.getEmployeeList().getAllEmployees())
+      {
+        if (teamMember.getName().equals(name))
+        {
+          returnArray.add(project);
+        }
+      }
+    }
+    return returnArray;
+  }
 
   /*TODO: Michael implements the 8 first methods.*/
 

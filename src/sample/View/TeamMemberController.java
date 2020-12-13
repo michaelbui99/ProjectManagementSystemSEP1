@@ -2,11 +2,12 @@ package sample.View;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import sample.Model.ManagementSystemModel;
+import sample.Model.*;
 
 import java.io.IOException;
 
@@ -22,6 +23,9 @@ public class TeamMemberController
   @FXML private TextField inputTaskID;
   @FXML private TextField inputTime;
   @FXML private TableView tableView;
+  @FXML private ComboBox<Requirement> requirementComboBox;
+  @FXML private ComboBox<Task> taskComboBox;
+  @FXML private ComboBox<TeamMember> teamMemberComboBox;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;

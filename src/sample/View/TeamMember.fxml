@@ -76,8 +76,8 @@
                                           <Insets left="30.0" />
                                        </GridPane.margin>
                                     </Button>
-                                    <ComboBox prefWidth="150.0" promptText="Vælg krav:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <ComboBox prefWidth="150.0" promptText="Vælg Opgave:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="requirementComboBox" prefWidth="150.0" promptText="Vælg krav:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="taskComboBox" prefWidth="150.0" promptText="Vælg Opgave:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <Button mnemonicParsing="false" text="Godkendt vælge" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                     <Button mnemonicParsing="false" text="Godkendt vælge" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                  </children>
@@ -147,7 +147,7 @@
                                   <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <ComboBox prefWidth="150.0" promptText="Teammedlem List">
+                                    <ComboBox fx:id="teamMemberComboBox" prefWidth="150.0" promptText="Teammedlem List">
                                        <GridPane.margin>
                                           <Insets left="10.0" />
                                        </GridPane.margin>

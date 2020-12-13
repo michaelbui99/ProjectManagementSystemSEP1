@@ -31,6 +31,7 @@ public class ScrumMasterController
   @FXML private TextField inputYear;
   @FXML private TextField approveTask;
   @FXML private TextField estimatedCompletionTime;
+  @FXML private TextField requirementID;
   @FXML private ComboBox<Project> comboBoxProjects;
   @FXML private ComboBox<String> comboBoxRequirementStatus;
 
@@ -253,6 +254,14 @@ public class ScrumMasterController
     model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
     chosenProject = model.getProjectList().getProject(comboBoxProjects.getValue().getProjectName());
   }
+
+  public Project getChosenProject() throws IOException, ClassNotFoundException
+  {
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
+    return chosenProject = model.getProjectList().getProject(comboBoxProjects.getValue().getProjectName());
+  }
+
 
   public void logOut()
   {

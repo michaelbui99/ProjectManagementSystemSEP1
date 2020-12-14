@@ -134,6 +134,11 @@
                   </RadioButton>
                   <ComboBox fx:id="projectComboBox" layoutX="407.0" layoutY="54.0" prefWidth="150.0" promptText="Projekter" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                   <ComboBox fx:id="requirementComboBox" layoutX="407.0" layoutY="128.0" prefWidth="150.0" promptText="Kraver" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Button mnemonicParsing="false" text="Vælge projekt" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="300.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
             </GridPane>
          </children>

@@ -80,6 +80,12 @@ public class ProjektCreatorController
       model.getProjectList().addProject(new Project(inputProjectName.getText(),model.getProjectList().getIdGenerator().generateProjectID(), new MyDate(day,month,year)));
       model.saveProjectList();
     }
+
+    //Clears textfields after creating project
+    inputProjectName.clear();
+    inputDay.clear();
+    inputMonth.clear();
+    inputYear.clear();
   }
 
   public void initializeComboBoxes() throws IOException, ClassNotFoundException

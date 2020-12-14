@@ -127,9 +127,9 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button mnemonicParsing="false" onAction="#addTask" text="Godkend" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Button mnemonicParsing="false" onAction="#addTask" prefHeight="25.0" prefWidth="139.0" text="Tilføj opgave" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="454.0" />
+                                                      <Insets right="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
                                                 <Button mnemonicParsing="false" onAction="#setCancel" text="Afslut" GridPane.rowIndex="3">
@@ -187,7 +187,7 @@
                                                       <Insets />
                                                    </opaqueInsets>
                                                    <GridPane.margin>
-                                                      <Insets left="150.0" right="100.0" />
+                                                      <Insets left="150.0" right="200.0" />
                                                    </GridPane.margin>
                                                 </TextField>
                                                 <ComboBox fx:id="responsibleTeamMember" prefWidth="150.0" GridPane.rowIndex="1">

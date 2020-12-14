@@ -92,6 +92,7 @@
                      </GridPane.margin>
                   </Button>
                   <Label fx:id="Status" text="Status" visible="false" GridPane.columnIndex="1" />
+                  <Label fx:id="memberCreatedLabel" text="Teammedlem er nu tilføjet i systemet" visible="false" GridPane.halignment="CENTER" />
                </children>
             </GridPane>
          </children>
@@ -138,6 +139,7 @@
                      </GridPane.margin>
                   </Button>
                   <Label text="Status" visible="false" GridPane.columnIndex="1" />
+                  <Label fx:id="memberRemovedLabel" text="Teammedlem er nu fjernet fra systemet" visible="false" GridPane.halignment="CENTER" />
                </children>
             </GridPane>
          </children>

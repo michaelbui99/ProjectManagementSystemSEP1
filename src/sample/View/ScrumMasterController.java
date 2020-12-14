@@ -87,6 +87,13 @@ public class ScrumMasterController
     model.getProjectList().getProject(chosenProject.getProjectName()).
         getRequirementList().getRequirement(chosenRequirement.getRequirementID()).getTaskList().addTask(taskToAdd);
     model.saveProjectList();
+
+    //Clears textfields after adding task.
+    inputTaskName.clear();
+    inputDeadlineDay.clear();
+    inputDeadlineMonth.clear();
+    inputDeadlineYear.clear();
+    estimatedCompletionTime.clear();
   }
 
 

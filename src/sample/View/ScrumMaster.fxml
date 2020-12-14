@@ -21,7 +21,7 @@
    <children>
       <FlowPane alignment="CENTER" prefHeight="57.0" prefWidth="1093.0">
          <children>
-            <Label text="Scrum-Master">
+            <Label text="Scrum Master">
                <font>
                   <Font size="27.0" />
                </font>
@@ -52,7 +52,7 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <Label text="Kravstatus">
+                                                <Label text="Kravstatus:">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin></Label>
@@ -76,12 +76,12 @@
                                                       <Insets left="86.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <Label text="Vælg projekt" GridPane.rowIndex="1">
+                                                <Label text="Vælg projekt:" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <ComboBox fx:id="comboBoxProjects" prefHeight="25.0" prefWidth="219.0" promptText="Vælg projekt, som skal ændres." GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                                <ComboBox fx:id="comboBoxProjects" prefHeight="25.0" prefWidth="219.0" promptText="Vælg projekt, som skal ændres" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="86.0" />
                                                    </GridPane.margin>
@@ -122,14 +122,14 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <Label text="Opgave prioritet:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label text="Opgaveprioritet:" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button mnemonicParsing="false" onAction="#addTask" text="Godkend" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Button mnemonicParsing="false" onAction="#addTask" prefHeight="25.0" prefWidth="139.0" text="Tilføj opgave" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="454.0" />
+                                                      <Insets right="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
                                                 <Button mnemonicParsing="false" onAction="#setCancel" text="Afslut" GridPane.rowIndex="3">
@@ -142,17 +142,17 @@
                                                       <Insets left="471.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Label text="Ansvarlig teammedlem:" GridPane.rowIndex="1">
+                                                <Label text="Ansvarligt teammedlem:" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label text="Opgave navn:">
+                                                <Label text="Opgavenavn:">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <TextField fx:id="inputTaskName" promptText="Opgave navn:">
+                                                <TextField fx:id="inputTaskName" promptText="Opgavenavn:">
                                                    <GridPane.margin>
                                                       <Insets left="90.0" right="60.0" />
                                                    </GridPane.margin>
@@ -162,22 +162,22 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <TextField fx:id="inputDeadlineDay" promptText="dd" GridPane.rowIndex="2">
+                                                <TextField fx:id="inputDeadlineDay" promptText="DD" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="66.0" right="433.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="inputDeadlineMonth" promptText="mm" GridPane.rowIndex="2">
+                                                <TextField fx:id="inputDeadlineMonth" promptText="MM" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="118.0" right="384.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="inputDeadlineYear" promptText="yyyy" GridPane.rowIndex="2">
+                                                <TextField fx:id="inputDeadlineYear" promptText="YYYY" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="172.0" right="305.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <Label text="Estimteret afslutningstid:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Label text="Estimeret afslutningstid:" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
@@ -187,7 +187,7 @@
                                                       <Insets />
                                                    </opaqueInsets>
                                                    <GridPane.margin>
-                                                      <Insets left="150.0" right="100.0" />
+                                                      <Insets left="150.0" right="200.0" />
                                                    </GridPane.margin>
                                                 </TextField>
                                                 <ComboBox fx:id="responsibleTeamMember" prefWidth="150.0" GridPane.rowIndex="1">

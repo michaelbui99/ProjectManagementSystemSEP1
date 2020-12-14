@@ -225,6 +225,13 @@ public class ProjectOwnerController
     model.saveProjectList();
     model.saveEmployeeList();
 
+    //Clears all textfields after adding requirement
+    inputAddRequirementName.clear();
+    day.clear();
+    month.clear();
+    year.clear();
+    createRequirementUserStory.clear();
+
   }
 
   public void setRequirementPriority()

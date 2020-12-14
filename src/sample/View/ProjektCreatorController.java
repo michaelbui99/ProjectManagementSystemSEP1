@@ -80,6 +80,12 @@ public class ProjektCreatorController
       model.getProjectList().addProject(new Project(inputProjectName.getText(),model.getProjectList().getIdGenerator().generateProjectID(), new MyDate(day,month,year)));
       model.saveProjectList();
     }
+
+    //Clears textfields after creating project
+    inputProjectName.clear();
+    inputDay.clear();
+    inputMonth.clear();
+    inputYear.clear();
   }
 
   public void initializeComboBoxes() throws IOException, ClassNotFoundException
@@ -118,6 +124,9 @@ public class ProjektCreatorController
     RadioButton selectedRadio = (RadioButton) role.getSelectedToggle();
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
+
+    EmployeeList loadedEmployeeList = model.readEmployeeList("EmployeeList.bin");
+    model.setEmployeeList(loadedEmployeeList);
     model.getProjectList().getProject(projectComboBox.
         getValue().getProjectName()).getEmployeeList().addEmployee(new TeamMember(teamMemberComboBox.getValue().getName(), teamMemberComboBox.getValue().getEmployeeID(),selectedRadio.getText()));
     model.saveProjectList();
@@ -130,6 +139,9 @@ public class ProjektCreatorController
     RadioButton selectedRadio = (RadioButton) role.getSelectedToggle();
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
+
+    EmployeeList loadedEmployeeList = model.readEmployeeList("EmployeeList.bin");
+    model.setEmployeeList(loadedEmployeeList);
 
     model.getProjectList().getProject(chosenProject.getProjectName())
         .getRequirementList().getRequirement(requirementComboBox.getValue().getRequirementID())

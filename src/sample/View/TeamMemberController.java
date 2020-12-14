@@ -72,6 +72,9 @@ public class TeamMemberController
     model.setCurrentProject(comboBoxProjects.getValue().getProjectName());
     model.registerTaskTime(time,reqID,taskID);
     model.saveProjectList();
+
+
+    inputTime.clear();
   }
 
 

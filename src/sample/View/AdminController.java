@@ -22,6 +22,8 @@ public class AdminController
   @FXML private ToggleGroup jaNej;
   @FXML private Button add;
   @FXML private Button remove;
+  @FXML private Label memberCreatedLabel;
+  @FXML private Label memberRemovedLabel;
 
 
   public void setModel( ManagementSystemModel model)
@@ -52,10 +54,12 @@ public class AdminController
   }
 
 
-  public void addTeamMember() throws IOException
+  public void addTeamMember() throws IOException, ClassNotFoundException
   {
     RadioButton selectRadio = (RadioButton) jaNej.getSelectedToggle();
-    int ID = Integer.parseInt(inputID.getText());
+    EmployeeList loadedList = model.readEmployeeList("EmployeeList.bin");
+    model.setEmployeeList(loadedList);
+
     //ArrayList<EmployeeList> employeeLists1 = new ArrayList<>();
     /*for (int i = 0; i < model.getEmployeeList().getAllEmployees().size(); i++)
     {*/
@@ -72,22 +76,27 @@ public class AdminController
       }
 
       model.saveEmployeeList();
+
+      memberCreatedLabel.setVisible(true);
+      inputName.clear();
     }
 
 
-  public void removeEmployee()
+  public void removeEmployee() throws IOException, ClassNotFoundException
   {
-    ArrayList<EmployeeList> employeeLists1 = new ArrayList<>();
-    int ID = Integer.parseInt(inputID.getText());
+    EmployeeList loadedList = model.readEmployeeList("EmployeeList.bin");
+    model.setEmployeeList(loadedList);
 
-    for (int i = 0; i < employeeLists1.size(); i++)
+    for (TeamMember teamMember : employeeList.getAllEmployees())
     {
-      if (inputTeamMemberID.getText().equals(employeeLists1.get(i).getAllEmployees()))
+      if (teamMember.getEmployeeID() == Integer.parseInt(inputID.getText()))
       {
-        employeeLists1.get(i).removeEmployee(ID);
+        employeeList.removeEmployee(teamMember.getEmployeeID());
       }
-
     }
+    model.saveEmployeeList();
+    memberRemovedLabel.setVisible(true);
+    inputTeamMemberID.clear();
   }
 
   public void logOut()

@@ -326,6 +326,13 @@ public class ScrumMasterController
     model.saveProjectList();
   }
 
+  public void deleteTask() throws IOException
+  {
+    Task chosenTask = taskTable.getSelectionModel().getSelectedItem();
+    model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList().
+        getRequirement(chosenRequirement.getRequirementID()).getTaskList().removeTask(chosenTask.getTaskID());
+    model.saveProjectList();
+  }
 
   public void logOut()
   {

@@ -12,21 +12,13 @@ import java.util.ArrayList;
 public class ProjektCreatorController
 {
   @FXML private Button cancel;
-  @FXML private Button accept;
   @FXML private Button create;
   @FXML private Button add;
   @FXML private Button remove;
   @FXML private TextField inputProjectName;
-  @FXML private TextField inputProjectID;
   @FXML private TextField inputDay;
   @FXML private TextField inputMonth;
   @FXML private TextField inputYear;
-  @FXML private TextField inputTeamMemberName;
-  @FXML private TextField inputTeamMemberRole;
-  @FXML private TextField inputAssignTeamMemberToProject;
-  @FXML private TextField inputAssignTeamMemberToAssignment;
-  @FXML private TextField inputRemovalTeamMemberFromProject;
-  @FXML private TextField inputProjectForTeamMemberRemoval;
   @FXML private ComboBox<TeamMember> teamMemberComboBox;
   @FXML private ComboBox<TeamMember> removeTeamMemberComboBox;
   @FXML private ComboBox<Project> projectComboBox;
@@ -56,6 +48,7 @@ public class ProjektCreatorController
     this.viewHandler = viewHandler;
     this.model = model;
     this.root = root;
+    initializeComboBoxes();
 
     //Setting the most recent saved ProjectList file as projectList for model on init.
     ProjectList loadedList = model.readProjectList("ProjectList.bin");

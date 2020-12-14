@@ -197,7 +197,7 @@
                                                 </ComboBox>
                                                 <ComboBox fx:id="taskPriority" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <GridPane.margin>
-                                                      <Insets left="115.0" />
+                                                      <Insets left="140.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
                                                 <Button mnemonicParsing="false" onAction="#populateTableViewTask" text="Indlæs Tabeldata" GridPane.rowIndex="3">
@@ -205,13 +205,16 @@
                                                       <Insets left="100.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <ComboBox prefWidth="150.0" GridPane.columnIndex="1">
+                                                <ComboBox fx:id="comboBoxTaskStatus" prefWidth="150.0" GridPane.columnIndex="1">
                                                    <GridPane.margin>
-                                                      <Insets left="115.0" />
+                                                      <Insets left="140.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <Label text="Opgave status:" GridPane.columnIndex="1" />
-                                                <Button mnemonicParsing="false" text="Godkend ændring" GridPane.columnIndex="1">
+                                                <Label text="Rediger opgave status:" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin></Label>
+                                                <Button mnemonicParsing="false" onAction="#setTaskStatus" text="Godkend ændring" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="408.0" />
                                                    </GridPane.margin>

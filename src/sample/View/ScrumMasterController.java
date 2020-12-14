@@ -32,7 +32,7 @@ public class ScrumMasterController
   @FXML private TextField estimatedCompletionTime;
   @FXML private ComboBox<Project> comboBoxProjects;
   @FXML private ComboBox<String> comboBoxRequirementStatus;
-
+  @FXML private ComboBox<String> comboBoxTaskStatus;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -114,6 +114,11 @@ public class ScrumMasterController
     taskPriority.getItems().addAll(
         "Lav", "Normal", "Høj", "Kritisk"
     );
+
+    comboBoxTaskStatus.getItems().addAll(
+        "Ikke påbegyndt", "Påbegyndt", "Afsluttet"
+    );
+
   }
 
   public void initializeResponsibleMemberComboBox()
@@ -310,6 +315,17 @@ public class ScrumMasterController
     model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
     chosenProject = model.getProjectList().getProject(comboBoxProjects.getValue().getProjectName());
   }
+
+  public void setTaskStatus() throws IOException
+  {
+    Task chosenTask = taskTable.getSelectionModel().getSelectedItem();
+
+    model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList().
+        getRequirement(chosenRequirement.getRequirementID()).getTaskList().getTask(chosenTask.getTaskID())
+        .setStatus(comboBoxTaskStatus.getValue());
+    model.saveProjectList();
+  }
+
 
   public void logOut()
   {

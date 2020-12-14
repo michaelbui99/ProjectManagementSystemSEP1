@@ -74,6 +74,7 @@ public class ProjectOwnerController
     model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setApprovement(true);
     model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setStatus("Godkendt");
     model.saveProjectList();
+    System.out.println(model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList().getRequirement(requirementTable.getSelectionModel().getSelectedItem().getRequirementID()).getResponsibleTeamMember().toString()); //Used for debugging
   }
 
   public void setNotApprove()
@@ -235,8 +236,12 @@ public class ProjectOwnerController
 
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
+
+    EmployeeList loadedEmployeeList = model.readEmployeeList("EmployeeList.bin");
+    model.setEmployeeList(loadedEmployeeList);
+
     model.getProjectList().getProject(chosenProject.getProjectName()).addRequirement(
-        inputAddRequirementName.getText(), model.getProjectList().getIdGenerator().generateRequirementID(), model.readEmployeeList("EmployeeList.bin").getEmployee(comboBoxResponsibleMember.getValue().getName())
+        inputAddRequirementName.getText(), model.getProjectList().getIdGenerator().generateRequirementID(), comboBoxResponsibleMember.getValue()
         ,"Ikke påbegyndt", createRequirementPriority.getValue(),new MyDate(d,m,y), createRequirementUserStory.getText());
 
     model.saveProjectList();

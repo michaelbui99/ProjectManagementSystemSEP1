@@ -68,20 +68,23 @@ public class ProjectOwnerController
   }
 
 
-  public void setApprove() throws IOException
+  public void setApprove() throws IOException, ClassNotFoundException
   {
     int ID = requirementTable.getSelectionModel().getSelectedItem().getRequirementID();
     model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setApprovement(true);
     model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setStatus("Godkendt");
     model.saveProjectList();
-    System.out.println(model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList().getRequirement(requirementTable.getSelectionModel().getSelectedItem().getRequirementID()).getResponsibleTeamMember().toString()); //Used for debugging
+    //Refreshes the tableview, such that the new changes gets displayed
+    populateTableView();
   }
 
-  public void setNotApprove()
+  public void setNotApprove() throws IOException, ClassNotFoundException
   {
     int ID = requirementTable.getSelectionModel().getSelectedItem().getRequirementID();
     model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setApprovement(false);
     model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setStatus("Ikke godkendt");
+    //Refreshes the tableview, such that the new changes gets displayed
+    populateTableView();
   }
 
 
@@ -93,6 +96,8 @@ public class ProjectOwnerController
     model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
     model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList().removeRequirement(ID);
     model.saveProjectList();
+    //Refreshes the tableview, such that the new changes gets displayed
+    populateTableView();
   }
 
 
@@ -253,6 +258,8 @@ public class ProjectOwnerController
     month.clear();
     year.clear();
     createRequirementUserStory.clear();
+    //Refreshes the tableview, such that the new changes gets displayed
+    populateTableView();
 
   }
 
@@ -266,6 +273,9 @@ public class ProjectOwnerController
         .getRequirement(priorityChangeTargetID).setPriority(requirementPriority.getValue());
     model.saveProjectList();
     model.saveEmployeeList();
+
+    //Refreshes the tableview, such that the new changes gets displayed
+    populateTableView();
   }
 
 

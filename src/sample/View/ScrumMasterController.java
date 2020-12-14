@@ -96,6 +96,9 @@ public class ScrumMasterController
     inputDeadlineMonth.clear();
     inputDeadlineYear.clear();
     estimatedCompletionTime.clear();
+
+    //Refreshes the tableview such the new changes are displayed
+    populateTableViewTask();
   }
 
 
@@ -302,10 +305,13 @@ public class ScrumMasterController
 
 
 
-  public void setRequirementStatus() throws IOException
+  public void setRequirementStatus() throws IOException, ClassNotFoundException
   {
     chosenProject.getRequirementList().getRequirement(requirementTable.getSelectionModel().getSelectedItem().getRequirementID()).setStatus(comboBoxRequirementStatus.getValue());
     model.saveProjectList();
+
+    //Refreshes the tableview such the new changes are displayed
+    populateTableViewRequirement();
   }
 
 
@@ -316,7 +322,7 @@ public class ScrumMasterController
     chosenProject = model.getProjectList().getProject(comboBoxProjects.getValue().getProjectName());
   }
 
-  public void setTaskStatus() throws IOException
+  public void setTaskStatus() throws IOException, ClassNotFoundException
   {
     Task chosenTask = taskTable.getSelectionModel().getSelectedItem();
 
@@ -324,14 +330,18 @@ public class ScrumMasterController
         getRequirement(chosenRequirement.getRequirementID()).getTaskList().getTask(chosenTask.getTaskID())
         .setStatus(comboBoxTaskStatus.getValue());
     model.saveProjectList();
+    //Refreshes the tableview such the new changes are displayed
+    populateTableViewTask();
   }
 
-  public void deleteTask() throws IOException
+  public void deleteTask() throws IOException, ClassNotFoundException
   {
     Task chosenTask = taskTable.getSelectionModel().getSelectedItem();
     model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList().
         getRequirement(chosenRequirement.getRequirementID()).getTaskList().removeTask(chosenTask.getTaskID());
     model.saveProjectList();
+    //Refreshes the tableview such the new changes are displayed
+    populateTableViewTask();
   }
 
   public void logOut()

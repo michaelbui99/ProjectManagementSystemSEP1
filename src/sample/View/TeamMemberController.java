@@ -64,7 +64,7 @@ public class TeamMemberController
 
 
 
-  public void setSave() throws IOException
+  public void setSave() throws IOException, ClassNotFoundException
   {
 
     setChosenTask();
@@ -77,6 +77,10 @@ public class TeamMemberController
 
 
     inputTime.clear();
+
+    //Refreshes tableviews such that the new changes are displayed
+    populateTableViewTask();
+    populateTableViewRequirement();
   }
 
 

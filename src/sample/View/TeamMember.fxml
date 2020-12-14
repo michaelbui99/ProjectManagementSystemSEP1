@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -46,23 +45,13 @@
                                     <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <TableView fx:id="requirementTable" prefHeight="480.0" prefWidth="1066.0" GridPane.rowIndex="1">
-                                       <columns>
-                                          <TableColumn prefWidth="75.0" text="C1" />
-                                          <TableColumn prefWidth="99.0" text="C2" />
-                                       </columns>
-                                    </TableView>
+                                    <TableView fx:id="requirementTable" prefHeight="480.0" prefWidth="1066.0" GridPane.rowIndex="1" />
                                     <Label text="Requirements" GridPane.halignment="CENTER">
                                        <font>
                                           <Font size="21.0" />
                                        </font>
                                     </Label>
-                                    <TableView fx:id="taskTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                      <columns>
-                                        <TableColumn prefWidth="75.0" text="C1" />
-                                        <TableColumn prefWidth="75.0" text="C2" />
-                                      </columns>
-                                    </TableView>
+                                    <TableView fx:id="taskTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <Label text="Opgaver" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                                        <font>
                                           <Font size="21.0" />
@@ -159,12 +148,7 @@
                               </Label>
                            </children>
                         </FlowPane>
-                        <TableView fx:id="memberTableView" prefHeight="586.0" prefWidth="1062.0">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="C1" />
-                              <TableColumn prefWidth="99.0" text="C2" />
-                           </columns>
-                        </TableView>
+                        <TableView fx:id="memberTableView" prefHeight="586.0" prefWidth="1062.0" />
                         <FlowPane prefHeight="65.0" prefWidth="1032.0">
                            <children>
                               <GridPane prefHeight="87.0" prefWidth="1041.0">

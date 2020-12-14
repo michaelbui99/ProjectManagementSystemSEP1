@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,19 +38,7 @@
                            <children>
                               <FlowPane layoutY="16.0" prefHeight="551.0" prefWidth="1072.0">
                                  <children>
-                                    <TableView fx:id="requirementTable" prefHeight="544.0" prefWidth="1097.0">
-                                      <columns>
-                                        <TableColumn prefWidth="75.0" text="Navn" />
-                                        <TableColumn prefWidth="75.0" text="ID" />
-                                          <TableColumn prefWidth="147.0" text="Ansvarlig Teammedlem" />
-                                          <TableColumn onEditStart="#setRequirementStatus" prefWidth="75.0" text="Status" />
-                                          <TableColumn prefWidth="75.0" text="Prioritet" />
-                                          <TableColumn prefWidth="75.0" text="Tid Bruget" />
-                                          <TableColumn prefWidth="75.0" text="Deadline" />
-                                          <TableColumn prefWidth="120.0" text="Oprettelsesdato" />
-                                          <TableColumn prefWidth="165.0" text="Estimeret Afslutningstid " />
-                                      </columns>
-                                    </TableView>
+                                    <TableView fx:id="requirementTable" prefHeight="544.0" prefWidth="1097.0" />
                                     <FlowPane prefHeight="110.0" prefWidth="1074.0">
                                        <children>
                                           <GridPane prefHeight="159.0" prefWidth="1074.0">

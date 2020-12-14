@@ -5,14 +5,15 @@ import java.util.ArrayList;
 public class TaskList implements Serializable
 {
   //Fields
+
   private ArrayList<Task> tasks;
 
   //Constructors
+
   public TaskList()
   {
     tasks = new ArrayList<>();
   }
-
 
   //Getters
   public ArrayList<Task> getAllTasks()
@@ -29,11 +30,8 @@ public class TaskList implements Serializable
         return task;
       }
     }
-
     return null;
   }
-
-
 
   //Setters
 

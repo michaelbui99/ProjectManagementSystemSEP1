@@ -55,23 +55,23 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField fx:id="inputProjectName" promptText="Indsæt navn:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="inputProjectName" promptText="Indtast navn:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" right="40.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="inputDay" promptText="dd" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="inputDay" promptText="DD" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="30.0" right="441.0" />
                      </GridPane.margin>
                   </TextField>
                   <Label text="Status" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <TextField fx:id="inputMonth" promptText="mm" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="inputMonth" promptText="MM" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="77.0" right="395.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="inputYear" promptText="yyyy" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="inputYear" promptText="YYYY" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="130.0" right="327.0" />
                      </GridPane.margin>
@@ -109,7 +109,7 @@
                   <Label text="Tilføj teammedlems navn::" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Tilføj teammedlems rolle:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Tilføj teammedlem til projekt:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <ComboBox fx:id="teamMemberComboBox" prefWidth="150.0" promptText="Teammedlemer" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="teamMemberComboBox" prefWidth="150.0" promptText="Teammedlemmer" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <RadioButton mnemonicParsing="false" text="Projektejer" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <toggleGroup>
                         <ToggleGroup fx:id="role" />
@@ -168,7 +168,7 @@
                   </Button>
                   <Label text="Status" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Projekt navn:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <ComboBox fx:id="removeTeamMemberComboBox" prefWidth="150.0" promptText="Teammedlemer" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="removeTeamMemberComboBox" prefWidth="150.0" promptText="Teammedlemmer" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <ComboBox fx:id="removeProjectComboBox" layoutX="401.0" layoutY="60.0" prefWidth="150.0" promptText="Projekter" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>

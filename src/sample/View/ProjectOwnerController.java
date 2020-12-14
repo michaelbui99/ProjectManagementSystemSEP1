@@ -1,8 +1,6 @@
 package sample.View;
 
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -57,6 +55,7 @@ public class ProjectOwnerController
     this.root = root;
 
     //Setting the most recent saved ProjectList file as projectList for model on init.
+
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
 
@@ -105,6 +104,7 @@ public class ProjectOwnerController
   public void setChosenProject() throws IOException, ClassNotFoundException
   {
     //Loads all saved projects and set the inputted project as current project.
+
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
     chosenProject = model.getProjectList().getProject(comboBoxProjects.getSelectionModel().getSelectedItem().getProjectName());
@@ -119,11 +119,14 @@ public class ProjectOwnerController
     * */
 
     ObservableList<Requirement> requirements = FXCollections.observableArrayList();
+
     //Reading projectList file and getting requirements of chosen project
+
     ArrayList<Requirement> projectRequirements = model.readProjectList("ProjectList.bin")
         .getProject(chosenProject.getProjectName()).getRequirementList().getAllRequirements();
 
     //Adding all requirements to observable list.
+
     requirements.addAll(projectRequirements);
     return requirements;
   }
@@ -136,52 +139,65 @@ public class ProjectOwnerController
 
 
     //Resets table
+
     requirementTable.getItems().clear();
     requirementTable.getColumns().clear();
 
     //Name column
+
     TableColumn<Requirement,String> nameColumn = new TableColumn<>("Navn");
     nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
     //ID column
+
     TableColumn<Requirement,Integer> IDColumn = new TableColumn<>("ID");
     IDColumn.setCellValueFactory(new PropertyValueFactory<>("requirementID"));
 
     //responsible TeamMember column
+
     TableColumn<Requirement,TeamMember> responsibleMemberColumn = new TableColumn<>("Ansvarlig Teammedlem");
     responsibleMemberColumn.setCellValueFactory(new PropertyValueFactory<>("responsibleTeamMember"));
 
     //Status column
+
     TableColumn<Requirement,String> statusColumn = new TableColumn<>("Status");
     statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     //Priority column
+
     TableColumn<Requirement,String> priorityColumn = new TableColumn<>("Prioritet");
     priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
 
     //Time spent column
+
     TableColumn<Requirement,Integer> timeSpentColumn = new TableColumn<>("Tid Brugt");
     timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpendInHours"));
 
     //Deadline column
+
     TableColumn<Requirement,MyDate> deadlineColumn = new TableColumn<>("Deadline");
     deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
     //Creation Date column
+
     TableColumn<Requirement,MyDate> creationDateColumn = new TableColumn<>("Oprettelsesdato");
     creationDateColumn.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
 
     //Estimated completion time column
+
     TableColumn<Requirement,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
     estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
 
     //User Story column
+
     TableColumn<Requirement, String> userStoryColumn = new TableColumn<>("User Story");
     userStoryColumn.setCellValueFactory(new PropertyValueFactory<>("userStory"));
 
 
     requirementTable.setItems(getAllRequirements());
+
     requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
+
         priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn, userStoryColumn);
   }
 
@@ -212,6 +228,7 @@ public class ProjectOwnerController
   public void addRequirement() throws IOException, ClassNotFoundException
   {
     //Deadline data parsed to ints
+
     int d = Integer.parseInt(day.getText());
     int m = Integer.parseInt(month.getText());
     int y = Integer.parseInt(year.getText());
@@ -251,6 +268,5 @@ public class ProjectOwnerController
   {
     viewHandler.openView("main");
   }
-
 
 }

@@ -1,7 +1,5 @@
 package sample.Model;
 
-import javafx.scene.layout.Priority;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -52,32 +50,8 @@ public class Requirement implements
     this.requirementID = requirementID;
     employees = new EmployeeList();
   }
-/*
-  public Requirement()
-  {
-    priorityList = new ArrayList<>();
-    employees = new EmployeeList();
-  }
-*/
-  /*
-  public Requirement(String name, int requirementID,
-      TeamMember responsibleTeamMember, String priority)
-  {
-    this.name = name;
-    this.requirementID = requirementID;
-    this.responsibleTeamMember = responsibleTeamMember;
-    this.status ="ikke påbegyndt";
-    this.priority = priority;
-    timeSpendInHours = 0;
-    isApproved = false;
-    this.deadline = null;
-    employees = new EmployeeList();
-  }
 
-
-   */
   //Getters
-
 
 public String getPriority()
 {
@@ -183,9 +157,6 @@ public String getPriority()
     return total;
   }
 
-
-
-
   //Setters
 
   public void setApprovement(boolean approvement)
@@ -262,7 +233,5 @@ public String getPriority()
   {
     this.employees = employees;
   }
-
-
 
 }

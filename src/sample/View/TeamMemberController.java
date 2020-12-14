@@ -294,6 +294,10 @@ public class TeamMemberController
     TableColumn<TeamMember,String> roleColumn = new TableColumn<>("Role");
     roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
 
+    // who work with who column
+   /* TableColumn<TeamMember,String> whoColumn = new TableColumn<>("Hvem Arebejder Med Hvem");
+    whoColumn.setCellValueFactory(new PropertyValueFactory<>("whoWorksWithWho"));*/
+
 
     memberTableView.setItems(getAllTeamMembers());
     memberTableView.getColumns().addAll(nameColumn, IDColumn, roleColumn);

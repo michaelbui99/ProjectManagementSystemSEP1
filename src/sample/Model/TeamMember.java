@@ -10,6 +10,7 @@ public class TeamMember implements Serializable
   private int employeeID;
   private String role;
   private int registeredHours;
+  //private String whoWorksWithWho;
 
   //Constructor
 
@@ -51,6 +52,11 @@ public class TeamMember implements Serializable
     return registeredHours;
   }
 
+  /*public String getWhoWorksWithWho()
+  {
+    return whoWorksWithWho;
+  }*/
+
   //Setter
 
   public void setEmployeeID(int employeeID)
@@ -68,7 +74,6 @@ public class TeamMember implements Serializable
     this.registeredHours = registeredHours;
   }
 
-
   public void addName(String name){
     this.name = name;
   }
@@ -77,6 +82,10 @@ public class TeamMember implements Serializable
     this.employeeID = employeeID;
   }
 
+  /*public void setWhoWorksWithWho(String whoWorksWithWho)
+  {
+    this.whoWorksWithWho = whoWorksWithWho;
+  }*/
   //Methods
 
 

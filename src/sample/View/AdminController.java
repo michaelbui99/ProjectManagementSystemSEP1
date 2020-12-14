@@ -22,8 +22,6 @@ public class AdminController
   @FXML private ToggleGroup jaNej;
   @FXML private Button add;
   @FXML private Button remove;
-  @FXML private Button approve;
-  @FXML private Label status;
 
 
   public void setModel( ManagementSystemModel model)
@@ -72,11 +70,7 @@ public class AdminController
         model.addEmployeeToSystem(inputName.getText(), ID, "teammember");
 
       }
-      /*
-      status.setText("Medarbejder er tilføjert");
-      status.setVisible(true);
 
-       */
       model.saveEmployeeList();
     }
 
@@ -92,14 +86,7 @@ public class AdminController
       {
         employeeLists1.get(i).removeEmployee(ID);
       }
-      /*
-      else
-      {
-        status.setText("Der er ikke noget sådant medarbejder-ID i systemet");
-        status.setVisible(true);
-      }
 
-       */
     }
   }
 

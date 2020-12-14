@@ -32,7 +32,6 @@ public class Task implements Serializable
     timeSpendInHours = 0; //Defaultes til 0, når projektet oprettes, da der ikke er blevet brugt til på projektet ved oprettelse.
   }
 
-
   public Task(String name, int taskID, String status, TeamMember responsibleTeamMember, String priority, MyDate deadline, double estimatedCompletionTimeInHours)
   {
     this.name = name;
@@ -137,8 +136,6 @@ public class Task implements Serializable
 
   }
 
-
-
   public void registerTimeSpent(int hours)
   {
     if (hours > 0)
@@ -150,7 +147,6 @@ public class Task implements Serializable
       throw new IllegalArgumentException("Illegal input, Less than 0 hours was entered.");
     }
   }
-
 
 }
 

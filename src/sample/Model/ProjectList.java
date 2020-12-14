@@ -20,6 +20,7 @@ public class ProjectList implements Serializable
   }
 
   //Getters
+
   public Project getProject(String projectName)
   {
     for (Project project: projects)
@@ -46,8 +47,6 @@ public class ProjectList implements Serializable
   {
     return idGenerator;
   }
-
-
 
   //Setters
   public void addProject(Project project)

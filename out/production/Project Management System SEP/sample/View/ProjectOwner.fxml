@@ -42,15 +42,15 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Søg project">
+                        <Label text="Søg efter projekt">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Projekt navn:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="search" mnemonicParsing="false" onAction="#populateTableView" text="Load Krav" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label text="Projektnavn:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="search" mnemonicParsing="false" onAction="#populateTableView" text="Indlæs krav" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label fx:id="status" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Button mnemonicParsing="false" onAction="#setChosenProject" text="Vælg Project" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#setChosenProject" text="Vælg Projekt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                            <GridPane.margin>
                               <Insets right="20.0" />
@@ -124,28 +124,31 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Tilføj krav:" />
+                        <Label text="Tilføj krav:">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin></Label>
                         <Label text="Tilføj ansvarlig teammedlem:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="Tilføj krav navn:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="inputAddRequirementName" promptText="navn ID:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <TextField fx:id="inputAddRequirementName" promptText="Indtast krav navn" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets right="160.0" />
                            </GridPane.margin>
                         </TextField>
                         <Button fx:id="add" mnemonicParsing="false" onAction="#addRequirement" text="Tilføj" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <Label text="Status" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                        <TextField fx:id="day" prefHeight="25.0" prefWidth="349.0" promptText="dd" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <TextField fx:id="day" prefHeight="25.0" prefWidth="349.0" promptText="DD" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets right="536.0" />
                            </GridPane.margin>
                         </TextField>
                         <Label text="Deadline:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="month" prefHeight="25.0" prefWidth="349.0" promptText="mm" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <TextField fx:id="month" prefHeight="25.0" prefWidth="349.0" promptText="MM" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="50.0" right="486.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="year" prefHeight="25.0" prefWidth="349.0" promptText="yyyy" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <TextField fx:id="year" prefHeight="25.0" prefWidth="349.0" promptText="YYYY" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="102.0" right="420.0" />
                            </GridPane.margin>
@@ -155,7 +158,7 @@
                         <ComboBox fx:id="comboBoxResponsibleMember" prefWidth="150.0" promptText="Vælg Teammedlem" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label text="User Story:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <TextArea fx:id="createRequirementUserStory" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                        <Button mnemonicParsing="false" onAction="#initializeTeamMemberComboBox" text="Load teammedlemmer for krav" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" onAction="#initializeTeamMemberComboBox" text="Indlæs teammedlemmer for krav" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets right="50.0" />
                            </GridPane.margin>

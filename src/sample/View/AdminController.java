@@ -44,6 +44,7 @@ public class AdminController
     this.root = root;
 
     //Setting the most recent saved ProjectList file as projectList for model on init.
+
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
   }
@@ -81,7 +82,6 @@ public class AdminController
       inputName.clear();
     }
 
-
   public void removeEmployee() throws IOException, ClassNotFoundException
   {
     EmployeeList loadedList = model.readEmployeeList("EmployeeList.bin");
@@ -109,9 +109,11 @@ public class AdminController
 
     model.saveEmployeeList();
   }
+
   public void setCancel()
   {
     Stage stage = (Stage) cancel.getScene().getWindow();
     stage.close();
   }
+
 }

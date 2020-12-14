@@ -1,7 +1,5 @@
 package sample.util;
 
-import sample.Model.Requirement;
-
 import javax.management.openmbean.KeyAlreadyExistsException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,8 +17,8 @@ public class IDGenerator implements Serializable
   private ArrayList<Integer> teamMemberIDList;
   private static final long serialVersionUID = 7073287439199197233L;
 
-
   //Constructors
+
   public IDGenerator()
   {
     taskIDList = new ArrayList<>();
@@ -29,8 +27,8 @@ public class IDGenerator implements Serializable
     teamMemberIDList = new ArrayList<>();
   }
 
-
   //Getters
+
   public int generateTaskID()
   {
     Random rand = new Random();
@@ -60,7 +58,6 @@ public class IDGenerator implements Serializable
       throw new KeyAlreadyExistsException("Task ID already exists");
     }
   }
-
 
   public int generateProjectID()
   {

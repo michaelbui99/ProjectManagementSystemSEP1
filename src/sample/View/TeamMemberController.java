@@ -48,7 +48,9 @@ public class TeamMemberController
     this.viewHandler = viewHandler;
     this.model = model;
     this.root = root;
+
     //Setting the most recent saved ProjectList file as projectList for model on init.
+
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
 
@@ -118,11 +120,14 @@ public class TeamMemberController
      * */
 
     ObservableList<Requirement> requirements = FXCollections.observableArrayList();
+
     //Reading projectList file and getting requirements of chosen project
+
     ArrayList<Requirement> projectRequirements = model.readProjectList("ProjectList.bin")
         .getProject(chosenProject.getProjectName()).getRequirementList().getAllRequirements();
 
     //Adding all requirements to observable list.
+
     requirements.addAll(projectRequirements);
     return requirements;
   }
@@ -135,12 +140,15 @@ public class TeamMemberController
      * */
 
     ObservableList<Task> tasks = FXCollections.observableArrayList();
+
     //Reading projectList file and getting requirements of chosen project
+
     ArrayList<Task> projectTasks = model.readProjectList("ProjectList.bin")
         .getProject(chosenProject.getProjectName()).getRequirementList().getRequirement(requirementTable
             .getSelectionModel().getSelectedItem().getRequirementID()).getTaskList().getAllTasks();
 
     //Adding all requirements to observable list.
+
     tasks.addAll(projectTasks);
     return tasks;
   }
@@ -154,10 +162,13 @@ public class TeamMemberController
      * */
 
     ObservableList<TeamMember> teamMembers = FXCollections.observableArrayList();
+
     //Reading projectList file and getting requirements of chosen project
+
     ArrayList<TeamMember> systemTeamMembers = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
 
     //Adding all requirements to observable list.
+
     teamMembers.addAll(systemTeamMembers);
     return teamMembers;
   }
@@ -171,46 +182,57 @@ public class TeamMemberController
 
 
     //Resets table to prevent adding new columns on refresh
+
     requirementTable.getItems().clear();
     requirementTable.getColumns().clear();
 
     //Name column
+
     TableColumn<Requirement,String> nameColumn = new TableColumn<>("Navn");
     nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
     //ID column
+
     TableColumn<Requirement,Integer> IDColumn = new TableColumn<>("ID");
     IDColumn.setCellValueFactory(new PropertyValueFactory<>("requirementID"));
 
     //responsible TeamMember column
+
     TableColumn<Requirement,TeamMember> responsibleMemberColumn = new TableColumn<>("Ansvarlig Teammedlem");
     responsibleMemberColumn.setCellValueFactory(new PropertyValueFactory<>("responsibleTeamMember"));
 
     //Status column
+
     TableColumn<Requirement,String> statusColumn = new TableColumn<>("Status");
     statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     //Priority column
+
     TableColumn<Requirement,String> priorityColumn = new TableColumn<>("Prioritet");
     priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
 
     //Time spent column
+
     TableColumn<Requirement,Integer> timeSpentColumn = new TableColumn<>("Tid Brugt");
     timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpendInHours"));
 
     //Deadline column
+
     TableColumn<Requirement,MyDate> deadlineColumn = new TableColumn<>("Deadline");
     deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
     //Creation Date column
+
     TableColumn<Requirement,MyDate> creationDateColumn = new TableColumn<>("Oprettelsesdato");
     creationDateColumn.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
 
     //Estimated completion time column
+
     TableColumn<Requirement,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
     estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
 
     //User Story column
+
     TableColumn<Requirement, String> userStoryColumn = new TableColumn<>("User Story");
     userStoryColumn.setCellValueFactory(new PropertyValueFactory<>("userStory"));
 
@@ -227,42 +249,52 @@ public class TeamMemberController
     setChosenRequirement();
 
     //Resets TableView to prevent adding new columns on refresh
+
     taskTable.getColumns().clear();
     taskTable.getItems().clear();
 
     //Name column
+
     TableColumn<Task,String> nameColumn = new TableColumn<>("Navn");
     nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
     //ID column
+
     TableColumn<Task,Integer> IDColumn = new TableColumn<>("ID");
     IDColumn.setCellValueFactory(new PropertyValueFactory<>("taskID"));
 
     //responsible TeamMember column
+
     TableColumn<Task,TeamMember> responsibleMemberColumn = new TableColumn<>("Ansvarlig Teammedlem");
     responsibleMemberColumn.setCellValueFactory(new PropertyValueFactory<>("responsibleTeamMember"));
 
     //Status column
+
     TableColumn<Task,String> statusColumn = new TableColumn<>("Status");
     statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     //Priority column
+
     TableColumn<Task,String> priorityColumn = new TableColumn<>("Prioritet");
     priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
 
     //Time spent column
+
     TableColumn<Task,Integer> timeSpentColumn = new TableColumn<>("Tid Brugt");
     timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpendInHours"));
 
     //Deadline column
+
     TableColumn<Task,MyDate> deadlineColumn = new TableColumn<>("Deadline");
     deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
     //Creation Date column
+
     TableColumn<Task,MyDate> creationDateColumn = new TableColumn<>("Oprettelsesdato");
     creationDateColumn.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
 
     //Estimated completion time column
+
     TableColumn<Task,Double> estimatedCompletionTimeColumn = new TableColumn<>("Estimeret afslutningstid");
     estimatedCompletionTimeColumn.setCellValueFactory(new PropertyValueFactory<>("estimatedCompletionTimeInHours"));
 
@@ -282,27 +314,29 @@ public class TeamMemberController
     setSelectedTeamMember();
 
     //Resets the table
+
     memberTableView.getItems().clear();
     memberTableView.getColumns().clear();
 
     //Name Column
+
     TableColumn<TeamMember, String> nameColumn = new TableColumn<>("Name");
     nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
     //ID column
+
     TableColumn<TeamMember, Integer> IDColumn = new TableColumn<>("ID");
     IDColumn.setCellValueFactory(new PropertyValueFactory<>("employeeID"));
 
     //Role column
+
     TableColumn<TeamMember,String> roleColumn = new TableColumn<>("Role");
     roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
-
 
     memberTableView.setItems(getAllTeamMembers());
     memberTableView.getColumns().addAll(nameColumn, IDColumn, roleColumn);
 
   }
-
 
   public void setChosenRequirement()
   {
@@ -327,4 +361,5 @@ public class TeamMemberController
     * */
     viewHandler.openView("main");
   }
+
 }

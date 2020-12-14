@@ -51,6 +51,7 @@ public class ProjektCreatorController
     initializeComboBoxes();
 
     //Setting the most recent saved ProjectList file as projectList for model on init.
+
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList);
 
@@ -68,6 +69,7 @@ public class ProjektCreatorController
     int year = Integer.parseInt(inputYear.getText());
 
     //Try to load existing ProjectList file else create a file if no file is found.
+
     try
     {
       ProjectList loadedList = model.readProjectList("ProjectList.bin");

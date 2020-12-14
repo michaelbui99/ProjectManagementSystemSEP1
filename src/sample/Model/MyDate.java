@@ -69,15 +69,7 @@ public class MyDate implements Serializable
    {
      this.day = day;
    }
-
-
-
  }
-
-
-
-
-
 
   public MyDate copy()
   {
@@ -211,40 +203,6 @@ public class MyDate implements Serializable
     return day == other.getDay() && month == other.getMonth() && year == other.getYear();
   }
 
-  /* public static int convertToMonthNumber(String monthName)
-    {
-    switch (monthName.toLowerCase())
-    {
-      default:
-        System.out.println("ERROR");
-        return -1;
-      case "january":
-        return 1;
-      case "february":
-        return 2;
-      case "march":
-        return 3;
-      case "april":
-        return 4;
-      case "may":
-        return 5;
-      case "june":
-        return 6;
-      case "july":
-        return 7;
-      case "august":
-        return 8;
-      case "september":
-        return 9;
-      case "october":
-        return 10;
-      case "november":
-        return 11;
-      case "december":
-        return 12;
-    }
-  }*/
-
   public boolean isBefore(MyDate other)
   {
     if (year < other.getYear())
@@ -263,70 +221,6 @@ public class MyDate implements Serializable
     else
       return false;
   }
-
-  /*public int yearsBetween(MyDate other)
-  {
-    int fullYear;
-    if (isLeapYear())
-    {
-      int temp;
-      fullYear = 366;
-      temp = ((((other.getYear()-year)-1)*365) + fullYear)/365;
-      if (temp < 0)
-      {
-        temp = temp * (-1);
-      }
-      return temp;
-    }
-    else if (isLeapYear() && other.isLeapYear())
-    {
-      int temp;
-      fullYear = 366;
-      temp = (fullYear*2)+(((other.year - year)-2)*365);
-      if (temp < 0)
-      {
-        temp = temp * (-1);
-      }
-      return temp;
-    }
-    else
-    {
-      int temp;
-      temp = other.getYear()-year;
-      if (temp < 0)
-      {
-        temp = temp * (-1);
-      }
-      return temp;
-    }
-
-  }*/
-
-  /*public int daysBetween(MyDate other)
-  {
-    int count = 0;
-    if (!isBefore(other))
-    {
-      MyDate counterDate = new MyDate(other.getDay(), other.getMonth(), other.getYear());
-      while (!equals(counterDate))
-      {
-        counterDate.stepForwardOneDay();
-        count++;
-      }
-      return count++;
-    }
-    else
-    {
-      MyDate counterDate = new MyDate(day, month, year);
-      while (!counterDate.equals(other))
-      {
-        counterDate.stepForwardOneDay();
-        count++;
-      }
-      return count++;
-
-    }
-  }*/
 
   public static MyDate now()
   {

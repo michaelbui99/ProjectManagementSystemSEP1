@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class RequirementList implements Serializable
 {
   private ArrayList<Requirement> requirements;
-  //Fields
 
+  //Fields
 
   public RequirementList()
   {
@@ -20,8 +20,6 @@ public class RequirementList implements Serializable
     requirements.add(requirement);
   }
 
-
-
   public void removeRequirement(int  requirementID)
   {
     for (int i = 0; i < requirements.size(); i++)
@@ -31,9 +29,7 @@ public class RequirementList implements Serializable
     }
   }
 
-
   //Getter
-
 
   public Requirement getRequirement(int requirementID)
   {

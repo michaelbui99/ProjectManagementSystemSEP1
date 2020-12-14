@@ -49,11 +49,10 @@ public class EmployeeList implements Serializable
     return null;
   }
 
-  public TeamMember getEmployee(int index)//TODO: ADD METODEN TIL ASTAH CLASS DIAGRAM
+  public TeamMember getEmployee(int index)
   {
     return teamMembers.get(index);
   }
-
 
 
   public ArrayList<TeamMember> getAllEmployees()

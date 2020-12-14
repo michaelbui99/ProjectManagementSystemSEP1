@@ -6,10 +6,13 @@ public class TeamMember implements Serializable
 {
 
   //Fields
+
   private String name;
   private int employeeID;
   private String role;
   private int registeredHours;
+
+  //private String whoWorksWithWho;
 
   //Constructor
 
@@ -27,7 +30,6 @@ public class TeamMember implements Serializable
     this.role = role;
     registeredHours = 0;
   }
-
 
   //Getter
 
@@ -68,7 +70,6 @@ public class TeamMember implements Serializable
     this.registeredHours = registeredHours;
   }
 
-
   public void addName(String name){
     this.name = name;
   }
@@ -77,16 +78,11 @@ public class TeamMember implements Serializable
     this.employeeID = employeeID;
   }
 
-  //Methods
-
-
   public String toString()
   {
     return "The name: " + name + ", employeeID: " + employeeID
         + ", and the role: '" + role + " registeredHours: " + registeredHours;
   }
-
-
 
   public boolean equals(Object obj)
   {

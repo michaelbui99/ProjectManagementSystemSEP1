@@ -132,8 +132,6 @@ public class ManagementSystemModel
     return returnArray;
   }
 
-  /*TODO: Michael implements the 8 first methods.*/
-
   public void assignTeamMemberToRequirement(int requirementID, TeamMember teamMember)
   {
     projectList.getProject(currentProject).getRequirementList()
@@ -174,35 +172,10 @@ public class ManagementSystemModel
     return employeeList;
   }
 
-  /*TODO: Kasper implements the next 8 methods*/
-
- /* public Project getProjectInfoByEmployeeName(String name,) {
-
-
-
-    return null;
-
-  }*/
-
   public Project getProjectInfo(String projectName) {
 
     return projectList.getProject(projectName);
   }
-
-  /*
-  public float getProjectProgress(String projectName) {
-    return (projectList.getProject(projectName).getRequirementList().getNumberOfRequirements()) / (projectList.getProject(projectName).getRequirementList().getNumberOfApprovedRequirement()) * 100;
-  }
-
-    public ArrayList<Project> loadProjectList()
-        throws IOException, ClassNotFoundException
-    {
-
-       return projectFile.readProjectListFile("ProjectList.bin");
-  }
-
-
-   */
 
   public void saveProject() throws IOException
   {
@@ -221,8 +194,6 @@ public class ManagementSystemModel
   public void setProjectStatus(String status, String projectName) {
     projectList.getProject(projectName).setStatus(status);
   }
-
-  /*TODO: Kutaiba implements the next 8*/
 
   public void setRequirementStatus(String status, int requirementID) {
 
@@ -280,8 +251,6 @@ public class ManagementSystemModel
         getRequirement(requirementID).getTimeSpendInHours();
   }
 
-  /*TODO: Lilian implements the next 8.*/
-
   public RequirementList getRequirementList(String projectName) {
 
     return projectList.getProject(projectName).getRequirementList();
@@ -316,8 +285,5 @@ public class ManagementSystemModel
   {
     return projectList.getProject(projectName).getRequirementList().getRequirement(requirementID).getPriorityList();
   }
-
-
-  /*TODO: Christian implements the last 8 methods*/
 
 }

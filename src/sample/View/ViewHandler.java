@@ -76,8 +76,6 @@ public class ViewHandler
 
   private Region loadAdminView()
   {
-    //if (adminController == null)
-    //{
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -90,20 +88,13 @@ public class ViewHandler
       {
         e.printStackTrace();
       }
-    //}
-    /*else
-    {
-      adminController.reset();
-    }
-     */
+
     return adminController.getRoot();
 
   }
 
   private Region loadMainView()
   {
-    //if (colourITMainController == null)
-    //{
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -116,21 +107,12 @@ public class ViewHandler
       {
         e.printStackTrace();
       }
-    //}
-    /*
-    else
-    {
-      colourITMainController.reset();
-    }
 
-     */
     return colourITMainController.getRoot();
   }
 
   private Region loadProjectOwnerView()
   {
- //   if (projectOwnerController == null)
-   // {
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -143,21 +125,12 @@ public class ViewHandler
       {
         e.printStackTrace();
       }
-  //  }
-    /*
-    else
-    {
-      projectOwnerController.reset();
-    }
 
-     */
     return projectOwnerController.getRoot();
   }
 
   private Region loadProjektCreatorView()
   {
-    //if (projektCreatorController == null)
-    //{
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -170,22 +143,13 @@ public class ViewHandler
       {
         e.printStackTrace();
       }
-    //}
-    /*
-    else
-    {
-      projektCreatorController.reset();
-    }
 
-     */
     return projektCreatorController.getRoot();
   }
 
 
     private Region loadScrumMasterView ()
     {
-      //if (scrumMasterController == null)
-      //{
         try
         {
           FXMLLoader loader = new FXMLLoader();
@@ -199,20 +163,11 @@ public class ViewHandler
           e.printStackTrace();
         }
 
-      //}
-    /*
-    else
-    {
-      scrumMasterController.reset();
-    }
-     */
       return scrumMasterController.getRoot();
     }
 
     private Region loadTeamMemberView ()
     {
-    //  if (teamMemberController == null)
-      //{
         try
         {
           FXMLLoader loader = new FXMLLoader();
@@ -225,14 +180,7 @@ public class ViewHandler
         {
           e.printStackTrace();
         }
-    //  }
-    /*
-    else
-    {
-      teamMemberController.reset();
-    }
 
-     */
       return teamMemberController.getRoot();
     }
 

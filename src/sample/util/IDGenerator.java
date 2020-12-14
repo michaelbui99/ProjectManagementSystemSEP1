@@ -16,13 +16,14 @@ public class IDGenerator implements Serializable
   private ArrayList<Integer> taskIDList;
   private ArrayList<Integer> requirementIDList;
   private ArrayList<Integer> projectIDList;
-
+  private ArrayList<Integer> teamMemberIDList;
   //Constructors
   public IDGenerator()
   {
     taskIDList = new ArrayList<>();
     requirementIDList = new ArrayList<>();
     projectIDList = new ArrayList<>();
+    teamMemberIDList = new ArrayList<>();
   }
 
 
@@ -73,6 +74,19 @@ public class IDGenerator implements Serializable
     }
   }
 
+  private int generateTeamMemberID()
+  {
+    Random rand = new Random();
+    int returnID = rand.nextInt(1000)+1;
+    if (!projectIDList.contains(returnID))
+    {
+      teamMemberIDList.add(returnID);
+      return returnID;
+    }
+    else
+      throw new KeyAlreadyExistsException("TeamMember ID Already exists.");
+  }
+
   public ArrayList<Integer> getTaskIDList()
   {
     return taskIDList;
@@ -87,4 +101,6 @@ public class IDGenerator implements Serializable
   {
     return projectIDList;
   }
+
+  public ArrayList<Integer> getTeamMemberIDList() { return teamMemberIDList;}
 }

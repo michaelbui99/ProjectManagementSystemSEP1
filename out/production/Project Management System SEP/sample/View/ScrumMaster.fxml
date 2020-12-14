@@ -219,6 +219,16 @@
                                                       <Insets left="408.0" />
                                                    </GridPane.margin>
                                                 </Button>
+                                                <Label text="Fjern opgave:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Button mnemonicParsing="false" onAction="#deleteTask" text="Godkendt fjernelse" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="100.0" />
+                                                   </GridPane.margin>
+                                                </Button>
                                              </children>
                                           </GridPane>
                                        </children>

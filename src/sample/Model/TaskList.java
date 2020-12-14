@@ -45,13 +45,7 @@ public class TaskList implements Serializable
 
   public void removeTask(int taskID)
   {
-    for (Task task: tasks)
-    {
-      if (task.getTaskID()==(taskID))
-      {
-        tasks.remove(task);
-      }
-    }
+    tasks.removeIf(task -> task.getTaskID() == (taskID));
   }
 
 }

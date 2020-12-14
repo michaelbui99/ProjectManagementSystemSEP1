@@ -29,9 +29,7 @@ public class ScrumMasterController
   @FXML private TextField inputDeadlineDay;
   @FXML private TextField inputDeadlineMonth;
   @FXML private TextField inputDeadlineYear;
-  @FXML private TextField approveTask;
   @FXML private TextField estimatedCompletionTime;
-  @FXML private TextField requirementID;
   @FXML private ComboBox<Project> comboBoxProjects;
   @FXML private ComboBox<String> comboBoxRequirementStatus;
 

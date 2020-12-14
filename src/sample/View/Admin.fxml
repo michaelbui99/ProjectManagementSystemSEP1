@@ -35,7 +35,6 @@
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
@@ -49,12 +48,7 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="ID:" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets left="5.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <Label text="Projektskaber:" GridPane.rowIndex="3">
+                  <Label text="Projektskaber:" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
@@ -64,7 +58,7 @@
                         <Insets left="30.0" right="40.0" />
                      </GridPane.margin>
                   </TextField>
-                  <RadioButton mnemonicParsing="false" text="Ja" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <RadioButton mnemonicParsing="false" text="Ja" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
@@ -72,12 +66,7 @@
                         <ToggleGroup fx:id="jaNej" />
                      </toggleGroup>
                   </RadioButton>
-                  <TextField fx:id="inputID" promptText="Indsæt ID" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets left="30.0" right="40.0" />
-                     </GridPane.margin>
-                  </TextField>
-                  <RadioButton mnemonicParsing="false" text="Nej" toggleGroup="$jaNej" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <RadioButton mnemonicParsing="false" text="Nej" toggleGroup="$jaNej" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>

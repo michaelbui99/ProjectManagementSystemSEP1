@@ -61,13 +61,13 @@ public class AdminController
     {*/
       if (selectRadio.getText().equals("Ja"))
       {
-        model.addEmployeeToSystem(inputName.getText(), ID, "projectcreator");
+        model.addEmployeeToSystem(inputName.getText(), model.getProjectList().getIdGenerator().generateTeamMemberID(), "projectcreator");
         //model.getEmployeeList().addEmployee(teamMemberToAdd);
 
       }
       else
       {
-        model.addEmployeeToSystem(inputName.getText(), ID, "teammember");
+        model.addEmployeeToSystem(inputName.getText(), model.getProjectList().getIdGenerator().generateTeamMemberID(), "teammember");
 
       }
 

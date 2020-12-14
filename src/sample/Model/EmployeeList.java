@@ -7,12 +7,12 @@ public class EmployeeList implements Serializable
 {
 
   //Fields
-
+  private static final long serialVersionUID = 3860466931029119470L;
   private ArrayList<TeamMember> teamMembers;
 
   //Constructor
 
-  EmployeeList ()
+  public EmployeeList()
   {
     teamMembers = new ArrayList<TeamMember>();
   }
@@ -58,7 +58,7 @@ public class EmployeeList implements Serializable
 
   public ArrayList<TeamMember> getAllEmployees()
   {
-    return this.teamMembers;
+    return teamMembers;
   }
 
   @Override public String toString()

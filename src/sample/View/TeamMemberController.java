@@ -72,7 +72,7 @@ public class TeamMemberController
     int reqID = chosenRequirement.getRequirementID();
     int taskID = chosenTask.getTaskID();
     int time = Integer.parseInt(inputTime.getText());
-
+    model.setCurrentProject(comboBoxProjects.getValue().getProjectName());
     model.registerTaskTime(time,reqID,taskID);
     model.saveProjectList();
   }
@@ -90,9 +90,12 @@ public class TeamMemberController
   /*
   * Method initializes all ComboBoxes.
   * */
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
+
     ArrayList<Project> systemProjects = model.readProjectList("ProjectList.bin").getAllProjects();
     comboBoxProjects.getItems().addAll(systemProjects);
-    ArrayList<TeamMember> systemEmployees = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
+    ArrayList<TeamMember> systemEmployees = model.getEmployeeList().getAllEmployees();
     teamMemberComboBox.getItems().addAll(systemEmployees);
   }
 

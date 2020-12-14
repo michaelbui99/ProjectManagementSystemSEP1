@@ -101,12 +101,18 @@ public class ScrumMasterController
         "Ikke påbegyndt", "Påbegyndt", "Afsluttet"
     );
 
-    ArrayList<TeamMember> systemEmployees = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
-    responsibleTeamMember.getItems().addAll(systemEmployees);
+
+
 
     taskPriority.getItems().addAll(
         "Lav", "Normal", "Høj", "Kritisk"
     );
+  }
+
+  public void initializeResponsibleMemberComboBox()
+  {
+    ArrayList<TeamMember> systemEmployees = model.getProjectList().getProject(comboBoxProjects.getValue().getProjectName()).getEmployeeList().getAllEmployees();
+    responsibleTeamMember.getItems().addAll(systemEmployees);
   }
 
   public void populateTableViewRequirement() throws IOException, ClassNotFoundException
@@ -165,6 +171,7 @@ public class ScrumMasterController
     requirementTable.setItems(getAllRequirements());
     requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
         priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn, userStoryColumn);
+    initializeResponsibleMemberComboBox();
   }
 
   public void populateTableViewTask() throws IOException, ClassNotFoundException
@@ -173,6 +180,9 @@ public class ScrumMasterController
     chosenRequirement = requirementTable.getSelectionModel().getSelectedItem();
 
     //Resets TableView to prevent adding new columns on refresh
+    taskTable.getColumns().clear();
+    taskTable.getItems().clear();
+
     //Name column
     TableColumn<Task,String> nameColumn = new TableColumn<>("Navn");
     nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));

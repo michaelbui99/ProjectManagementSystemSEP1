@@ -29,7 +29,7 @@ public class ProjektCreatorController
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
   private Region root;
-
+  private Project chosenProject;
 
 
   public void setModel( ManagementSystemModel model)
@@ -99,22 +99,59 @@ public class ProjektCreatorController
     ArrayList<TeamMember> systemEmployeesRemove = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
     removeTeamMemberComboBox.getItems().addAll(systemEmployeesRemove);
 
-    ArrayList<Requirement> projectRequirement = model.readProjectList("ProjectList.bin").
+  }
+
+  public void initializeRequirementComboBox()
+      throws IOException, ClassNotFoundException
+  {
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
+    ArrayList<Requirement> projectRequirement = model.getProjectList().
         getProject(projectComboBox.getValue().getProjectName()).getRequirementList().getAllRequirements();
     requirementComboBox.getItems().addAll(projectRequirement);
   }
+
 
   public void setAddTeamMemberToProject()
       throws IOException, ClassNotFoundException
   {
     RadioButton selectedRadio = (RadioButton) role.getSelectedToggle();
-    model.readProjectList("ProjectList.bin").getProject(projectComboBox.
-        getValue().getProjectName()).addEmployee(new TeamMember(teamMemberComboBox.getValue().getName(),selectedRadio.getText()));
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
+    model.getProjectList().getProject(projectComboBox.
+        getValue().getProjectName()).getEmployeeList().addEmployee(new TeamMember(teamMemberComboBox.getValue().getName(), teamMemberComboBox.getValue().getEmployeeID(),selectedRadio.getText()));
+    model.saveProjectList();
+    model.saveEmployeeList();
+  }
+
+  public void addTeamMemberToRequirement()
+      throws IOException, ClassNotFoundException
+  {
+    RadioButton selectedRadio = (RadioButton) role.getSelectedToggle();
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
+
+    model.getProjectList().getProject(chosenProject.getProjectName())
+        .getRequirementList().getRequirement(requirementComboBox.getValue().getRequirementID())
+        .addEmployeeToRequirement(new TeamMember(teamMemberComboBox.getValue().getName(), teamMemberComboBox.getValue().getEmployeeID(),selectedRadio.getText()));
+    model.saveProjectList();
+    model.saveEmployeeList();
+  }
+
+  public void setChosenProject() throws IOException, ClassNotFoundException
+  {
+    chosenProject = projectComboBox.getValue();
+    initializeRequirementComboBox();
   }
 
   public void setRemoveTeamMemberFromProject()
+      throws IOException, ClassNotFoundException
   {
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
    model.removeTeamMemberFromProject(removeProjectComboBox.getValue().getProjectName(),removeTeamMemberComboBox.getValue().getEmployeeID());
+    model.saveEmployeeList();
+    model.saveProjectList();
   }
 
 

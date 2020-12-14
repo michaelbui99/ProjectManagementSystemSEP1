@@ -43,19 +43,23 @@ public class Requirement implements
     estimatedCompletionTimeInHours = calculateEstimatedTimeInHours();
     taskList = new TaskList();
     this.userStory = userStory;
+    employees = new EmployeeList();
   }
 
   public Requirement(String name, int requirementID)
   {
     this.name = name;
     this.requirementID = requirementID;
+    employees = new EmployeeList();
   }
-
+/*
   public Requirement()
   {
     priorityList = new ArrayList<>();
+    employees = new EmployeeList();
   }
-
+*/
+  /*
   public Requirement(String name, int requirementID,
       TeamMember responsibleTeamMember, String priority)
   {
@@ -67,8 +71,11 @@ public class Requirement implements
     timeSpendInHours = 0;
     isApproved = false;
     this.deadline = null;
+    employees = new EmployeeList();
   }
 
+
+   */
   //Getters
 
 
@@ -104,6 +111,7 @@ public String getPriority()
 
   public int getTimeSpendInHours()
   {
+    timeSpendInHours = calculateTimeSpentInHours();
     return timeSpendInHours;
   }
 
@@ -165,6 +173,17 @@ public String getPriority()
     return prioList;
   }
 
+  public int calculateTimeSpentInHours()
+  {
+    int total = 0;
+    for (Task task: taskList.getAllTasks())
+    {
+      total += task.getTimeSpendInHours();
+    }
+    return total;
+  }
+
+
 
 
   //Setters
@@ -196,7 +215,11 @@ public String getPriority()
       break;
     }
 
+  }
 
+  public void addEmployeeToRequirement(TeamMember teamMember)
+  {
+    employees.addEmployee(teamMember);
   }
 
   public void setResponsibleTeamMember(TeamMember responsibleTeamMember)
@@ -234,6 +257,12 @@ public String getPriority()
   {
     this.userStory = userStory;
   }
+
+  public void setEmployees(EmployeeList employees)
+  {
+    this.employees = employees;
+  }
+
 
 
 }

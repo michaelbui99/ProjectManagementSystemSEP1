@@ -17,6 +17,9 @@ public class IDGenerator implements Serializable
   private ArrayList<Integer> requirementIDList;
   private ArrayList<Integer> projectIDList;
   private ArrayList<Integer> teamMemberIDList;
+  private static final long serialVersionUID = 7073287439199197233L;
+
+
   //Constructors
   public IDGenerator()
   {
@@ -74,11 +77,11 @@ public class IDGenerator implements Serializable
     }
   }
 
-  private int generateTeamMemberID()
+  public int generateTeamMemberID()
   {
     Random rand = new Random();
-    int returnID = rand.nextInt(1000)+1;
-    if (!projectIDList.contains(returnID))
+    int returnID = rand.nextInt(1000) + 1;
+    if (!teamMemberIDList.contains(returnID))
     {
       teamMemberIDList.add(returnID);
       return returnID;

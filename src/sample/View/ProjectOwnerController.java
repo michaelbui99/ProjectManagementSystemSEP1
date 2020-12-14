@@ -116,6 +116,7 @@ public class ProjectOwnerController
     ProjectList loadedList = model.readProjectList("ProjectList.bin");
     model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
     chosenProject = model.getProjectList().getProject(comboBoxProjects.getSelectionModel().getSelectedItem().getProjectName());
+
   }
 
   public ObservableList<Requirement> getAllRequirements()
@@ -202,11 +203,18 @@ public class ProjectOwnerController
         "Lav","Normal","Høj","Kritisk"
     );
 
-    ArrayList<TeamMember> systemEmployees = model.readEmployeeList("EmployeeList.bin").getAllEmployees();
-    comboBoxResponsibleMember.getItems().addAll(systemEmployees);
 
     ArrayList<Project> systemProjects = model.readProjectList("ProjectList.bin").getAllProjects();
     comboBoxProjects.getItems().addAll(systemProjects);
+  }
+
+  public void initializeTeamMemberComboBox()
+      throws IOException, ClassNotFoundException
+  {
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
+    ArrayList<TeamMember> projectEmployees = model.getProjectList().getProject(comboBoxProjects.getValue().getProjectName()).getEmployeeList().getAllEmployees();
+    comboBoxResponsibleMember.getItems().addAll(projectEmployees);
   }
 
   public void addRequirement() throws IOException, ClassNotFoundException
@@ -223,6 +231,7 @@ public class ProjectOwnerController
         ,"Ikke påbegyndt", createRequirementPriority.getValue(),new MyDate(d,m,y), createRequirementUserStory.getText());
 
     model.saveProjectList();
+    model.saveEmployeeList();
 
   }
 
@@ -235,6 +244,7 @@ public class ProjectOwnerController
     model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList()
         .getRequirement(priorityChangeTargetID).setPriority(requirementPriority.getValue());
     model.saveProjectList();
+    model.saveEmployeeList();
   }
 
 

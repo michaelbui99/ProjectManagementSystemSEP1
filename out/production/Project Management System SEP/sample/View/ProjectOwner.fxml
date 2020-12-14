@@ -155,6 +155,11 @@
                         <ComboBox fx:id="comboBoxResponsibleMember" prefWidth="150.0" promptText="Vælg Teammedlem" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label text="User Story:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <TextArea fx:id="createRequirementUserStory" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" onAction="#initializeTeamMemberComboBox" text="Load teammedlemmer for krav" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="50.0" />
+                           </GridPane.margin>
+                        </Button>
                      </children>
                   </GridPane>
                </children>

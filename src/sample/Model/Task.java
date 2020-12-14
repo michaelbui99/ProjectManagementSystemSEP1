@@ -41,6 +41,7 @@ public class Task implements Serializable
     this.responsibleTeamMember = responsibleTeamMember;
     setPriority(priority);
     employees = new EmployeeList();
+    creationDate = MyDate.now();
     this.deadline = new MyDate(deadline.getDay(),deadline.getMonth(),deadline.getYear());
     timeSpendInHours = 0; //Defaultes til 0, når projektet oprettes, da der ikke er blevet brugt til på projektet ved oprettelse.
     this.estimatedCompletionTimeInHours = estimatedCompletionTimeInHours;
@@ -97,6 +98,10 @@ public class Task implements Serializable
     return estimatedCompletionTimeInHours;
   }
 
+  public String getPriority()
+  {
+    return priority;
+  }
 
   //Setters
   public void setTimeSpendInHours(int hours)

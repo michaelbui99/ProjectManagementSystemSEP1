@@ -70,7 +70,6 @@ public class ProjektCreatorController
 
   public void setCreateProject() throws IOException, ClassNotFoundException
   {
-    int ID = Integer.parseInt(inputProjectID.getText());
     int day = Integer.parseInt(inputDay.getText());
     int month = Integer.parseInt(inputMonth.getText());
     int year = Integer.parseInt(inputYear.getText());

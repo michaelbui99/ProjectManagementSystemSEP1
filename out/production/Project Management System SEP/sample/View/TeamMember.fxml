@@ -89,7 +89,7 @@
                                           <Insets left="30.0" right="400.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <Button fx:id="save" mnemonicParsing="false" onAction="#setSave" text="gem" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                    <Button fx:id="save" mnemonicParsing="false" onAction="#setSave" text="Gem" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                                        <GridPane.margin>
                                           <Insets right="80.0" />
                                        </GridPane.margin>

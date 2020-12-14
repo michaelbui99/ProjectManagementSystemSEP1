@@ -23,6 +23,7 @@ public class IDGenerator implements Serializable
     taskIDList = new ArrayList<>();
     requirementIDList = new ArrayList<>();
     projectIDList = new ArrayList<>();
+    teamMemberIDList = new ArrayList<>();
   }
 
 

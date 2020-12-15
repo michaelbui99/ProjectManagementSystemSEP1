@@ -171,7 +171,7 @@ public class ViewHandler
         try
         {
           FXMLLoader loader = new FXMLLoader();
-          loader.setLocation(getClass().getResource("TeamMember.fxml"));
+          loader.setLocation(getClass().getResource("TeamMemberGUI.fxml"));
           Region root = loader.load();
           teamMemberController = loader.getController();
           teamMemberController.init(this, model, root);

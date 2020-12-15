@@ -296,8 +296,7 @@ public class ScrumMasterController
     //Reading projectList file and getting requirements of chosen project
 
     ArrayList<Task> projectTasks = model.readProjectList("ProjectList.bin")
-        .getProject(chosenProject.getProjectName()).getRequirementList().getRequirement(requirementTable
-            .getSelectionModel().getSelectedItem().getRequirementID()).getTaskList().getAllTasks();
+        .getProject(chosenProject.getProjectName()).getRequirementList().getRequirement(comboBoxRequirement.getValue().getRequirementID()).getTaskList().getAllTasks();
 
     //Adding all requirements to observable list.
 

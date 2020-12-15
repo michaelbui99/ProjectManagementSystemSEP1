@@ -200,9 +200,9 @@
                                                       <Insets left="140.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <Button mnemonicParsing="false" onAction="#populateTableViewTask" text="Indlæs Tabeldata" GridPane.rowIndex="3">
+                                                <Button mnemonicParsing="false" onAction="#populateTableViewTask" text="Indlæs Tabeldata" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                                                    <GridPane.margin>
-                                                      <Insets left="100.0" />
+                                                      <Insets left="100.0" right="50.0" />
                                                    </GridPane.margin>
                                                 </Button>
                                                 <ComboBox fx:id="comboBoxTaskStatus" prefWidth="150.0" GridPane.columnIndex="1">
@@ -229,6 +229,11 @@
                                                       <Insets left="100.0" />
                                                    </GridPane.margin>
                                                 </Button>
+                                                <ComboBox fx:id="comboBoxRequirement" prefHeight="25.0" prefWidth="246.0" promptText="Vælg krav, hvor opgaver skal oprettes" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets right="100.0" />
+                                                   </GridPane.margin>
+                                                </ComboBox>
                                              </children>
                                           </GridPane>
                                        </children>

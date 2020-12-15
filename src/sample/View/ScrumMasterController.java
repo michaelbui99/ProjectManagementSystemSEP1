@@ -33,6 +33,7 @@ public class ScrumMasterController
   @FXML private ComboBox<Project> comboBoxProjects;
   @FXML private ComboBox<String> comboBoxRequirementStatus;
   @FXML private ComboBox<String> comboBoxTaskStatus;
+  @FXML private ComboBox<Requirement> comboBoxRequirement;
 
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
@@ -81,7 +82,7 @@ public class ScrumMasterController
     //Makes sure the list we are editing are the most current saved list.
 
     model.setProjectList(loadedList);
-    chosenRequirement = requirementTable.getSelectionModel().getSelectedItem();
+    chosenRequirement = comboBoxRequirement.getValue();
 
     Task taskToAdd = new Task(inputTaskName.getText(), model.getProjectList().getIdGenerator().generateTaskID(), "Ikke påbegyndt"
     , responsibleTeamMember.getValue(), taskPriority.getValue(), new MyDate(Integer.parseInt(inputDeadlineDay.getText()), Integer.parseInt(inputDeadlineMonth.getText()),Integer.parseInt(inputDeadlineYear.getText())),
@@ -198,12 +199,14 @@ public class ScrumMasterController
     requirementTable.getColumns().addAll(nameColumn, IDColumn,responsibleMemberColumn,statusColumn,
         priorityColumn, timeSpentColumn, deadlineColumn, creationDateColumn, estimatedCompletionTimeColumn, userStoryColumn);
     initializeResponsibleMemberComboBox();
+    initializeComboBoxRequirement();
+
   }
 
   public void populateTableViewTask() throws IOException, ClassNotFoundException
   {
     setChosenProject();
-    chosenRequirement = requirementTable.getSelectionModel().getSelectedItem();
+    chosenRequirement = comboBoxRequirement.getValue();
 
     //Resets TableView to prevent adding new columns on refresh
 
@@ -342,6 +345,16 @@ public class ScrumMasterController
     model.saveProjectList();
     //Refreshes the tableview such the new changes are displayed
     populateTableViewTask();
+  }
+
+  public void initializeComboBoxRequirement()
+      throws IOException, ClassNotFoundException
+  {
+    ProjectList loadedList = model.readProjectList("ProjectList.bin");
+    model.setProjectList(loadedList);
+    ArrayList<Requirement> projectRequirements = model.getProjectList().getProject(chosenProject.getProjectName())
+        .getRequirementList().getAllRequirements();
+    comboBoxRequirement.getItems().addAll(projectRequirements);
   }
 
   public void logOut()

@@ -6,6 +6,8 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DisplacementMap?>
+<?import javafx.scene.effect.FloatMap?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="500.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.AdminController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #ffffff; -fx-border-style: solid;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.AdminController">
    <children>
       <FlowPane alignment="CENTER" prefHeight="52.0" prefWidth="600.0">
          <children>
@@ -26,14 +28,14 @@
       </FlowPane>
       <FlowPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <GridPane prefHeight="208.0" prefWidth="603.0">
+            <GridPane prefHeight="327.0" prefWidth="1283.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="189.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="10.0" prefWidth="84.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="363.0" minWidth="10.0" prefWidth="327.0" />
+                <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="SOMETIMES" maxWidth="502.0" minWidth="10.0" prefWidth="476.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="870.0" minWidth="10.0" prefWidth="157.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="882.0" minWidth="0.0" prefWidth="598.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
@@ -50,12 +52,12 @@
                   </Label>
                   <Label text="Projektskaber:" GridPane.rowIndex="2">
                      <GridPane.margin>
-                        <Insets left="5.0" />
+                        <Insets left="30.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField fx:id="inputName" prefHeight="25.0" prefWidth="249.0" promptText="Indtast navn:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="inputName" prefHeight="25.0" prefWidth="249.0" promptText="Indtast navn:" style="-fx-border-style: solid; -fx-border-color: #9ac8fc;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets left="30.0" right="40.0" />
+                        <Insets left="30.0" right="203.0" />
                      </GridPane.margin>
                   </TextField>
                   <RadioButton mnemonicParsing="false" text="Ja" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -65,11 +67,25 @@
                      <toggleGroup>
                         <ToggleGroup fx:id="jaNej" />
                      </toggleGroup>
+                     <effect>
+                        <DisplacementMap>
+                           <mapData>
+                              <FloatMap />
+                           </mapData>
+                        </DisplacementMap>
+                     </effect>
                   </RadioButton>
                   <RadioButton mnemonicParsing="false" text="Nej" toggleGroup="$jaNej" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
+                     <effect>
+                        <DisplacementMap>
+                           <mapData>
+                              <FloatMap />
+                           </mapData>
+                        </DisplacementMap>
+                     </effect>
                   </RadioButton>
                </children>
             </GridPane>
@@ -77,18 +93,18 @@
       </FlowPane>
       <FlowPane prefHeight="47.0" prefWidth="600.0">
          <children>
-            <GridPane prefHeight="47.0" prefWidth="602.0">
+            <GridPane prefHeight="67.0" prefWidth="1279.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="add" mnemonicParsing="false" onAction="#addTeamMember" text="Tilføj">
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#addTeamMember" prefWidth="67.0" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Tilføj">
                      <GridPane.margin>
-                        <Insets left="5.0" />
+                        <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
                   <Label fx:id="Status" text="Status" visible="false" GridPane.columnIndex="1" />
@@ -99,13 +115,13 @@
       </FlowPane>
       <FlowPane prefHeight="36.0" prefWidth="600.0">
          <children>
-            <GridPane prefHeight="63.0" prefWidth="600.0">
+            <GridPane prefHeight="171.0" prefWidth="1282.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="277.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="323.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="645.0" minWidth="10.0" prefWidth="645.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="351.0" minWidth="0.0" prefWidth="0.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Fjern teammedlem fra system:">
@@ -113,7 +129,7 @@
                         <Insets left="30.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField fx:id="inputTeamMemberName" promptText="Indtast teammedlems ID:" GridPane.columnIndex="1">
+                  <TextField fx:id="inputTeamMemberName" promptText="Indtast teammedlems ID:" style="-fx-border-style: solid; -fx-border-color: #9ac8fc;" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" right="40.0" />
                      </GridPane.margin>
@@ -124,7 +140,7 @@
       </FlowPane>
       <FlowPane prefHeight="50.0" prefWidth="600.0">
          <children>
-            <GridPane prefHeight="47.0" prefWidth="602.0">
+            <GridPane prefHeight="88.0" prefWidth="1282.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -133,9 +149,9 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="remove" mnemonicParsing="false" onAction="#removeEmployee" text="Fjern">
+                  <Button fx:id="remove" mnemonicParsing="false" onAction="#removeEmployee" prefWidth="67.0" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Fjern">
                      <GridPane.margin>
-                        <Insets left="5.0" />
+                        <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
                   <Label text="Status" visible="false" GridPane.columnIndex="1" />
@@ -146,23 +162,23 @@
       </FlowPane>
       <FlowPane prefHeight="45.0" prefWidth="601.0">
          <children>
-            <GridPane minHeight="60.0" minWidth="601.0" prefHeight="60.0" prefWidth="601.0">
+            <GridPane minHeight="60.0" minWidth="601.0" prefHeight="89.0" prefWidth="1279.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="cancel" mnemonicParsing="false" onAction="#setCancel" text="Afslut">
+                  <Button fx:id="cancel" mnemonicParsing="false" onAction="#setCancel" prefWidth="67.0" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Afslut">
                      <GridPane.margin>
-                        <Insets left="5.0" />
+                        <Insets bottom="50.0" left="10.0" top="50.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                  <Button mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Log ud" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                      <GridPane.margin>
-                        <Insets right="20.0" />
+                        <Insets bottom="50.0" right="30.0" top="50.0" />
                      </GridPane.margin>
                   </Button>
                </children>

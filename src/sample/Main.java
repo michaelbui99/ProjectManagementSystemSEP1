@@ -1,11 +1,13 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import sample.Model.ManagementSystemModel;
 import sample.View.ViewHandler;
 
-public class Main extends Application {
+        public class Main extends Application {
+    private Image logo;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -13,6 +15,8 @@ public class Main extends Application {
         ViewHandler viewHandler = new ViewHandler(model);
         viewHandler.start(primaryStage);
         primaryStage.setTitle("Colour-IT");
+        primaryStage.getIcons().add(logo = new Image("file:img/colour_it_logo3.png"));
+        primaryStage.show();
     }
 
 

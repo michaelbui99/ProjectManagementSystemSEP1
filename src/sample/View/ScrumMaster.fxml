@@ -17,9 +17,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="805.0" prefWidth="1093.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ScrumMasterController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ScrumMasterController">
    <children>
-      <FlowPane alignment="CENTER" prefHeight="57.0" prefWidth="1093.0">
+      <FlowPane alignment="CENTER" prefHeight="57.0" prefWidth="1093.0" style="-fx-background-image: #ffffff;">
          <children>
             <Label text="Scrum Master">
                <font>
@@ -30,18 +30,18 @@
       </FlowPane>
       <ScrollPane prefHeight="872.0" prefWidth="1111.0">
          <content>
-            <TabPane prefHeight="804.0" prefWidth="1095.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="764.0" prefWidth="1284.0" style="-fx-background-image: #ffffff;" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Rediger krav">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="908.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="740.0" prefWidth="1257.0">
                            <children>
-                              <FlowPane layoutY="16.0" prefHeight="551.0" prefWidth="1072.0">
+                              <FlowPane layoutY="-1.0" prefHeight="720.0" prefWidth="1265.0" style="-fx-background-image: #ffffff;">
                                  <children>
-                                    <TableView fx:id="requirementTable" prefHeight="544.0" prefWidth="1097.0" />
-                                    <FlowPane prefHeight="110.0" prefWidth="1074.0">
+                                    <TableView fx:id="requirementTable" prefHeight="542.0" prefWidth="1271.0" style="-fx-background-color: #ffffff; -fx-border-style: solid;" />
+                                    <FlowPane prefHeight="169.0" prefWidth="1269.0" style="-fx-background-image: #ffffff;">
                                        <children>
-                                          <GridPane prefHeight="159.0" prefWidth="1074.0">
+                                          <GridPane prefHeight="195.0" prefWidth="1273.0" style="-fx-background-color: #ffffff;">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -56,22 +56,22 @@
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin></Label>
-                                                <Button fx:id="approveRequirement" mnemonicParsing="false" onAction="#setRequirementStatus" prefHeight="25.0" prefWidth="155.0" text="Godkend ændring" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                                <Button fx:id="approveRequirement" mnemonicParsing="false" onAction="#setRequirementStatus" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Godkend ændring" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                                                    <GridPane.margin>
                                                       <Insets right="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button fx:id="cancel" mnemonicParsing="false" onAction="#setCancel" text="Afslut" GridPane.rowIndex="2">
+                                                <Button fx:id="cancel" mnemonicParsing="false" onAction="#setCancel" prefWidth="67.0" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Afslut" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button fx:id="logOut" mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Button fx:id="logOut" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Log ud" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="471.0" />
+                                                      <Insets left="550.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <ComboBox fx:id="comboBoxRequirementStatus" prefHeight="25.0" prefWidth="219.0" promptText="Vælg kravstatus">
+                                                <ComboBox fx:id="comboBoxRequirementStatus" prefHeight="25.0" prefWidth="219.0" promptText="Vælg kravstatus" style="-fx-background-color: #ffffff; -fx-border-color: #9ac8fc;">
                                                    <GridPane.margin>
                                                       <Insets left="86.0" />
                                                    </GridPane.margin>
@@ -81,12 +81,12 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <ComboBox fx:id="comboBoxProjects" prefHeight="25.0" prefWidth="219.0" promptText="Vælg projekt, som skal ændres" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                                <ComboBox fx:id="comboBoxProjects" prefHeight="25.0" prefWidth="219.0" promptText="Vælg projekt, som skal ændres" style="-fx-background-color: #ffffff; -fx-border-color: #9ac8fc;" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="86.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <Button mnemonicParsing="false" onAction="#populateTableViewRequirement" text="Load projekt" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                <Button mnemonicParsing="false" onAction="#populateTableViewRequirement" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Load projekt" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets right="10.0" />
                                                    </GridPane.margin>
@@ -105,12 +105,12 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="908.0">
                            <children>
-                              <FlowPane layoutY="16.0" prefHeight="551.0" prefWidth="1072.0">
+                              <FlowPane layoutY="-4.0" prefHeight="732.0" prefWidth="1267.0">
                                  <children>
-                                    <TableView fx:id="taskTable" prefHeight="553.0" prefWidth="1070.0" />
-                                    <FlowPane prefHeight="110.0" prefWidth="1074.0">
+                                    <TableView fx:id="taskTable" prefHeight="560.0" prefWidth="1267.0" style="-fx-border-style: solid;" />
+                                    <FlowPane prefHeight="143.0" prefWidth="1267.0">
                                        <children>
-                                          <GridPane prefHeight="159.0" prefWidth="1074.0">
+                                          <GridPane prefHeight="165.0" prefWidth="1282.0" style="-fx-background-color: #ffffff;">
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -127,19 +127,19 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button mnemonicParsing="false" onAction="#addTask" prefHeight="25.0" prefWidth="139.0" text="Tilføj opgave" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                                <Button mnemonicParsing="false" onAction="#addTask" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Tilføj opgave" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets right="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#setCancel" text="Afslut" GridPane.rowIndex="3">
+                                                <Button mnemonicParsing="false" onAction="#setCancel" prefWidth="67.0" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Afslut" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#logOut" text="Log ud" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Button mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Log ud" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <GridPane.margin>
-                                                      <Insets left="471.0" />
+                                                      <Insets left="550.0" />
                                                    </GridPane.margin>
                                                 </Button>
                                                 <Label text="Ansvarligt teammedlem:" GridPane.rowIndex="1">
@@ -152,7 +152,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <TextField fx:id="inputTaskName" promptText="Opgavenavn:">
+                                                <TextField fx:id="inputTaskName" promptText="Opgavenavn:" style="-fx-border-color: #9ac8fc;">
                                                    <GridPane.margin>
                                                       <Insets left="90.0" right="60.0" />
                                                    </GridPane.margin>
@@ -162,19 +162,19 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <TextField fx:id="inputDeadlineDay" promptText="DD" GridPane.rowIndex="2">
+                                                <TextField fx:id="inputDeadlineDay" promptText="DD" style="-fx-border-color: #9ac8fc;" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="66.0" right="433.0" />
+                                                      <Insets left="66.0" right="530.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="inputDeadlineMonth" promptText="MM" GridPane.rowIndex="2">
+                                                <TextField fx:id="inputDeadlineMonth" promptText="MM" style="-fx-border-color: #9ac8fc;" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="118.0" right="384.0" />
+                                                      <Insets left="118.0" right="470.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="inputDeadlineYear" promptText="YYYY" GridPane.rowIndex="2">
+                                                <TextField fx:id="inputDeadlineYear" promptText="YYYY" style="-fx-border-color: #9ac8fc;" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="172.0" right="305.0" />
+                                                      <Insets left="175.0" right="400.0" />
                                                    </GridPane.margin>
                                                 </TextField>
                                                 <Label text="Estimeret afslutningstid:" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -182,7 +182,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <TextField fx:id="estimatedCompletionTime" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <TextField fx:id="estimatedCompletionTime" prefWidth="321.0" promptText="Afslutningstid:" style="-fx-border-color: #9ac8fc;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <opaqueInsets>
                                                       <Insets />
                                                    </opaqueInsets>
@@ -190,22 +190,22 @@
                                                       <Insets left="150.0" right="200.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <ComboBox fx:id="responsibleTeamMember" prefWidth="150.0" GridPane.rowIndex="1">
+                                                <ComboBox fx:id="responsibleTeamMember" prefWidth="150.0" promptText="Teammedlem" style="-fx-background-color: #ffffff; -fx-border-color: #9ac8fc;" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="147.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <ComboBox fx:id="taskPriority" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <ComboBox fx:id="taskPriority" prefWidth="150.0" promptText="Opgaveprioritet" style="-fx-background-color: #ffffff; -fx-border-color: #9ac8fc;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="140.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <Button mnemonicParsing="false" onAction="#populateTableViewTask" text="Indlæs Tabeldata" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                                <Button mnemonicParsing="false" onAction="#populateTableViewTask" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Indlæs Tabeldata" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="100.0" right="50.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <ComboBox fx:id="comboBoxTaskStatus" prefWidth="150.0" GridPane.columnIndex="1">
+                                                <ComboBox fx:id="comboBoxTaskStatus" prefWidth="150.0" promptText="Opgave status" style="-fx-background-color: #ffffff; -fx-border-color: #9ac8fc;" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="140.0" />
                                                    </GridPane.margin>
@@ -214,7 +214,7 @@
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin></Label>
-                                                <Button mnemonicParsing="false" onAction="#setTaskStatus" text="Godkend ændring" GridPane.columnIndex="1">
+                                                <Button mnemonicParsing="false" onAction="#setTaskStatus" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Godkend ændring" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="408.0" />
                                                    </GridPane.margin>
@@ -224,12 +224,12 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button mnemonicParsing="false" onAction="#deleteTask" text="Godkendt fjernelse" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Button mnemonicParsing="false" onAction="#deleteTask" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Godkendt fjernelse" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="100.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <ComboBox fx:id="comboBoxRequirement" prefHeight="25.0" prefWidth="246.0" promptText="Vælg krav, hvor opgaver skal oprettes" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                                <ComboBox fx:id="comboBoxRequirement" prefHeight="25.0" prefWidth="246.0" promptText="Vælg krav, hvor opgaver skal oprettes" style="-fx-background-color: #ffffff; -fx-border-color: #9ac8fc;" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets right="100.0" />
                                                    </GridPane.margin>

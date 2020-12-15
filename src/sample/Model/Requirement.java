@@ -204,7 +204,7 @@ public String getPriority()
         break;
 
       case "Godkendt":
-        if (status.equals("Afsluttet"))
+        if (getStatus().equals("Afsluttet"))
         {
           this.status = status;
           break;

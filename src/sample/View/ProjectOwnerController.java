@@ -70,9 +70,13 @@ public class ProjectOwnerController
 
   public void setApprove() throws IOException, ClassNotFoundException
   {
+
     int ID = requirementTable.getSelectionModel().getSelectedItem().getRequirementID();
     model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setApprovement(true);
-    model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setStatus("Godkendt");
+    //model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setStatus("Godkendt");
+    model.getProjectList().getProject(chosenProject.getProjectName())
+        .getRequirementList().getRequirement(requirementTable.getSelectionModel().getSelectedItem().getRequirementID())
+        .setStatus("Godkendt");
     model.saveProjectList();
     //Refreshes the tableview, such that the new changes gets displayed
     populateTableView();

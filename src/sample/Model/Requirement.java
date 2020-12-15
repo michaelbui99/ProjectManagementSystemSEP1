@@ -184,7 +184,34 @@ public String getPriority()
 
       this.status=status;
       break;
+
+      case "Afsluttet":
+        boolean endAble = true;
+        for(Task task : taskList.getAllTasks())
+        {
+          if (!task.getStatus().equals("Afsluttet"))
+          {
+            endAble = false;
+            break;
+          }
+        }
+
+        if (endAble)
+        {
+          this.status = status;
+          break;
+        }
+        break;
+
+      case "Godkendt":
+        if (status.equals("Afsluttet"))
+        {
+          this.status = status;
+          break;
+        }
     }
+
+
 
   }
 

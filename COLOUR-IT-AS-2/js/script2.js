@@ -1,4 +1,3 @@
-
 //Function calls
 readXML();
 
@@ -9,7 +8,7 @@ function readXML(){
     xhttp.onreadystatechange = function(){
         //Status 200 --> OK. Ready state 4 --> DONE.
         if (this.readyState == 4 && this.status == 200){
-            showData(this,0); 
+            showData(this,1); 
         }
     }
     xhttp.open("GET", "../xml/ProjectList.xml", true)  
@@ -20,19 +19,13 @@ function readXML(){
 function showData(xml,projectNumber){
     //Selectors and variables 
     let xmlDoc = xml.responseXML; 
-    let projectNames = xmlDoc.getElementsByTagName("projects") //Selector for projects
-    //Selector for requirements for a given projectNumber. 
-    let x = projectNames[projectNumber].getElementsByTagName("requirements") 
-    //Number of requirements in a given project.
+    let projectNames = xmlDoc.getElementsByTagName("projects")
+    let x = projectNames[projectNumber].getElementsByTagName("requirements")
+    
     let listLength = x.length;
-    //Defines the table with classes that is to be added to the website. 
     var table = "<table class='justify-content-center'><tr><th>Krav</th><th>Status</th><th>Deadline</th></tr>";
-    for(var i = 0; i<listLength; i++) 
+    for(var i = 0; i<listLength; i++)
     {
-        /*
-        Loops through every requirements and gets the requirement name, requirement status and requirement deadline
-        and adds it as table data to the table. 
-        */ 
         table += "<tr><td>" + x[i].getElementsByTagName("requirementName")[0].childNodes[0].nodeValue + "</td>"
         + "<td>" + x[i].getElementsByTagName("requirementStatus")[0].childNodes[0].nodeValue + "</td>"
         + "<td>" + x[i].getElementsByTagName("requirementDeadline")[0].getElementsByTagName("day")[0].childNodes[0].nodeValue + "/"+
@@ -40,9 +33,8 @@ function showData(xml,projectNumber){
         x[i].getElementsByTagName("requirementDeadline")[0].getElementsByTagName("year")[0].childNodes[0].nodeValue+"</td></tr>"
         
     }
-    table += "</table>" //Adding end tag to the table.
+    table += "</table>"
     
-    //Sets the div with id 'requirementTable' HTML content to the dynamiclly created table. 
     document.getElementById("requirementTable").innerHTML = table;
     
 

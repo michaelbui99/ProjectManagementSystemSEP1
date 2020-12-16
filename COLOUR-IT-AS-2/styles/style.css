@@ -207,7 +207,7 @@ li {
 
 .center {
     /*class center er class af table*/
-    border: solid;
+    border: none;
     /*vi definerede border-type og farve. så kollapser vi borders, så vi får en border-line mellem celler, og derefter indstiller vi venstre og højre margen til auto for at cintere tabellen midt på siden*/
     border-color: black;
     border-collapse: collapse;

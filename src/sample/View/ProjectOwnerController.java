@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.*;
+import sample.util.ProjectFile;
 
 import java.io.IOException;
 import java.util.*;
@@ -78,6 +79,7 @@ public class ProjectOwnerController
         .getRequirementList().getRequirement(requirementTable.getSelectionModel().getSelectedItem().getRequirementID())
         .setStatus("Godkendt");
     model.saveProjectList();
+    ProjectFile.save(model.getProjectList());
     //Refreshes the tableview, such that the new changes gets displayed
     populateTableView();
   }
@@ -87,8 +89,10 @@ public class ProjectOwnerController
     int ID = requirementTable.getSelectionModel().getSelectedItem().getRequirementID();
     model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setApprovement(false);
     model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setStatus("Ikke godkendt");
+    ProjectFile.save(model.getProjectList());
     //Refreshes the tableview, such that the new changes gets displayed
     populateTableView();
+
   }
 
 
@@ -100,6 +104,7 @@ public class ProjectOwnerController
     model.setProjectList(loadedList); //Makes sure the projectList for model is the saved version.
     model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList().removeRequirement(ID);
     model.saveProjectList();
+    ProjectFile.save(model.getProjectList());
     //Refreshes the tableview, such that the new changes gets displayed
     populateTableView();
   }

@@ -30,18 +30,18 @@
       </FlowPane>
       <ScrollPane prefHeight="872.0" prefWidth="1111.0">
          <content>
-            <TabPane prefHeight="764.0" prefWidth="1284.0" style="-fx-background-image: #ffffff;" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="690.0" prefWidth="956.0" style="-fx-background-image: #ffffff;" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Rediger krav">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="740.0" prefWidth="1257.0">
                            <children>
-                              <FlowPane layoutY="-1.0" prefHeight="720.0" prefWidth="1265.0" style="-fx-background-image: #ffffff;">
+                              <FlowPane layoutY="-1.0" prefHeight="679.0" prefWidth="1269.0" style="-fx-background-image: #ffffff;">
                                  <children>
-                                    <TableView fx:id="requirementTable" prefHeight="509.0" prefWidth="838.0" style="-fx-background-color: #ffffff; -fx-border-style: solid;" />
-                                    <FlowPane prefHeight="169.0" prefWidth="1269.0" style="-fx-background-image: #ffffff;">
+                                    <TableView fx:id="requirementTable" prefHeight="513.0" prefWidth="939.0" style="-fx-background-color: #ffffff; -fx-border-style: solid;" />
+                                    <FlowPane prefHeight="53.0" prefWidth="1269.0" style="-fx-background-image: #ffffff;">
                                        <children>
-                                          <GridPane prefHeight="199.0" prefWidth="841.0" style="-fx-background-color: #ffffff;">
+                                          <GridPane prefHeight="134.0" prefWidth="947.0" style="-fx-background-color: #ffffff;">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

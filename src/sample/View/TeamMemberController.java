@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.*;
+import sample.util.ProjectFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,6 +75,7 @@ public class TeamMemberController
     model.setCurrentProject(comboBoxProjects.getValue().getProjectName());
     model.registerTaskTime(time,reqID,taskID);
     model.saveProjectList();
+    ProjectFile.save(model.getProjectList());
 
 
     inputTime.clear();

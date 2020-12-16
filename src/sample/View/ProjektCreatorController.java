@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.*;
+import sample.util.ProjectFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -76,11 +77,13 @@ public class ProjektCreatorController
       model.setProjectList(loadedList);
       model.getProjectList().addProject(new Project(inputProjectName.getText(),model.getProjectList().getIdGenerator().generateProjectID(), new MyDate(day,month,year)));
       model.saveProjectList();
+      ProjectFile.save(model.getProjectList());
     }
     catch (IOException | ClassNotFoundException e)
     {
       model.getProjectList().addProject(new Project(inputProjectName.getText(),model.getProjectList().getIdGenerator().generateProjectID(), new MyDate(day,month,year)));
       model.saveProjectList();
+      ProjectFile.save(model.getProjectList());
     }
 
     //Clears textfields after creating project
@@ -133,6 +136,7 @@ public class ProjektCreatorController
         getValue().getProjectName()).getEmployeeList().addEmployee(new TeamMember(teamMemberComboBox.getValue().getName(), teamMemberComboBox.getValue().getEmployeeID(),selectedRadio.getText()));
     model.saveProjectList();
     model.saveEmployeeList();
+    ProjectFile.save(model.getProjectList());
   }
 
   public void addTeamMemberToRequirement()
@@ -150,6 +154,7 @@ public class ProjektCreatorController
         .addEmployeeToRequirement(new TeamMember(teamMemberComboBox.getValue().getName(), teamMemberComboBox.getValue().getEmployeeID(),selectedRadio.getText()));
     model.saveProjectList();
     model.saveEmployeeList();
+    ProjectFile.save(model.getProjectList());
   }
 
   public void setChosenProject() throws IOException, ClassNotFoundException
@@ -166,6 +171,7 @@ public class ProjektCreatorController
    model.removeTeamMemberFromProject(removeProjectComboBox.getValue().getProjectName(),removeTeamMemberComboBox.getValue().getEmployeeID());
     model.saveEmployeeList();
     model.saveProjectList();
+    ProjectFile.save(model.getProjectList());
   }
 
 

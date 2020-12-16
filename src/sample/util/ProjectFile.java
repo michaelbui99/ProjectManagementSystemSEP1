@@ -96,6 +96,7 @@ public class ProjectFile implements Serializable
     try
     {
       parser.toXml(list, "ProjectList.xml");
+      System.out.println("Save success"); //Used for debugging
     }
     catch (ParserException e)
     {

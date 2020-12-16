@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.*;
+import sample.util.ProjectFile;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -90,6 +91,7 @@ public class ScrumMasterController
     model.getProjectList().getProject(chosenProject.getProjectName()).
         getRequirementList().getRequirement(chosenRequirement.getRequirementID()).getTaskList().addTask(taskToAdd);
     model.saveProjectList();
+    ProjectFile.save(model.getProjectList());
 
     //Clears textfields after adding task.
     inputTaskName.clear();
@@ -311,7 +313,7 @@ public class ScrumMasterController
   {
     chosenProject.getRequirementList().getRequirement(requirementTable.getSelectionModel().getSelectedItem().getRequirementID()).setStatus(comboBoxRequirementStatus.getValue());
     model.saveProjectList();
-
+    ProjectFile.save(model.getProjectList());
     //Refreshes the tableview such the new changes are displayed
     populateTableViewRequirement();
   }
@@ -332,6 +334,7 @@ public class ScrumMasterController
         getRequirement(chosenRequirement.getRequirementID()).getTaskList().getTask(chosenTask.getTaskID())
         .setStatus(comboBoxTaskStatus.getValue());
     model.saveProjectList();
+    ProjectFile.save(model.getProjectList());
     //Refreshes the tableview such the new changes are displayed
     populateTableViewTask();
   }
@@ -342,6 +345,7 @@ public class ScrumMasterController
     model.getProjectList().getProject(chosenProject.getProjectName()).getRequirementList().
         getRequirement(chosenRequirement.getRequirementID()).getTaskList().removeTask(chosenTask.getTaskID());
     model.saveProjectList();
+    ProjectFile.save(model.getProjectList());
     //Refreshes the tableview such the new changes are displayed
     populateTableViewTask();
   }

@@ -1,4 +1,9 @@
-package sample.Model;
+package sample.util;
+
+import parser.ParserException;
+import parser.XmlJsonParser;
+import sample.Model.EmployeeList;
+import sample.Model.ProjectList;
 
 import java.io.*;
 
@@ -73,6 +78,29 @@ public class ProjectFile implements Serializable
     out.writeObject(employeeList);
     out.flush();
     out.close();
+  }
+
+
+  public static void save(ProjectList list)
+  {
+    saveToXml(list);
+  }
+
+  public static void saveToXml(ProjectList list)
+  {
+
+    /*
+    * Method saves ProjectList to XML file.
+    * */
+    XmlJsonParser parser = new XmlJsonParser();
+    try
+    {
+      parser.toXml(list, "ProjectList.xml");
+    }
+    catch (ParserException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   public void setFile(String fileName)

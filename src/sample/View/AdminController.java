@@ -15,14 +15,10 @@ public class AdminController
   private ManagementSystemModel model;
   private ViewHandler viewHandler;
   private Region root;
-  private EmployeeList employeeList;
   @FXML private Button cancel;
   @FXML private TextField inputName;
-  @FXML private TextField inputTeamMemberID;
   @FXML private TextField inputID;
   @FXML private ToggleGroup jaNej;
-  @FXML private Button add;
-  @FXML private Button remove;
   @FXML private Label memberCreatedLabel;
   @FXML private Label memberRemovedLabel;
 
@@ -94,16 +90,15 @@ public class AdminController
     EmployeeList loadedList = model.readEmployeeList("EmployeeList.bin");
     model.setEmployeeList(loadedList);
 
-    for (TeamMember teamMember : employeeList.getAllEmployees())
+    for (TeamMember teamMember : model.getEmployeeList().getAllEmployees())
     {
       if (teamMember.getEmployeeID() == Integer.parseInt(inputID.getText()))
       {
-        employeeList.removeEmployee(teamMember.getEmployeeID());
+        model.getEmployeeList().removeEmployee(teamMember.getEmployeeID());
       }
     }
     model.saveEmployeeList();
     memberRemovedLabel.setVisible(true);
-    inputTeamMemberID.clear();
   }
 
   public void logOut()

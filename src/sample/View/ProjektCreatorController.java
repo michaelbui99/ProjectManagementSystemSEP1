@@ -13,9 +13,6 @@ import java.util.ArrayList;
 public class ProjektCreatorController
 {
   @FXML private Button cancel;
-  @FXML private Button create;
-  @FXML private Button add;
-  @FXML private Button remove;
   @FXML private TextField inputProjectName;
   @FXML private TextField inputDay;
   @FXML private TextField inputMonth;

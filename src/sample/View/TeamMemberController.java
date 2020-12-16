@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class TeamMemberController
 {
   @FXML private Button cancel;
-  @FXML private Button save;
   @FXML private TextField inputTime;
   @FXML private TableView<Requirement> requirementTable;
   @FXML private TableView<Task> taskTable;

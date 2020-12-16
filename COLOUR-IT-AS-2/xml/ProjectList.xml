@@ -8,7 +8,7 @@
     <requirementIDList>4013</requirementIDList>
     <requirementIDList>4131</requirementIDList>
     <requirementIDList>1740</requirementIDList>
-    <requirementIDList>1089</requirementIDList>
+    <requirementIDList>8067</requirementIDList>
     <projectIDList>488</projectIDList>
     <projectIDList>561</projectIDList>
   </idGenerator>
@@ -119,7 +119,7 @@
         <requirementStatus>Ikke påbegyndt</requirementStatus>
       </requirements>
       <requirements>
-        <requirementName>Kill obama</requirementName>
+        <requirementName>TestKrav4</requirementName>
         <timeSpendInHours>0</timeSpendInHours>
         <taskList/>
         <estimatedCompletionTimeInHours>0.0</estimatedCompletionTimeInHours>
@@ -128,7 +128,7 @@
           <year>2020</year>
           <day>16</day>
         </creationDate>
-        <priority>Kritisk</priority>
+        <priority>Normal</priority>
         <requirementDeadline>
           <month>12</month>
           <year>2030</year>
@@ -140,9 +140,9 @@
           <name>Bob</name>
           <employeeID>196</employeeID>
         </responsibleTeamMember>
-        <userStory>sakjdnwjkan</userStory>
+        <userStory>sdadwa</userStory>
         <employees/>
-        <requirementID>1089</requirementID>
+        <requirementID>8067</requirementID>
         <isApproved>false</isApproved>
         <requirementStatus>Ikke påbegyndt</requirementStatus>
       </requirements>

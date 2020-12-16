@@ -22,7 +22,6 @@ public class Requirement implements
   private boolean isApproved;
   private int timeSpendInHours;
   private double estimatedCompletionTimeInHours;
-  private ArrayList<String> priorityList;
 
   //Constructors
 
@@ -36,7 +35,7 @@ public class Requirement implements
     this.priority = priority;
     timeSpendInHours = 0;
     isApproved = false;
-    this.requirementDeadline = deadline;
+    this.requirementDeadline = deadline.copy();
     this.creationDate = MyDate.now();
     estimatedCompletionTimeInHours = calculateEstimatedTimeInHours();
     taskList = new TaskList();
@@ -44,12 +43,7 @@ public class Requirement implements
     employees = new EmployeeList();
   }
 
-  public Requirement(String name, int requirementID)
-  {
-    this.requirementName = name;
-    this.requirementID = requirementID;
-    employees = new EmployeeList();
-  }
+
 
   //Getters
 
@@ -91,12 +85,12 @@ public String getPriority()
 
   public MyDate getCreationDate()
   {
-    return creationDate;
+    return creationDate.copy();
   }
 
   public MyDate getRequirementDeadline()
   {
-    return requirementDeadline;
+    return requirementDeadline.copy();
   }
 
   public boolean isApproved()

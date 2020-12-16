@@ -15,12 +15,8 @@ import java.util.*;
 
 public class ProjectOwnerController
 {
+
   @FXML private Button cancel;
-  @FXML private Button search;
-  @FXML private Button approve;
-  @FXML private Button notApprove;
-  @FXML private Button add;
-  @FXML private Button remove;
   @FXML private TextField inputAddRequirementName;
   @FXML private TextField day;
   @FXML private TextField month;

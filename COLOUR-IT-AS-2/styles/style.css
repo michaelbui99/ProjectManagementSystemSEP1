@@ -76,6 +76,7 @@ body {
 
 }
 
+
 .fontsize-small {
     font-size: 0.8em;
 }
@@ -97,11 +98,20 @@ body {
     border:none;
     padding: 1rem;
     transition: all 0.4s ease;
-    display:flex;
+    align-self: center;
 }
 .link-button:hover{
     opacity: 0.7;
 }
+
+.hover-effect{
+    transition: all 0.7s ease;
+}
+
+.hover-effect:hover{
+    opacity: 0.7;
+}
+
 
 }
 /*proketer style ends*/

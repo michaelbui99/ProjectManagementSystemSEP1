@@ -94,7 +94,7 @@ public class Project implements Serializable
         boolean endAble = true; //Holder styr på om vi gerne må afsluttet projektet.
         for (Requirement requirement : requirementList.getAllRequirements())
         {
-          if (!requirement.getStatus().equals("Afsluttet")) //Tester om der findes et krav, som ikke er afsltutet.
+          if (!requirement.getRequirementStatus().equals("Afsluttet")) //Tester om der findes et krav, som ikke er afsltutet.
           {
             endAble = false; //Hvis der findes et krav der ikke er afsluttet, så kan vi ikke afslutte projektet.
             break;

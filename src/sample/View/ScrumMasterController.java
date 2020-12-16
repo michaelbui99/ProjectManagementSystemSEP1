@@ -11,7 +11,6 @@ import sample.Model.*;
 import sample.util.ProjectFile;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ScrumMasterController
@@ -86,7 +85,8 @@ public class ScrumMasterController
     chosenRequirement = comboBoxRequirement.getValue();
 
     Task taskToAdd = new Task(inputTaskName.getText(), model.getProjectList().getIdGenerator().generateTaskID(), "Ikke påbegyndt"
-    , responsibleTeamMember.getValue(), taskPriority.getValue(), new MyDate(Integer.parseInt(inputDeadlineDay.getText()), Integer.parseInt(inputDeadlineMonth.getText()),Integer.parseInt(inputDeadlineYear.getText())),
+    , responsibleTeamMember.getValue(), taskPriority.getValue(), new MyDate(Integer.parseInt(inputDeadlineDay.getText()),
+        Integer.parseInt(inputDeadlineMonth.getText()),Integer.parseInt(inputDeadlineYear.getText())),
         Double.parseDouble(estimatedCompletionTime.getText()));
     model.getProjectList().getProject(chosenProject.getProjectName()).
         getRequirementList().getRequirement(chosenRequirement.getRequirementID()).getTaskList().addTask(taskToAdd);
@@ -148,7 +148,7 @@ public class ScrumMasterController
     //Name column
 
     TableColumn<Requirement,String> nameColumn = new TableColumn<>("Navn");
-    nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("requirementName"));
 
     //ID column
 
@@ -163,7 +163,7 @@ public class ScrumMasterController
     //Status column
 
     TableColumn<Requirement,String> statusColumn = new TableColumn<>("Status");
-    statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+    statusColumn.setCellValueFactory(new PropertyValueFactory<>("requirementStatus"));
 
     //Priority column
 
@@ -178,7 +178,7 @@ public class ScrumMasterController
     //Deadline column
 
     TableColumn<Requirement,MyDate> deadlineColumn = new TableColumn<>("Deadline");
-    deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+    deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("requirementDeadline"));
 
     //Creation Date column
 
@@ -311,7 +311,8 @@ public class ScrumMasterController
 
   public void setRequirementStatus() throws IOException, ClassNotFoundException
   {
-    chosenProject.getRequirementList().getRequirement(requirementTable.getSelectionModel().getSelectedItem().getRequirementID()).setStatus(comboBoxRequirementStatus.getValue());
+    chosenProject.getRequirementList().getRequirement(requirementTable.getSelectionModel()
+        .getSelectedItem().getRequirementID()).setRequirementStatus(comboBoxRequirementStatus.getValue());
     model.saveProjectList();
     ProjectFile.save(model.getProjectList());
     //Refreshes the tableview such the new changes are displayed

@@ -95,7 +95,7 @@ public class ProjectFile implements Serializable
     XmlJsonParser parser = new XmlJsonParser();
     try
     {
-      parser.toXml(list, "ProjectList.xml");
+      parser.toXml(list, "COLOUR-IT-AS-2/xml/ProjectList.xml");
       System.out.println("Save success"); //Used for debugging
     }
     catch (ParserException e)

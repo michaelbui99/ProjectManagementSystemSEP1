@@ -198,7 +198,7 @@ public class ManagementSystemModel
   public void setRequirementStatus(String status, int requirementID) {
 
    projectList.getProject(currentProject).getRequirementList().
-       getRequirement(requirementID).setStatus(status);
+       getRequirement(requirementID).setRequirementStatus(status);
 
   }
 
@@ -269,7 +269,7 @@ public class ManagementSystemModel
 
   public MyDate getReqDeadline(String projectName ,int requirementID) {
     return projectList.getProject(projectName).getRequirementList().
-        getRequirement(requirementID).getDeadline();
+        getRequirement(requirementID).getRequirementDeadline();
   }
 
   public MyDate getTaskDeadline(String projectName ,int requirementID, int taskID) {

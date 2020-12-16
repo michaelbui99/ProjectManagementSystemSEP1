@@ -6,6 +6,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import sample.Model.*;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -57,9 +58,13 @@ public class AdminController
 
   public void addTeamMember() throws IOException, ClassNotFoundException
   {
+    try
+    {
     RadioButton selectRadio = (RadioButton) jaNej.getSelectedToggle();
     EmployeeList loadedList = model.readEmployeeList("EmployeeList.bin");
     model.setEmployeeList(loadedList);
+    ProjectList loadedProjectList = model.readProjectList("ProjectList.bin");
+
 
       if (selectRadio.getText().equals("Ja"))
       {
@@ -71,6 +76,12 @@ public class AdminController
         model.addEmployeeToSystem(inputName.getText(), model.getProjectList().getIdGenerator().generateTeamMemberID(), "teammember");
 
       }
+    } catch(FileNotFoundException e)
+    {
+      model.getEmployeeList().addEmployee(new TeamMember(inputName.getText(), model.getProjectList().getIdGenerator().generateProjectID(),"teammember"));
+    }
+
+
 
       model.saveEmployeeList();
 

@@ -77,7 +77,7 @@ public class ProjectOwnerController
     //model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setStatus("Godkendt");
     model.getProjectList().getProject(chosenProject.getProjectName())
         .getRequirementList().getRequirement(requirementTable.getSelectionModel().getSelectedItem().getRequirementID())
-        .setStatus("Godkendt");
+        .setRequirementStatus("Godkendt");
     model.saveProjectList();
     ProjectFile.save(model.getProjectList());
     //Refreshes the tableview, such that the new changes gets displayed
@@ -88,7 +88,7 @@ public class ProjectOwnerController
   {
     int ID = requirementTable.getSelectionModel().getSelectedItem().getRequirementID();
     model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setApprovement(false);
-    model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setStatus("Ikke godkendt");
+    model.getRequirementList(chosenProject.getProjectName()).getRequirement(ID).setRequirementStatus("Ikke godkendt");
     ProjectFile.save(model.getProjectList());
     //Refreshes the tableview, such that the new changes gets displayed
     populateTableView();
@@ -161,7 +161,7 @@ public class ProjectOwnerController
     //Name column
 
     TableColumn<Requirement,String> nameColumn = new TableColumn<>("Navn");
-    nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("requirementName"));
 
     //ID column
 
@@ -176,7 +176,7 @@ public class ProjectOwnerController
     //Status column
 
     TableColumn<Requirement,String> statusColumn = new TableColumn<>("Status");
-    statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+    statusColumn.setCellValueFactory(new PropertyValueFactory<>("requirementStatus"));
 
     //Priority column
 
@@ -191,7 +191,7 @@ public class ProjectOwnerController
     //Deadline column
 
     TableColumn<Requirement,MyDate> deadlineColumn = new TableColumn<>("Deadline");
-    deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+    deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("requirementDeadline"));
 
     //Creation Date column
 
@@ -259,6 +259,7 @@ public class ProjectOwnerController
 
     model.saveProjectList();
     model.saveEmployeeList();
+    ProjectFile.save(model.getProjectList());
     //Clears all textfields after adding requirement
     inputAddRequirementName.clear();
     day.clear();

@@ -9,15 +9,15 @@ public class Requirement implements
 
   //Fields
   private static final long serialVersionUID = 1345606179531482449L;
-  private String name;
+  private String requirementName;
   private TaskList taskList;
   private String userStory;
-  private MyDate deadline;
+  private MyDate requirementDeadline;
   private MyDate creationDate;
   private EmployeeList employees;
   private int requirementID;
   private TeamMember responsibleTeamMember;
-  private String status;//Statusser kan antage {‘Ikke påbegyndt, ‘Påbegyndt’, ‘Afsluttet’, ‘Godkendt’, ‘Ikke Godkendt’}
+  private String requirementStatus;//Statusser kan antage {‘Ikke påbegyndt, ‘Påbegyndt’, ‘Afsluttet’, ‘Godkendt’, ‘Ikke Godkendt’}
   private String priority;//Priority kan antage  {‘Lav’, ‘Normal’, ‘Høj’, ‘Kritisk’}
   private boolean isApproved;
   private int timeSpendInHours;
@@ -29,14 +29,14 @@ public class Requirement implements
   Requirement(String name, int requirementID, TeamMember responsibleTeamMember,
       String status, String priority, MyDate deadline, String userStory)
   {
-    this.name = name;
+    this.requirementName = name;
     this.requirementID = requirementID;
     this.responsibleTeamMember = responsibleTeamMember;
-    this.status = status;
+    this.requirementStatus = status;
     this.priority = priority;
     timeSpendInHours = 0;
     isApproved = false;
-    this.deadline = deadline;
+    this.requirementDeadline = deadline;
     this.creationDate = MyDate.now();
     estimatedCompletionTimeInHours = calculateEstimatedTimeInHours();
     taskList = new TaskList();
@@ -46,7 +46,7 @@ public class Requirement implements
 
   public Requirement(String name, int requirementID)
   {
-    this.name = name;
+    this.requirementName = name;
     this.requirementID = requirementID;
     employees = new EmployeeList();
   }
@@ -68,14 +68,14 @@ public String getPriority()
     return responsibleTeamMember;
   }
 
-  public String getName()
+  public String getRequirementName()
   {
-    return name;
+    return requirementName;
   }
 
-  public String getStatus()
+  public String getRequirementStatus()
   {
-    return status;
+    return requirementStatus;
   }
 
   public TaskList getTaskList()
@@ -94,9 +94,9 @@ public String getPriority()
     return creationDate;
   }
 
-  public MyDate getDeadline()
+  public MyDate getRequirementDeadline()
   {
-    return deadline;
+    return requirementDeadline;
   }
 
   public boolean isApproved()
@@ -163,7 +163,7 @@ public String getPriority()
   {
     if (approvement == true)
     {
-      if (status.equals("Godkendt"))
+      if (requirementStatus.equals("Godkendt"))
       {
         isApproved = approvement;
       }
@@ -174,15 +174,15 @@ public String getPriority()
     }
   }
 
-  public void setStatus(String status)
+  public void setRequirementStatus(String requirementStatus)
   {
-    switch (status)
+    switch (requirementStatus)
     {
       case "Ikke påbegyndt":
         case "Påbegyndt" :
           case "Ikke Godkendt" :
 
-      this.status=status;
+      this.requirementStatus = requirementStatus;
       break;
 
       case "Afsluttet":
@@ -198,15 +198,15 @@ public String getPriority()
 
         if (endAble)
         {
-          this.status = status;
+          this.requirementStatus = requirementStatus;
           break;
         }
         break;
 
       case "Godkendt":
-        if (getStatus().equals("Afsluttet"))
+        if (getRequirementStatus().equals("Afsluttet"))
         {
-          this.status = status;
+          this.requirementStatus = requirementStatus;
           break;
         }
     }
@@ -235,18 +235,18 @@ public String getPriority()
     this.timeSpendInHours = timeSpendInHours;
   }
 
-  public void setDeadline(MyDate deadline)
+  public void setRequirementDeadline(MyDate requirementDeadline)
   {
-    this.deadline = deadline;
+    this.requirementDeadline = requirementDeadline;
   }
 
   @Override public String toString()
   {
-    return "The requirement: " + "name: " + name + ", taskList: " + taskList
-        + ", deadline: " + deadline
+    return "The requirement: " + "name: " + requirementName + ", taskList: " + taskList
+        + ", deadline: " + requirementDeadline
         + ", creationDate: " + creationDate + ", employees: " + employees
         + ", requirementID: " + requirementID + ", responsibleTeamMember: "
-        + responsibleTeamMember + ", status: '" + status +  ", priority: "
+        + responsibleTeamMember + ", status: '" + requirementStatus +  ", priority: "
         + priority + ", isApproved: " + isApproved + ", timeSpendInHours: "
         + timeSpendInHours;
   }

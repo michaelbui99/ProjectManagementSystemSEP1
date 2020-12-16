@@ -195,7 +195,7 @@ public class TeamMemberController
     //Name column
 
     TableColumn<Requirement,String> nameColumn = new TableColumn<>("Navn");
-    nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("requirementName"));
 
     //ID column
 
@@ -210,7 +210,7 @@ public class TeamMemberController
     //Status column
 
     TableColumn<Requirement,String> statusColumn = new TableColumn<>("Status");
-    statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+    statusColumn.setCellValueFactory(new PropertyValueFactory<>("requirementStatus"));
 
     //Priority column
 
@@ -225,7 +225,7 @@ public class TeamMemberController
     //Deadline column
 
     TableColumn<Requirement,MyDate> deadlineColumn = new TableColumn<>("Deadline");
-    deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+    deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("requirementDeadline"));
 
     //Creation Date column
 

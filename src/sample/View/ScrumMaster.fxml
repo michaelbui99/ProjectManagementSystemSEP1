@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ScrumMasterController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="726.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.ScrumMasterController">
    <children>
       <FlowPane alignment="CENTER" prefHeight="57.0" prefWidth="1093.0" style="-fx-background-image: #ffffff;">
          <children>
@@ -38,10 +38,10 @@
                            <children>
                               <FlowPane layoutY="-1.0" prefHeight="720.0" prefWidth="1265.0" style="-fx-background-image: #ffffff;">
                                  <children>
-                                    <TableView fx:id="requirementTable" prefHeight="542.0" prefWidth="1271.0" style="-fx-background-color: #ffffff; -fx-border-style: solid;" />
+                                    <TableView fx:id="requirementTable" prefHeight="509.0" prefWidth="838.0" style="-fx-background-color: #ffffff; -fx-border-style: solid;" />
                                     <FlowPane prefHeight="169.0" prefWidth="1269.0" style="-fx-background-image: #ffffff;">
                                        <children>
-                                          <GridPane prefHeight="195.0" prefWidth="1273.0" style="-fx-background-color: #ffffff;">
+                                          <GridPane prefHeight="199.0" prefWidth="841.0" style="-fx-background-color: #ffffff;">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -68,7 +68,7 @@
                                                 </Button>
                                                 <Button fx:id="logOut" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Log ud" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="550.0" />
+                                                      <Insets left="350.0" />
                                                    </GridPane.margin>
                                                 </Button>
                                                 <ComboBox fx:id="comboBoxRequirementStatus" prefHeight="25.0" prefWidth="219.0" promptText="Vælg kravstatus" style="-fx-background-color: #ffffff; -fx-border-color: #9ac8fc;">
@@ -107,10 +107,10 @@
                            <children>
                               <FlowPane layoutY="-4.0" prefHeight="732.0" prefWidth="1267.0">
                                  <children>
-                                    <TableView fx:id="taskTable" prefHeight="560.0" prefWidth="1267.0" style="-fx-border-style: solid;" />
+                                    <TableView fx:id="taskTable" prefHeight="452.0" prefWidth="913.0" style="-fx-border-style: solid;" />
                                     <FlowPane prefHeight="143.0" prefWidth="1267.0">
                                        <children>
-                                          <GridPane prefHeight="165.0" prefWidth="1282.0" style="-fx-background-color: #ffffff;">
+                                          <GridPane prefHeight="182.0" prefWidth="923.0" style="-fx-background-color: #ffffff;">
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -139,7 +139,7 @@
                                                 </Button>
                                                 <Button mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Log ud" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <GridPane.margin>
-                                                      <Insets left="550.0" />
+                                                      <Insets left="387.0" />
                                                    </GridPane.margin>
                                                 </Button>
                                                 <Label text="Ansvarligt teammedlem:" GridPane.rowIndex="1">
@@ -164,17 +164,17 @@
                                                 </Label>
                                                 <TextField fx:id="inputDeadlineDay" promptText="DD" style="-fx-border-color: #9ac8fc;" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="66.0" right="530.0" />
+                                                      <Insets left="66.0" right="360.0" />
                                                    </GridPane.margin>
                                                 </TextField>
                                                 <TextField fx:id="inputDeadlineMonth" promptText="MM" style="-fx-border-color: #9ac8fc;" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="118.0" right="470.0" />
+                                                      <Insets left="118.0" right="300.0" />
                                                    </GridPane.margin>
                                                 </TextField>
                                                 <TextField fx:id="inputDeadlineYear" promptText="YYYY" style="-fx-border-color: #9ac8fc;" GridPane.rowIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="175.0" right="400.0" />
+                                                      <Insets left="175.0" right="200.0" />
                                                    </GridPane.margin>
                                                 </TextField>
                                                 <Label text="Estimeret afslutningstid:" GridPane.columnIndex="1" GridPane.rowIndex="2">

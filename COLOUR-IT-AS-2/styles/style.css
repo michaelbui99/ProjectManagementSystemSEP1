@@ -1,0 +1,251 @@
+/*index styles- Lilian*/
+.navbar {
+    background-color: #F7F4ED !important;
+}
+
+li {
+    font-size: 1.2rem;
+}
+
+.lilian_img{
+    width: 600px;
+    height: auto;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.carousel{
+    background-color: #244e5a;
+}
+
+footer img{
+    width: 50px;
+    height: auto;
+}
+footer{
+    background-color: #F7F4ED;
+}
+
+@media screen and (max-width: 768px) 
+{
+.carousel-item img{
+    width: 100%;
+}
+} 
+/*index style ends*/
+
+/*Michael Bui 293886* prokecter style*/
+
+body {
+    background-color: white;
+    width: 100%;
+
+}
+
+.text-black {
+    color: black;
+}
+
+.bgcolor-white {
+    background-color: white !important;
+}
+
+.carousel-item .carousel-caption h3 a {
+    text-shadow: 1px 0px 2px black, -1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
+    /*Sort skygge bag overskriften, så teksten også popper/er læselig, når vi har en mindre vinduestørrelse*/
+}
+
+.carousel-item .carousel-caption h3 a {
+    color: white;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-gray {
+    color: #7A7A7A;
+}
+
+.text-black {
+    color: black;
+}
+
+.link-color {
+    color: black;
+
+}
+
+.fontsize-small {
+    font-size: 0.8em;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.projekt-info {
+    font-size: 0.9em;
+}
+
+.bgcolor-blue {
+    background-color: #244e5a !important;
+}
+
+.link-button{
+    background-color:rgb(153, 196, 221);
+    border:none;
+    padding: 1rem;
+    transition: all 0.4s ease;
+    display:flex;
+}
+.link-button:hover{
+    opacity: 0.7;
+}
+
+}
+/*proketer style ends*/
+
+/*Services-Christian- style*/
+
+
+h1
+{
+    text-align: center;
+}
+
+#row1 {
+ text-align: center;
+      
+}
+
+#row1.1{
+    border: solid red 3px; 
+}
+
+#row2 {
+   text-align: center; 
+    
+    
+}
+
+
+/*CSS for at center content i grid layout 1 og 2*/
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.container{
+  
+}
+
+.whole{
+    background-color: whitesmoke;
+}
+
+.carousel-item {
+    text-align: center;
+    }
+
+
+/*services stayle ends*/
+
+
+/*About us style- Kasbar*/
+    #mainbillede {
+    background-color: #244e5a !important;
+}
+
+.navbar {
+    background-color: #F7F4ED !important;
+}
+
+li {
+    font-size: 1.2rem;
+}
+
+.img {
+    max-height: 200px !important;
+}
+
+.wrapper {
+    border-style: solid;
+}
+
+
+#team {
+    max-height: 300px !important;
+}
+
+/*About us ends*/
+
+/*Status styles Kutaiba*/
+/*Kutaiba*/
+
+* {
+    font-family: Helvetica, Verdana, Times New Roman;
+    /*skrifttypen for hele siden*/
+}
+
+.back {
+    background-color: #244e5a;
+}
+
+.center {
+    /*class center er class af table*/
+    border: solid;
+    /*vi definerede border-type og farve. så kollapser vi borders, så vi får en border-line mellem celler, og derefter indstiller vi venstre og højre margen til auto for at cintere tabellen midt på siden*/
+    border-color: black;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+tr {
+    /*indstil en "style" til alle tabel-row (kolonner)*/
+    display: table-row;
+    border: solid;
+    border-color: black;
+}
+
+td {
+    /*indstil en "style" til alle tabel-data (celler)*/
+    border: solid;
+    border-color: black;
+    height: 100px;
+}
+
+th {
+    /*indstil en "style" til table-header*/
+    border: solid;
+    border-color: black;
+    text-align: center;
+    background-color: blanchedalmond;
+    height: 80px;
+    font-size: 20px;
+}
+
+td:nth-child(odd) {
+    /*vi vælger de ulige celler ved at bruge ":nth-child(odd)"*/
+    background-color: #ffe599;
+    width: 20%;
+}
+
+td:nth-child(even) {
+    /*vi vælger de lige celler ved at bruge ":nth-child(even)"*/
+    text-align: center;
+    background-color: white;
+}
+
+h2 {
+    color: black;
+}
+
+/*status ends*/

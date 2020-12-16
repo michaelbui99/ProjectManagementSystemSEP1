@@ -133,7 +133,8 @@ public class ProjektCreatorController
     EmployeeList loadedEmployeeList = model.readEmployeeList("EmployeeList.bin");
     model.setEmployeeList(loadedEmployeeList);
     model.getProjectList().getProject(projectComboBox.
-        getValue().getProjectName()).getEmployeeList().addEmployee(new TeamMember(teamMemberComboBox.getValue().getName(), teamMemberComboBox.getValue().getEmployeeID(),selectedRadio.getText()));
+        getValue().getProjectName()).getEmployeeList().addEmployee(new TeamMember(teamMemberComboBox.getValue().getName(),
+        teamMemberComboBox.getValue().getEmployeeID(),selectedRadio.getText()));
     model.saveProjectList();
     model.saveEmployeeList();
     ProjectFile.save(model.getProjectList());

@@ -61,13 +61,9 @@ public class AdminController
     EmployeeList loadedList = model.readEmployeeList("EmployeeList.bin");
     model.setEmployeeList(loadedList);
 
-    //ArrayList<EmployeeList> employeeLists1 = new ArrayList<>();
-    /*for (int i = 0; i < model.getEmployeeList().getAllEmployees().size(); i++)
-    {*/
       if (selectRadio.getText().equals("Ja"))
       {
         model.addEmployeeToSystem(inputName.getText(), model.getProjectList().getIdGenerator().generateTeamMemberID(), "projectcreator");
-        //model.getEmployeeList().addEmployee(teamMemberToAdd);
 
       }
       else

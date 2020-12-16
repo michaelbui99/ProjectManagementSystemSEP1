@@ -243,7 +243,6 @@ public class ProjectOwnerController
   public void addRequirement() throws IOException, ClassNotFoundException
   {
     //Deadline data parsed to ints
-
     int d = Integer.parseInt(day.getText());
     int m = Integer.parseInt(month.getText());
     int y = Integer.parseInt(year.getText());
@@ -260,7 +259,6 @@ public class ProjectOwnerController
 
     model.saveProjectList();
     model.saveEmployeeList();
-
     //Clears all textfields after adding requirement
     inputAddRequirementName.clear();
     day.clear();
@@ -269,7 +267,6 @@ public class ProjectOwnerController
     createRequirementUserStory.clear();
     //Refreshes the tableview, such that the new changes gets displayed
     populateTableView();
-
   }
 
   public void setRequirementPriority()
@@ -282,6 +279,7 @@ public class ProjectOwnerController
         .getRequirement(priorityChangeTargetID).setPriority(requirementPriority.getValue());
     model.saveProjectList();
     model.saveEmployeeList();
+    ProjectFile.save(model.getProjectList());
 
     //Refreshes the tableview, such that the new changes gets displayed
     populateTableView();

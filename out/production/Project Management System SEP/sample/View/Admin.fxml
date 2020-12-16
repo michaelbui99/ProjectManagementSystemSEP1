@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #ffffff; -fx-border-style: solid;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.AdminController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="901.0" style="-fx-background-color: #ffffff; -fx-border-style: solid;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.AdminController">
    <children>
       <FlowPane alignment="CENTER" prefHeight="52.0" prefWidth="600.0">
          <children>
@@ -28,11 +28,11 @@
       </FlowPane>
       <FlowPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <GridPane prefHeight="327.0" prefWidth="1283.0">
+            <GridPane prefHeight="203.0" prefWidth="966.0">
               <columnConstraints>
-                <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="SOMETIMES" maxWidth="502.0" minWidth="10.0" prefWidth="476.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="870.0" minWidth="10.0" prefWidth="157.0" />
-                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="882.0" minWidth="0.0" prefWidth="598.0" />
+                <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="SOMETIMES" maxWidth="502.0" minWidth="10.0" prefWidth="233.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="870.0" minWidth="10.0" prefWidth="163.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="882.0" minWidth="0.0" prefWidth="633.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
@@ -93,32 +93,20 @@
       </FlowPane>
       <FlowPane prefHeight="47.0" prefWidth="600.0">
          <children>
-            <GridPane prefHeight="67.0" prefWidth="1279.0">
-              <columnConstraints>
-                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button fx:id="add" mnemonicParsing="false" onAction="#addTeamMember" prefWidth="67.0" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Tilføj">
-                     <GridPane.margin>
-                        <Insets left="10.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Label fx:id="Status" text="Status" visible="false" GridPane.columnIndex="1" />
-                  <Label fx:id="memberCreatedLabel" text="Teammedlem er nu tilføjet i systemet" visible="false" GridPane.halignment="CENTER" />
-               </children>
-            </GridPane>
+            <Button fx:id="add" mnemonicParsing="false" onAction="#addTeamMember" prefWidth="67.0" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Tilføj">
+               <FlowPane.margin>
+                  <Insets left="10.0" />
+               </FlowPane.margin>
+            </Button>
+            <Label fx:id="memberCreatedLabel" text="Teammedlem er nu tilføjet i systemet" visible="false" />
          </children>
       </FlowPane>
       <FlowPane prefHeight="36.0" prefWidth="600.0">
          <children>
-            <GridPane prefHeight="171.0" prefWidth="1282.0">
+            <GridPane prefHeight="144.0" prefWidth="865.0">
               <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="645.0" minWidth="10.0" prefWidth="645.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="351.0" minWidth="0.0" prefWidth="0.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="741.0" minWidth="10.0" prefWidth="384.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="591.0" minWidth="0.0" prefWidth="481.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
@@ -162,7 +150,7 @@
       </FlowPane>
       <FlowPane prefHeight="45.0" prefWidth="601.0">
          <children>
-            <GridPane minHeight="60.0" minWidth="601.0" prefHeight="89.0" prefWidth="1279.0">
+            <GridPane minHeight="60.0" minWidth="601.0" prefHeight="89.0" prefWidth="892.0">
               <columnConstraints>
                 <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

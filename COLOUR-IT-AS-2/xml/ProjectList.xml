@@ -8,6 +8,7 @@
     <requirementIDList>4013</requirementIDList>
     <requirementIDList>4131</requirementIDList>
     <requirementIDList>1740</requirementIDList>
+    <requirementIDList>1089</requirementIDList>
     <projectIDList>488</projectIDList>
     <projectIDList>561</projectIDList>
   </idGenerator>
@@ -114,6 +115,34 @@
         <userStory>sadkmnwdma</userStory>
         <employees/>
         <requirementID>6935</requirementID>
+        <isApproved>false</isApproved>
+        <requirementStatus>Ikke påbegyndt</requirementStatus>
+      </requirements>
+      <requirements>
+        <requirementName>Kill obama</requirementName>
+        <timeSpendInHours>0</timeSpendInHours>
+        <taskList/>
+        <estimatedCompletionTimeInHours>0.0</estimatedCompletionTimeInHours>
+        <creationDate>
+          <month>12</month>
+          <year>2020</year>
+          <day>16</day>
+        </creationDate>
+        <priority>Kritisk</priority>
+        <requirementDeadline>
+          <month>12</month>
+          <year>2030</year>
+          <day>12</day>
+        </requirementDeadline>
+        <responsibleTeamMember>
+          <role>Scrummaster</role>
+          <registeredHours>0</registeredHours>
+          <name>Bob</name>
+          <employeeID>196</employeeID>
+        </responsibleTeamMember>
+        <userStory>sakjdnwjkan</userStory>
+        <employees/>
+        <requirementID>1089</requirementID>
         <isApproved>false</isApproved>
         <requirementStatus>Ikke påbegyndt</requirementStatus>
       </requirements>

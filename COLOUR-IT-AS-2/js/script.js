@@ -1,4 +1,4 @@
-
+//Dynamic display only works if running on a server e.g. Live preview on Brackets or with Live Server extension on VSCode.
 //Function calls
 readXML();
 

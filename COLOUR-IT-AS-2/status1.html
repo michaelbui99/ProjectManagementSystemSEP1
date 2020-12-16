@@ -1,0 +1,87 @@
+<!--Kutaiba-->
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <title>Status på projekter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Vi bruger dette metatag for at sikre korrekt gengivelse og touch-zoom på alle enheder-->
+    <link href="styles/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <!--link bootstrap css-filen før vores egen css-fil-->
+    <link href="styles/style.css" type="text/css" rel="stylesheet">
+    <!--nu linker vi vores css fil-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <!--fordi bootstrap bruger jQuery og popper til at understøtte dens funktion, så vi bruger et eksternt link til jQuery-script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--vi linker vores bootstrap javaascript fil-->
+</head>
+
+<body>
+    <!--vi starter med navbar-implementeringen ved hjælp af bootstrap framework-->
+    <!--horisontal navbar, som kollapser ved lille browser vindue-->
+    <nav class="navbar navbar-expand-sm bg-light navbar-light shadow">
+        <a class="navbar-brand justify-content-start" href="#">
+            <!--logo i navbar-->
+            <img src="images/colour_it_logo3.png" alt="Colour-IT Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+            <!--Et button element placeres inde i navigationslinjen. Dens datamål er id'et for det netop tilføjede                  divisionselement.-->
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Hjem</a></li>
+                <li class="nav-item active"><a class="nav-link" href="projects.html">Projekter</a></li>
+                <!--Projekter her er aktive-->
+                <li class="nav-item"><a class="nav-link" href="Services.html">Service</a></li>
+                <li class="nav-item disabled"><a class="nav-link" href="about%20us.html">Om os</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--navbar end-->
+    <br />
+    <!--bruge line break-->
+    <div class="container">
+        <!--ve bruge her bootstrap grid layout feature-->
+        <div class="row">
+            <div class="col-md">
+                <h2>Smitte-Stop App</h2>
+            </div>
+            <!--Grid breakpoint medium >=768px-->
+        </div>
+    </div>
+    <br />
+    <!--bruge line break-->
+    ' <div class="back">
+        <div class="container back">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="center">
+                        <!--bruge table tag for at lave en                                                                 table-->
+                        <tr>
+                            <th colspan="2"><b>Projektkrav</b></th>
+                        </tr>
+                        <!--table header-->
+                        <tr>
+                            <td><b>Funktionel</b></td>
+                            <td><i>Ja/Nej</i></td>
+                        </tr>
+                        <tr>
+                            <td><b>Ikke-Funktionel</b></td>
+                            <td><i>Ja/Nej</i></td>
+                        </tr>
+                        <tr>
+                            <td><b>Status</b></td>
+                            <td><i>tekst</i></td>
+                        </tr>
+                        <tr>
+                            <td><b>Deadline</b></td>
+                            <td><i>Dato</i></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body></html>

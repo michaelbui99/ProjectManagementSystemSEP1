@@ -1,0 +1,1 @@
+ java --module-path "C:\Users\Shark\Documents\javafx-sdk-15.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar "Project Management System SEP.jar"

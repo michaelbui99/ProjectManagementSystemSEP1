@@ -103,7 +103,6 @@ public class TeamMemberController
     ArrayList<Project> systemProjects = model.readProjectList("ProjectList.bin").getAllProjects();
     comboBoxProjects.getItems().addAll(systemProjects);
     ArrayList<TeamMember> systemEmployees = model.getEmployeeList().getAllEmployees();
-    teamMemberComboBox.getItems().addAll(systemEmployees);
   }
 
 
@@ -316,7 +315,6 @@ public class TeamMemberController
     * Method populates the tableview with information about the selected
     * employee
     * */
-    setSelectedTeamMember();
 
     //Resets the table
 
@@ -352,11 +350,6 @@ public class TeamMemberController
   {
     chosenTask = taskTable.getSelectionModel().getSelectedItem();
 
-  }
-
-  public void setSelectedTeamMember()
-  {
-    selectedTeamMember = teamMemberComboBox.getValue();
   }
 
   public void logOut()

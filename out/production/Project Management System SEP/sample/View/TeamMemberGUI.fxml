@@ -154,7 +154,7 @@
                         <TableView fx:id="memberTableView" prefHeight="583.0" prefWidth="1271.0" style="-fx-background-color: #ffffff; -fx-border-style: solid;" />
                         <FlowPane prefHeight="65.0" prefWidth="1032.0">
                            <children>
-                              <GridPane prefHeight="64.0" prefWidth="1268.0">
+                              <GridPane prefHeight="64.0" prefWidth="1268.0" style="-fx-background-color: #ffffff;">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="925.0" minWidth="10.0" prefWidth="915.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="827.0" minWidth="10.0" prefWidth="353.0" />
@@ -163,11 +163,6 @@
                                   <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <ComboBox fx:id="teamMemberComboBox" prefWidth="150.0" promptText="Teammedlemmer" style="-fx-background-color: #ffffff; -fx-border-color: #9ac8fc;">
-                                       <GridPane.margin>
-                                          <Insets left="10.0" />
-                                       </GridPane.margin>
-                                    </ComboBox>
                                     <Button mnemonicParsing="false" onAction="#populateTableViewMember" style="-fx-background-color: #9ac8fc; -fx-border-style: solid;" text="Load Info" GridPane.columnIndex="1">
                                        <GridPane.margin>
                                           <Insets left="30.0" />
@@ -179,7 +174,7 @@
                         </FlowPane>
                         <FlowPane prefHeight="42.0" prefWidth="938.0">
                            <children>
-                              <GridPane prefHeight="51.0" prefWidth="1268.0">
+                              <GridPane prefHeight="51.0" prefWidth="1268.0" style="-fx-background-color: #ffffff;">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
